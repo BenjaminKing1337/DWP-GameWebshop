@@ -1,3 +1,11 @@
 <?php
-echo "GAME";
+require_once("dbcon.php");
+
+
+
+echo "TEST";
+
+
+
+
 ?>
