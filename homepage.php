@@ -1,1 +1,3 @@
-
+<?php
+Echo "GAME"
+?>
