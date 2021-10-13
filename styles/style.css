@@ -1,0 +1,219 @@
+html {
+  margin: 0 auto;
+}
+
+body {
+  margin: 0;
+  background-color: #362c2c;
+}
+
+h1 {
+  font-size: 36px;
+}
+
+#Header {
+  background-color: #362c2c;
+  height: 56px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+#SearchBarContainer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
+  margin: 16px;
+  margin-bottom: 0;
+}
+
+#SearchBar {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+}
+
+#SearchBar input[type="text"] {
+  height: 40px;
+  float: right;
+  padding: 6px;
+  border: none;
+  font-size: 17px;
+}
+
+#SearchBtn {
+  padding: 6px;
+}
+
+#CustomerCorner {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+#CheckoutBtn {
+  background-color: #aa7e04;
+  color: white;
+  padding: 16px;
+  font-size: 16px;
+  border: none;
+}
+
+#Basket:hover #CheckoutBtn {
+  background-color: #aa5d04;
+}
+
+#NavDropdownBtn {
+  background-color: #8304aa;
+  color: white;
+  padding: 16px;
+  font-size: 16px;
+  border: none;
+}
+
+#NavDropdown {
+  position: relative;
+  display: inline-block;
+}
+
+#NavDropdown:hover #DropdownContent {
+  display: block;
+}
+
+#NavDropdown #DropdownContent {
+  min-width: -webkit-fit-content;
+  min-width: -moz-fit-content;
+  min-width: fit-content;
+  left: 3px;
+}
+
+#NavDropdown:hover #NavDropdownBtn {
+  background-color: #6804aa;
+}
+
+#DropdownBtn {
+  background-color: #04aa6d;
+  color: white;
+  padding: 16px;
+  font-size: 16px;
+  border: none;
+}
+
+#UserOptions {
+  position: relative;
+  display: inline-block;
+}
+
+#DropdownContent {
+  display: none;
+  position: absolute;
+  background-color: transparent;
+  width: 100%;
+  overflow: auto;
+  -webkit-box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+          box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+}
+
+#DropdownContent a {
+  color: white;
+  text-decoration: none;
+  display: block;
+  text-align: center;
+  margin: 2.5px 0;
+}
+
+#DropdownContent a button {
+  width: 100%;
+  border-radius: 8px;
+  height: 50px;
+  color: white;
+}
+
+#DropdownContent a button:hover {
+  color: #ffd900;
+}
+
+#UserOptions:hover #DropdownContent {
+  display: block;
+}
+
+#UserOptions:hover #DropdownBtn {
+  background-color: #3e8e41;
+}
+
+#NavDropdownBtn, #CheckoutBtn, #DropdownBtn {
+  border-radius: 8px;
+  margin: 0 2.5px;
+}
+
+#INDEX {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  min-width: 375px;
+}
+
+#Sales {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+#Sale {
+  height: 170px;
+  width: 170px;
+  background-color: white;
+  border-radius: 8px;
+  margin: 5px;
+}
+
+#Sale img {
+  height: 170px;
+  width: 170px;
+  border-radius: 8px;
+}
+
+#NEWUSER {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+#CreateNewUser {
+  width: 375px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+/*# sourceMappingURL=style.css.map */
