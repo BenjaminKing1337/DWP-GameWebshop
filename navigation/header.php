@@ -23,7 +23,7 @@
                         <li><a href="#">Nintendo</a></li>
                     </div>
                 </div>
-                <li class="mobile_link"><a href="#">PC</a></li>
+                <li class="mobile_link"><a href="all.php">PC</a></li>
                 <li class="mobile_link"><a href="#">Playstation</a></li>
                 <li class="mobile_link"><a href="#">Xbox</a></li>
                 <li class="mobile_link"><a href="#">Nintendo</a></li>
