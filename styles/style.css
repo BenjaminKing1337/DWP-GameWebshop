@@ -1,219 +1,192 @@
-html {
-  margin: 0 auto;
+@import url("https://fonts.googleapis.com/css2?family=Arimo:wght@400;500;600;700&display=swap");
+h1, h2, h3, p {
+  font-family: 'Arimo', sans-serif;
 }
 
 body {
+  background-color: #362C2C;
+  color: white;
   margin: 0;
-  background-color: #362c2c;
 }
 
-h1 {
-  font-size: 36px;
-}
-
-#Header {
-  background-color: #362c2c;
-  height: 56px;
+header {
+  height: 65px;
+  padding: 0 15px;
+  background-color: transparent;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  font-family: 'Arimo', sans-serif;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
 }
 
-#SearchBarContainer {
+header .logo {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-align: end;
-      -ms-flex-align: end;
-          align-items: flex-end;
-  margin: 16px;
-  margin-bottom: 0;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
-#SearchBar {
+header .icon {
+  font-size: 2.5em;
+}
+
+header .cart {
+  margin-right: 15px;
+}
+
+footer {
+  height: 97px;
+  padding: 0 30px;
+  margin-top: 45px;
+  background-color: #1C1616;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-align: start;
-      -ms-flex-align: start;
-          align-items: flex-start;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
 }
 
-#SearchBar input[type="text"] {
-  height: 40px;
-  float: right;
-  padding: 6px;
-  border: none;
-  font-size: 17px;
-}
-
-#SearchBtn {
-  padding: 6px;
-}
-
-#CustomerCorner {
+footer .nav, footer .policy {
+  height: 100%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
-#CheckoutBtn {
-  background-color: #aa7e04;
-  color: white;
-  padding: 16px;
-  font-size: 16px;
-  border: none;
+footer .nav .line, footer .policy .line {
+  height: 65px;
+  width: 1px;
+  background-color: #707070;
 }
 
-#Basket:hover #CheckoutBtn {
-  background-color: #aa5d04;
+footer .nav .options p, footer .policy .options p {
+  font-size: 14px;
+  margin: 3px 0 0 10px;
+  color: #707070;
 }
 
-#NavDropdownBtn {
-  background-color: #8304aa;
-  color: white;
-  padding: 16px;
-  font-size: 16px;
-  border: none;
+footer .nav .policies p, footer .policy .policies p {
+  font-size: 14px;
+  margin: 10px 0 10px 10px;
+  color: #707070;
 }
 
-#NavDropdown {
-  position: relative;
-  display: inline-block;
+.content {
+  padding: 0 15px;
 }
 
-#NavDropdown:hover #DropdownContent {
-  display: block;
+.hero {
+  margin-top: 60px;
 }
 
-#NavDropdown #DropdownContent {
-  min-width: -webkit-fit-content;
-  min-width: -moz-fit-content;
-  min-width: fit-content;
-  left: 3px;
+.hero h1 {
+  font-weight: 700;
 }
 
-#NavDropdown:hover #NavDropdownBtn {
-  background-color: #6804aa;
+.best-sales {
+  margin-top: 60px;
 }
 
-#DropdownBtn {
-  background-color: #04aa6d;
-  color: white;
-  padding: 16px;
-  font-size: 16px;
-  border: none;
+.best-sales h2 {
+  font-weight: 500;
 }
 
-#UserOptions {
-  position: relative;
-  display: inline-block;
+.best-sales .cards {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
 }
 
-#DropdownContent {
-  display: none;
-  position: absolute;
-  background-color: transparent;
-  width: 100%;
-  overflow: auto;
-  -webkit-box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-          box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-  z-index: 1;
-}
-
-#DropdownContent a {
-  color: white;
-  text-decoration: none;
-  display: block;
-  text-align: center;
-  margin: 2.5px 0;
-}
-
-#DropdownContent a button {
-  width: 100%;
+.best-sales .cards .card {
+  width: 190px;
+  height: 180px;
+  border: 2px solid white;
   border-radius: 8px;
-  height: 50px;
-  color: white;
+  margin: 0 auto 15px;
 }
 
-#DropdownContent a button:hover {
-  color: #ffd900;
-}
-
-#UserOptions:hover #DropdownContent {
-  display: block;
-}
-
-#UserOptions:hover #DropdownBtn {
-  background-color: #3e8e41;
-}
-
-#NavDropdownBtn, #CheckoutBtn, #DropdownBtn {
+.best-sales .cards .card img {
   border-radius: 8px;
-  margin: 0 2.5px;
 }
 
-#INDEX {
+.best-sales .button {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+}
+
+.best-sales .button h2 {
+  margin-right: 10px;
+}
+
+.best-sales .button span {
+  border: 2px solid white;
+  border-radius: 100%;
+}
+
+.platform {
+  margin-top: 60px;
+}
+
+.platform h2 {
+  font-weight: 500;
+}
+
+.platform .pbox {
+  width: 100%;
+  height: 72px;
+  background-color: gainsboro;
+  margin-bottom: 12px;
+  border-radius: 8px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  min-width: 375px;
 }
 
-#Sales {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+.platform .pc {
+  background-color: black;
 }
 
-#Sale {
-  height: 170px;
-  width: 170px;
-  background-color: white;
-  border-radius: 8px;
-  margin: 5px;
+.platform .ps {
+  background-color: #004098;
 }
 
-#Sale img {
-  height: 170px;
-  width: 170px;
-  border-radius: 8px;
+.platform .xb {
+  background-color: #0F7A10;
 }
 
-#NEWUSER {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-}
-
-#CreateNewUser {
-  width: 375px;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+.platform .nt {
+  background-color: #E60012;
 }
 /*# sourceMappingURL=style.css.map */
