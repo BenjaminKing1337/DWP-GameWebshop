@@ -16,8 +16,13 @@ body {
 //header & navigation
 header {
     height: 65px;
+    width: calc(100% - 30px);
     padding: 0 15px;
-    background-color: transparent;
+    padding-right: 15px !important;
+    background-color: #362C2C;
+    position: fixed;
+    z-index: 999;
+    top: 0;
     display: flex;
     font-family: "Arimo", sans-serif;
     align-items: center;
@@ -25,13 +30,65 @@ header {
     .logo {
         display: flex;
         align-items: center;
+        cursor: pointer;
+    }
+    .menu{
+        float: right;
+        display: none;
+    }
+    #check{
+        display: none;
+    }
+    ul{
+        list-style: none;
+        float: right;
+        li{
+            display: inline-block;
+            margin: 0 20px;
+            font-size: 24px;
+            a{
+                text-decoration: none;
+                color: white;
+                &:hover{
+                    color: yellow;
+                }
+            }
+        }
+    }
+    @media (max-width: 900px){
+        .menu{
+            display: block;
+        }
+        ul{
+            position: fixed;
+            width: calc(100% - 30px);
+            height: 100vh;
+            background: #2b2525;
+            top: 48px;
+            left: -100%;
+            text-align: center;
+            transition: all .5s;
+            li{
+                display: block;
+                line-height: 100px;
+                position: relative;
+                top: 30%;
+                transform: translate(0 ,-50%);
+            }
+        }
+        #check:checked ~ ul{
+            left: 0;
+        }
     }
     .icon {
         font-size: 2.5em;
+        cursor: pointer;
     }
     .cart {
         margin-right: 15px;
     }
+    
+    
 }
 
 //footer
@@ -73,6 +130,7 @@ footer {
 // index/homepage
 .content {
     padding: 0 15px;
+    margin-top: 100px;
 }
 .hero {
     margin-top: 60px;

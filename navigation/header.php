@@ -7,12 +7,19 @@
 </head>
     <body>
         <header>
+            <input type="checkbox" id="check">
+            
             <div class="logo">
                 <img src="assets/logo.png" alt="DWP" height="65px">
                 <h1>DWP Games</h1>
             </div>
-            <div class="nav-icons">
+            <ul>
+                <li><a href="#">Platforms</a></li>
+                <li><a href="#">Sales</a></li>
+                <li><a href="#">Genres</a></li>
+            </ul>
+            <div class="icons">
                 <span class="material-icons icon cart">shopping_cart</span>
-                <span class="material-icons icon">menu</span>
+                <label for="check" class="material-icons icon menu">menu</label>
             </div>
         </header>
