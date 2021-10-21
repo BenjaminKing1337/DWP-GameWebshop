@@ -10,7 +10,7 @@
             <input type="checkbox" id="check">
             
             <div class="logo">
-                <img src="assets/logo.png" alt="DWP" height="65px">
+                <img onclick="window.location='index.php';" src="assets/logo.png" alt="DWP" height="65px">
                 <h1>DWP Games</h1>
             </div>
             <ul>
