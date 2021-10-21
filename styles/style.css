@@ -54,6 +54,35 @@ header ul {
   float: right;
 }
 
+header ul .mobile_link {
+  display: none;
+}
+
+header ul .dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+header ul .dropdown-content {
+  display: none;
+  position: absolute;
+  min-width: 160px;
+  z-index: 1000;
+  background-color: #2b2525;
+  border-radius: 8px;
+}
+
+header ul .dropdown-content a {
+  color: white;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+header ul .dropdown:hover .dropdown-content {
+  display: block;
+}
+
 header ul li {
   display: inline-block;
   margin: 0 20px;
@@ -69,7 +98,7 @@ header ul li a:hover {
   color: yellow;
 }
 
-@media (max-width: 900px) {
+@media (max-width: 1100px) {
   header .menu {
     display: block;
   }
@@ -79,16 +108,22 @@ header ul li a:hover {
     height: 100vh;
     background: #2b2525;
     top: 48px;
-    left: -100%;
+    left: -110%;
     text-align: center;
     -webkit-transition: all .5s;
     transition: all .5s;
+  }
+  header ul .desktop_link, header ul .dropdown {
+    display: none;
+  }
+  header ul .mobile_link {
+    display: block;
   }
   header ul li {
     display: block;
     line-height: 100px;
     position: relative;
-    top: 30%;
+    top: 15%;
     -webkit-transform: translate(0, -50%);
             transform: translate(0, -50%);
   }

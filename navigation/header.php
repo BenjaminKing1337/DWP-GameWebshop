@@ -14,7 +14,19 @@
                 <h1>DWP Games</h1>
             </div>
             <ul>
-                <li><a href="#">Platforms</a></li>
+                <div class="dropdown">
+                    <li class="desktop_link"><a href="#">Platform</a></li>
+                    <div class="dropdown-content">
+                        <li><a href="#">PC</a></li>
+                        <li><a href="#">Playstation</a></li>
+                        <li><a href="#">Xbox</a></li>
+                        <li><a href="#">Nintendo</a></li>
+                    </div>
+                </div>
+                <li class="mobile_link"><a href="#">PC</a></li>
+                <li class="mobile_link"><a href="#">Playstation</a></li>
+                <li class="mobile_link"><a href="#">Xbox</a></li>
+                <li class="mobile_link"><a href="#">Nintendo</a></li>
                 <li><a href="#">Sales</a></li>
                 <li><a href="#">Genres</a></li>
             </ul>
