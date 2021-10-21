@@ -1,10 +1,13 @@
 @import url("https://fonts.googleapis.com/css2?family=Arimo:wght@400;500;600;700&display=swap");
-h1, h2, h3, p {
-  font-family: 'Arimo', sans-serif;
+h1,
+h2,
+h3,
+p {
+  font-family: "Arimo", sans-serif;
 }
 
 body {
-  background-color: #362C2C;
+  background-color: #362c2c;
   color: white;
   margin: 0;
 }
@@ -16,7 +19,7 @@ header {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  font-family: 'Arimo', sans-serif;
+  font-family: "Arimo", sans-serif;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
@@ -46,7 +49,7 @@ footer {
   height: 97px;
   padding: 0 30px;
   margin-top: 45px;
-  background-color: #1C1616;
+  background-color: #1c1616;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -57,7 +60,8 @@ footer {
       justify-content: space-around;
 }
 
-footer .nav, footer .policy {
+footer .nav,
+footer .policy {
   height: 100%;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -67,19 +71,22 @@ footer .nav, footer .policy {
           align-items: center;
 }
 
-footer .nav .line, footer .policy .line {
+footer .nav .line,
+footer .policy .line {
   height: 65px;
   width: 1px;
   background-color: #707070;
 }
 
-footer .nav .options p, footer .policy .options p {
+footer .nav .options p,
+footer .policy .options p {
   font-size: 14px;
   margin: 3px 0 0 10px;
   color: #707070;
 }
 
-footer .nav .policies p, footer .policy .policies p {
+footer .nav .policies p,
+footer .policy .policies p {
   font-size: 14px;
   margin: 10px 0 10px 10px;
   color: #707070;
@@ -183,10 +190,230 @@ footer .nav .policies p, footer .policy .policies p {
 }
 
 .platform .xb {
-  background-color: #0F7A10;
+  background-color: #0f7a10;
 }
 
 .platform .nt {
-  background-color: #E60012;
+  background-color: #e60012;
+}
+
+.filter {
+  width: 100%;
+  height: 60px;
+  background-color: lightslategrey;
+  text-align: center;
+}
+
+.allProductsContainer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+.allProductsContainer .productContainer {
+  margin: 10px auto 15px;
+}
+
+.allProductsContainer .productContainer .product {
+  width: 190px;
+  height: 180px;
+  border: 2px solid white;
+  border-radius: 8px;
+  position: relative;
+}
+
+.allProductsContainer .productContainer .product img {
+  border-radius: 8px;
+}
+
+.allProductsContainer .productContainer .product .platformTag {
+  position: absolute;
+  right: 10px;
+  bottom: 10px;
+  height: 25px;
+  width: 25px;
+  background-color: lightyellow;
+  border-radius: 8px;
+}
+
+.allProductsContainer .productContainer .price {
+  margin: 10px;
+}
+
+.allProductsContainer .productContainer .price h3,
+.allProductsContainer .productContainer .price h4 {
+  margin: 2px;
+}
+
+.allProductsContainer .productContainer .price h4 {
+  float: left;
+}
+
+.allProductsContainer .productContainer .price button {
+  float: right;
+  height: 60px;
+  margin-top: -40px;
+  border: 2px solid white;
+  border-radius: 8px;
+  padding: 10px;
+  text-align: center;
+  font-weight: 900;
+  line-height: 13px;
+}
+
+.singleProductContainer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.singleProductContainer .thumbnail {
+  width: 300px;
+  height: 200px;
+}
+
+.singleProductContainer .thumbnail img {
+  border: 2px solid white;
+  border-radius: 8px;
+}
+
+.singleProductContainer .titlecard {
+  width: 80%;
+  height: 80px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.singleProductContainer .titlecard h2,
+.singleProductContainer .titlecard h3 {
+  margin: 0;
+}
+
+.singleProductContainer .titlecard h2 {
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+}
+
+.singleProductContainer .titlecard h3 {
+  -ms-flex-item-align: end;
+      align-self: flex-end;
+}
+
+.singleProductContainer .break {
+  width: 80%;
+  border-bottom: 2px solid white;
+}
+
+.singleProductContainer .description {
+  width: 80%;
+}
+
+.singleProductContainer .primarySpecs {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  width: 80%;
+}
+
+.singleProductContainer .primarySpecs .spec {
+  height: 50px;
+  width: 60px;
+  background-color: white;
+  border-radius: 8px;
+  color: black;
+  text-align: center;
+  padding: 5px;
+}
+
+.singleProductContainer .video {
+  width: 80%;
+  height: 200px;
+  text-align: center;
+  margin: 20px auto;
+  border: 2px solid white;
+  border-radius: 8px;
+}
+
+.singleProductContainer .slideshow {
+  width: 80%;
+  height: 200px;
+  text-align: center;
+  margin: 20px auto;
+  border: 2px solid white;
+  border-radius: 8px;
+}
+
+.singleProductContainer .secondarySpecs table {
+  border-spacing: 0;
+  border-radius: 8px;
+}
+
+.singleProductContainer .secondarySpecs table td {
+  border: 2px solid white;
+  padding: 10px;
+  border-radius: 0 8px 8px 0;
+}
+
+.singleProductContainer .secondarySpecs table th {
+  border: 2px solid white;
+  padding: 10px;
+  border-radius: 8px 0 0 8px;
+}
+
+.singleProductContainer .productPricing {
+  text-align: center;
+  margin: 20px;
+}
+
+.singleProductContainer .productPricing h2,
+.singleProductContainer .productPricing h5 {
+  margin: 5;
+}
+
+.singleProductContainer .addToBasket {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  width: 60%;
+}
+
+.singleProductContainer .addToBasket button {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 10px;
+  border-radius: 50px;
+  border: none;
+}
+
+.singleProductContainer .addToBasket button p,
+.singleProductContainer .addToBasket button i {
+  margin: 0 10px;
 }
 /*# sourceMappingURL=style.css.map */
