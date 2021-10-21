@@ -14,7 +14,7 @@
                 <h1>DWP Games</h1>
             </div>
             <ul>
-                <li><a href="#">Platforms</a></li>
+                <li><a href="#" onclick="window.location='all.php';">Platforms</a></li>
                 <li><a href="#">Sales</a></li>
                 <li><a href="#">Genres</a></li>
             </ul>

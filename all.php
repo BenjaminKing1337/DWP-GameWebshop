@@ -9,7 +9,7 @@
     <?php for ($i = 0; $i < 50; $i++) { ?>
 
         <div class="productContainer">
-            <div class="product">
+            <div onclick="window.location='single.php';" class="product">
                 <div class="platformTag">
                     <img width="25px" height="25px" src="https://i.kym-cdn.com/entries/icons/original/000/012/368/playstation-wallpaper-46825-48282-hd-wallpapers.jpg" alt="">
                 </div>
