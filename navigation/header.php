@@ -1,3 +1,5 @@
+
+
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-15" />
     <meta charset="utf-8">
@@ -8,8 +10,8 @@
 
 <body>
     <header>
-        <input type="checkbox" id="check">
-        <input type="checkbox" id="check2">
+        <input type="checkbox" id="check" class="check1">
+        <input type="checkbox" id="check2" class="check2">
 
         <div class="logo">
             <img onclick="window.location='/DWP-GameWebshop/index.php';" src="/DWP-GameWebshop/assets/logo.png" alt="DWP" height="65px">
@@ -44,7 +46,7 @@
                     <li><a href="=/DWP-GameWebshop/users/logout.php">Logout</a></li>
                 </div>
             </div>
-            <li class="mobile_link"><a href="=/DWP-GameWebshop/users/newuser.php">Create New User</a></li>
+            <li class="mobile_link"><a href="/DWP-GameWebshop/users/newuser.php">Create New User</a></li>
             <li class="mobile_link"><a href="/DWP-GameWebshop/users/accounts.php">User List</a></li>
             <li class="mobile_link"><a href="/DWP-GameWebshop/users/admin/addproduct.php">Add Product</a></li>
             <li class="mobile_link"><a href="/DWP-GameWebshop/users/login.php">Login</a></li>
