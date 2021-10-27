@@ -1,6 +1,6 @@
 <?php 
 
-require_once('../DWP-GameWebshop/includes/connection.php');
+require_once('../includes/connection.php');
 
 
 $Title = $_POST['Title'];

@@ -6,8 +6,8 @@
 <form method="post" action="addPtoDB.php">
         Title:<br><input type="text" name="Title"> <br><br>
         Price:<br><input type="text" name="Price"> <br><br>
-        ReleaseDate:<br><input type="text" name="ReleaseDate"> <br><br>
-        Description:<br><input type="text" name="Description"> <br><br>
+        Release Date:<br><input type="text" name="ReleaseDate"> <br><br>
+        Description:<br><textarea type="text" name="Description"></textarea> <br><br>
         Rating:<br><input type="text" name="Rating"> <br><br>
         Platform:<br><input type="text" name="Platform"> <br><br>
         <input type="submit" name="submit"> <br>
