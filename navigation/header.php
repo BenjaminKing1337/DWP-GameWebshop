@@ -44,7 +44,7 @@
                     <li><a href="=/DWP-GameWebshop/users/logout.php">Logout</a></li>
                 </div>
             </div>
-            <li class="mobile_link"><a href="=/DWP-GameWebshop/users/newuser.php">Create New User</a></li>
+            <li class="mobile_link"><a href="/DWP-GameWebshop/users/newuser.php">Create New User</a></li>
             <li class="mobile_link"><a href="/DWP-GameWebshop/users/accounts.php">User List</a></li>
             <li class="mobile_link"><a href="/DWP-GameWebshop/users/admin/addproduct.php">Add Product</a></li>
             <li class="mobile_link"><a href="/DWP-GameWebshop/users/login.php">Login</a></li>

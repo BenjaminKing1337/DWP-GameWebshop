@@ -17,7 +17,7 @@ header {
   width: calc(100% - 30px);
   padding: 0 15px;
   padding-right: 15px !important;
-  background-color: #362C2C;
+  background-color: #362c2c;
   position: fixed;
   z-index: 999;
   top: 0;
@@ -48,7 +48,8 @@ header .menu {
   display: none;
 }
 
-header #check, header #check2 {
+header #check,
+header #check2 {
   display: none;
 }
 
@@ -113,10 +114,11 @@ header ul li a:hover {
     top: 48px;
     left: -110%;
     text-align: center;
-    -webkit-transition: all .5s;
-    transition: all .5s;
+    -webkit-transition: all 0.5s;
+    transition: all 0.5s;
   }
-  header ul .desktop_link, header ul .dropdown {
+  header ul .desktop_link,
+  header ul .dropdown {
     display: none;
   }
   header ul .mobile_link {
@@ -540,5 +542,37 @@ footer .policy .policies p {
 .singleProductContainer .addToBasket button p,
 .singleProductContainer .addToBasket button i {
   margin: 0 10px;
+}
+
+.addProductContainer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.contactFormContainer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 /*# sourceMappingURL=style.css.map */

@@ -3,7 +3,7 @@
         <div class="line"></div>
         <div class="options">
             <p>About</p>
-            <p>Contact</p>
+            <p><a style="text-decoration: none; color:unset;" href="/DWP-GameWebshop/contact.php">Contact</a></p>
             <p>FAQ</p>
         </div>
     </div>
