@@ -18,7 +18,7 @@
                 <div class="dropdown">
                     <li class="desktop_link"><a href="#">Platform</a></li>
                     <div class="dropdown-content">
-                        <li><a href="#">PC</a></li>
+                        <li><a href="../../DWP-GameWebshop/all.php">PC</a></li>
                         <li><a href="#">Playstation</a></li>
                         <li><a href="#">Xbox</a></li>
                         <li><a href="#">Nintendo</a></li>
