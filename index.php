@@ -5,7 +5,7 @@
 <!DOCTYPE html>
 <html>
     <?php include('navigation/header.php'); ?>
-
+    
     <div class="content">
         <div class="hero">
             <h1>Digital codes.</h1>
