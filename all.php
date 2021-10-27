@@ -1,3 +1,19 @@
+<?php 
+require_once("../../users/includes/connection.php");
+
+$sql = 'SELECT Price FROM product';
+
+$result = mysqli_query($connection, $sql);
+
+$products = mysqli_fetch_all($result, MYSQLI_ASSOC);
+
+mysqli_free_result($result);
+
+mysqli_close($connection)
+
+?>
+
+
 <html>
 <?php include("navigation/header.php"); ?>
 
