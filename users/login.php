@@ -1,20 +1,14 @@
 <?php require_once("includes/connection.php"); ?>
 <?php require_once("includes/session.php"); ?>
 <?php require_once("includes/functions.php"); ?>
-<?php require_once("../styles/styles.php") ?>
 <?php
 		if (logged_in()) {
 		redirect_to("../index.php");
 	}
  ?>
  
- 
-<html>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-15" />
-</head>
-
-<body>
+ <html>
+<?php include("../navigation/header.php"); ?>
 
  <?php
 	// START FORM PROCESSING
@@ -48,9 +42,9 @@ if (!empty($message)) {echo "<p>" . $message . "</p>";} ?>
 <div id="Login"><h2>Please login</h2>
 <form action="" method="post">
 Username:
-<input type="text" name="user" maxlength="30" value="" />
+<input type="text" name="user" maxlength="30" value="" /> <br><br>
 Password:
-<input type="password" name="pass" maxlength="30" value="" />
+<input type="password" name="pass" maxlength="30" value="" /> <br><br>
 <input type="submit" name="submit" value="Login" />
 </form>
 
@@ -60,7 +54,8 @@ Password:
 <a style='text-decoration: none;' href='newuser.php' >Create user...</a>
 
 </div>
-</body>
+<?php include("../navigation/footer.php"); ?>
+
 </html>
 <?php
 if (isset($connection)){mysqli_close($connection);}
