@@ -1,3 +1,10 @@
+DROP DATABASE IF EXISTS gamewebshop;
+
+CREATE DATABASE gamewebshop;
+
+USE gamewebshop;
+
+
 CREATE TABLE `accounts` ( 
     `ID` INT AUTO_INCREMENT NOT NULL PRIMARY KEY, 
     `username` VARCHAR(80) NOT NULL, 
@@ -7,9 +14,9 @@ CREATE TABLE `accounts` (
     `email` VARCHAR(80) NOT NULL,  
     `description` TEXT NULL);
 
-create table product (
+CREATE TABLE product (
 	id INT,
-	Title VARCHAR(50),
+	Title VARCHAR(250),
 	Price DECIMAL(5,2),
 	ReleaseDate DATE,
 	Description TEXT,
