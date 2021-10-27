@@ -10,7 +10,7 @@ p {
 body {
     background-color: #362c2c;
     color: white;
-    margin-top: 100px;
+    margin: 100px 0 0 0;
 }
 
 //header & navigation
@@ -268,6 +268,7 @@ footer {
             border: 2px solid white;
             border-radius: 8px;
             position: relative;
+            cursor: pointer;
 
             img {
                 border-radius: 8px;
