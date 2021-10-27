@@ -10,7 +10,7 @@ p {
 body {
     background-color: #362c2c;
     color: white;
-    margin: 0;
+    margin-top: 100px;
 }
 
 //header & navigation
@@ -36,7 +36,7 @@ header {
         float: right;
         display: none;
     }
-    #check{
+    #check, #check2 {
         display: none;
     }
     ul{
@@ -106,7 +106,10 @@ header {
                 transform: translate(0 ,-50%);
             }
         }
-        #check:checked ~ ul{
+        #check:checked ~ .platformMenu{
+            left: 0;
+        }
+        #check2:checked ~ .userMenu{
             left: 0;
         }
     }
@@ -160,7 +163,7 @@ footer {
 // index/homepage
 .content {
     padding: 0 15px;
-    margin-top: 100px;
+    
 }
 .hero {
     margin-top: 60px;
@@ -235,152 +238,6 @@ footer {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 // all p page
 
 .filter {
@@ -391,11 +248,20 @@ footer {
 }
 
 .allProductsContainer {
+    margin: 0 auto;
+    max-width: 80%;
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
+    @media (max-width:500px) {
+        max-width: 100%;
+    }
     .productContainer {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
         margin: 10px auto 15px;
+        flex-basis: 25%;
         .product {
             width: 190px;
             height: 180px;
@@ -418,7 +284,9 @@ footer {
         }
 
         .price {
-            margin: 10px;
+            margin: 10px 0;
+            padding: 15px 0;
+            min-width: 180px;
             h3,
             h4 {
                 margin: 2px;

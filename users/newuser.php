@@ -1,16 +1,10 @@
 <?php require_once("includes/session.php"); ?>
 <?php require_once("includes/connection.php"); ?>
 <?php require_once("includes/functions.php"); ?>
-<?php // require_once("../navigation/header.php") ?>
 <?php //confirm_logged_in(); ?>
-<?php require_once("../styles/styles.php"); ?>
 
 <html>
-
-<head>
-	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-15" />
-</head>
-<body id="NEWUSER">
+<?php include("../navigation/header.php"); ?>
 	
 <?php
 // START FORM PROCESSING
@@ -54,9 +48,8 @@ if (!empty($message)) {
 	<input type="submit" name="submit" value="Create" />
 </form>
 </div>
-</body>
-
-</html>
+</div>
+<?php include("../navigation/footer.php"); ?>
 <?php
 if (isset($connection)) {
 	mysqli_close($connection);

@@ -14,7 +14,7 @@
             <p>Privacy Policy</p>
         </div>
     </div>
-    <img height="50px" src="assets/logo.png" alt="">
+    <img height="50px" src="../../DWP-GameWebshop/assets/logo.png" alt="">
 </footer>
 
 

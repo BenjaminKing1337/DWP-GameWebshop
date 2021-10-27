@@ -1,5 +1,7 @@
+<html>
+<?php include("../navigation/header.php"); ?>
+
 <?php
-require_once("../styles/styles.php");
 require_once("../users/includes/connection.php");
 $id = $_GET['id'];
 $query = mysqli_query($connection, "SELECT * FROM `accounts` WHERE ID='$id'");
@@ -32,6 +34,7 @@ if (isset($_POST['update'])) {
 }
 ?>
 
+
 <h3>Update Data</h3>
 
 <form method="POST">
@@ -43,3 +46,6 @@ if (isset($_POST['update'])) {
     Description:<br><input type="text" name="description" value="<?php echo $data['description'] ?>" placeholder="Edit Description" Required> <br><br>
     <input type="submit" name="update" value="Update">
 </form>
+
+<?php include("../navigation/footer.php"); ?>
+<html>

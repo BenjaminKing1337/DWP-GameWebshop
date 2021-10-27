@@ -1,21 +1,21 @@
-<html><body>
-<button id="Home" onclick="window.location.href='../index.php'" style="background-color:magenta; font-weight:bold;">Home</button>
-<br><br>
-</body></html>
+<html>
+<?php include("../navigation/header.php"); ?>
+<?php require_once("includes/connection.php"); ?>
+
+
+<h2>Current Registered Users</h2><br><br>
 
 <?php
-// require_once(".././navigation/header.php");
-require_once("includes/connection.php");
 $query = "SELECT * FROM `accounts`";
 $result = mysqli_query($connection, $query) or die("nada joy!");
 while ($row = mysqli_fetch_array($result)) {
     echo
-    $row["ID"] . " - " .
-        $row["username"] . " - " .
-        $row["Fname"] . " - " .
-        $row["Lname"] . " - " .
-        $row["email"] . " - " .
-        $row["description"] .
+    "No.: " . $row["ID"] . "<br>" .
+    "Username: " . "<b>" . $row["username"] . "</b><br>" .
+    "First Name: " . "<i>" .$row["Fname"] . "</i><br>" .
+    "Last Name: " . "<i>" . $row["Lname"] . "</i><br>" .
+    "Email: " . "<a href=''>" .$row["email"] . "</a><br>" .
+    "Description: " . $row["description"] . "<br>" .
         "<a style='text-decoration: none;' href='../crud/delete.php?id=" . $row['ID'] . "'" ?>
     onclick="return confirm('Are you sure you want to annihilate?');"
     <?php echo "> <button style='
@@ -37,3 +37,7 @@ while ($row = mysqli_fetch_array($result)) {
     background-color:transparent;
     '> Edit </button></a><br>";
 }
+?>
+
+<?php include("../navigation/footer.php"); ?>
+</html>
