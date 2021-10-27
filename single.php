@@ -1,17 +1,21 @@
-<?php 
+<?php
 require_once("../DWP-GameWebshop/users/includes/connection.php");
 
-$id = mysqli_real_escape_string($connection, $_GET['id']);
+//check id parameter
+if(isset($_GET['id'])){
+    $id = mysqli_real_escape_string($connection, $_GET['id']);
 
-$sql = "SELECT * FROM product WHERE id = $id";
+    $sql = "SELECT * FROM product WHERE id = $id";
 
-$result = mysqli_query($connection, $sql);
+    $result = mysqli_query($connection, $sql);
 
-$product = mysqli_fetch_assoc($result);
+    $product = mysqli_fetch_assoc($result);
 
-mysqli_free_result($result);
+    mysqli_free_result($result);
+    mysqli_close($connection);
 
-mysqli_close($connection)
+
+}
 
 ?>
 
@@ -20,12 +24,12 @@ mysqli_close($connection)
 
 <br><br><br>
 
-<?php if ($product) : ?>
+<?php if($product): ?>
     <div class="singleProductContainer">
 
-    <div class="thumbnail">
-        <img width="300px" height="200px" src="https://image.api.playstation.com/vulcan/img/cfn/11307DTu3lzL6thuipVwZruYSmRFn1_SpucegJYgtAzcjZLIRPxpCVJkr5C8vfVy5FYMRdHbaJHQXOZldbhjm9ypcA4w51iZ.png" alt="">
-    </div>
+        <div class="thumbnail">
+            <img width="300px" height="200px" src="https://image.api.playstation.com/vulcan/img/cfn/11307DTu3lzL6thuipVwZruYSmRFn1_SpucegJYgtAzcjZLIRPxpCVJkr5C8vfVy5FYMRdHbaJHQXOZldbhjm9ypcA4w51iZ.png" alt="">
+        </div>
 
     <div class="titlecard">
         <h2><?php echo htmlspecialchars($product['Title']) ?></h2>
