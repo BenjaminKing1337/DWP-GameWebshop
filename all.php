@@ -1,5 +1,5 @@
 <?php 
-require_once("../../users/includes/connection.php");
+require_once("../DWP-GameWebshop/users/includes/connection.php");
 
 $sql = 'SELECT Price FROM product';
 
@@ -22,7 +22,7 @@ mysqli_close($connection)
 
 <div class="filter">FILTER</div>
 <div class="allProductsContainer">
-    <?php for ($i = 0; $i < 50; $i++) { ?>
+    <?php foreach ($products as $product) { ?>
 
         <div class="productContainer">
             <div onclick="window.location='single.php';" class="product">
@@ -32,7 +32,7 @@ mysqli_close($connection)
                 <img width="190px" height="180px" src="https://image.api.playstation.com/vulcan/img/cfn/11307DTu3lzL6thuipVwZruYSmRFn1_SpucegJYgtAzcjZLIRPxpCVJkr5C8vfVy5FYMRdHbaJHQXOZldbhjm9ypcA4w51iZ.png" alt="">
             </div>
             <div class="price">
-                <h3>New Price</h3> <br>
+                <h3><?php echo htmlspecialchars($product['Price']); ?></h3> <br>
                 <h4>Old Price</h4>
                 <button>Add <br>
                     to <br>
