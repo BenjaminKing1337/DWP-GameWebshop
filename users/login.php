@@ -16,22 +16,28 @@
 		$username = trim(mysqli_real_escape_string($connection, $_POST['user']));
 		$password = trim(mysqli_real_escape_string($connection,$_POST['pass']));
 
-		$query = "SELECT id, username, pass FROM accounts WHERE username = '{$username}' LIMIT 1";
+		$query = "SELECT id, username, pass, usertype FROM accounts WHERE username = '{$username}' LIMIT 1";
 		$result = mysqli_query($connection, $query);
 			
 			if (mysqli_num_rows($result) == 1) {
 				// username/password authenticated
 				// and only 1 match
 				$found_user = mysqli_fetch_array($result);
-                if(password_verify($password, $found_user['pass'])){
+                if(password_verify($password, $found_user['pass']) && $found_user["usertype"]=="user"||$found_user["usertype"]==""){
 				    $_SESSION['user_id'] = $found_user['id'];
 				    $_SESSION['user'] = $found_user['username'];
 				    redirect_to("../index.php");
-			} else {
-				// username/password combo was not found in the database
-				$message = "Username/password combination incorrect.<br />
-					Please make sure your caps lock key is off and try again.";
-			}}
+				} 
+				elseif(password_verify($password, $found_user['pass']) && $found_user["usertype"]=="admin"){
+				    $_SESSION['user_id'] = $found_user['id'];
+				    $_SESSION['user'] = $found_user['username'];
+				    redirect_to("/DWP-GameWebshop/users/admin/addproduct.php");
+				} 
+				else {
+					// username/password combo was not found in the database
+					$message = "Username/password combination incorrect.<br />
+						Please make sure your caps lock key is off and try again.";
+				}}
 	} else { // Form has not been submitted.
 		if (isset($_GET['logout']) && $_GET['logout'] == 1) {
 			$message = "You are now logged out.";
