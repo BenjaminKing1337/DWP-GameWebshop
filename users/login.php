@@ -13,7 +13,7 @@
  <?php
 	// START FORM PROCESSING
 	if (isset($_POST['submit'])) { // Form has been submitted.
-		$username = trim(mysqli_real_escape_string($connection, $_POST['user']));
+		$username = trim(mysqli_real_escape_string($connection, $_POST['username']));
 		$password = trim(mysqli_real_escape_string($connection,$_POST['pass']));
 
 		$query = "SELECT id, username, pass FROM accounts WHERE username = '{$username}' LIMIT 1";
@@ -25,7 +25,7 @@
 				$found_user = mysqli_fetch_array($result);
                 if(password_verify($password, $found_user['pass'])){
 				    $_SESSION['user_id'] = $found_user['id'];
-				    $_SESSION['user'] = $found_user['user'];
+				    $_SESSION['username'] = $found_user['username'];
 				    redirect_to("../index.php");
 			} else {
 				// username/password combo was not found in the database
@@ -42,7 +42,7 @@ if (!empty($message)) {echo "<p>" . $message . "</p>";} ?>
 <div id="Login"><h2>Please login</h2>
 <form action="" method="post">
 Username:
-<input type="text" name="user" maxlength="30" value="" /> <br><br>
+<input type="text" name="username" maxlength="30" value="" /> <br><br>
 Password:
 <input type="password" name="pass" maxlength="30" value="" /> <br><br>
 <input type="submit" name="submit" value="Login" />
