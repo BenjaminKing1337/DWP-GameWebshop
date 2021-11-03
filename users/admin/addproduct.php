@@ -3,7 +3,7 @@
 require_once('../includes/connection.php');
 
 $errors = array('Title' => '', 'Price' => '', 'ReleaseDate' => '', 'Description' => '', 'Rating' => '', 'Platform' => '');
-
+$numerror = 0;
 
 if (isset($_POST['submit'])) {
     $Title = $_POST['Title'];
@@ -19,33 +19,41 @@ if (isset($_POST['submit'])) {
     $regexp2 = "/^[+-]?((\d+(\.\d*)?)|(\.\d+))$/";
     $regexp3 = "/^[0-9-]{10}$/";
 
-    if (!mysqli_query($connection, $query)) {
-        // die("DB error: " . mysqli_error($connection));
-    } elseif (
+    if (
         !preg_match($regexp1, $_POST['Title'])
     ) {
         $errors['Title'] = " Must have a title.";
-    } elseif (
+        $numerror++;
+    } if (
         !preg_match($regexp2, $_POST['Price'])
     ) {
         $errors['Price'] = " Must have a price.";
-    } elseif (
+        $numerror++;
+    } if (
         !preg_match($regexp3, $_POST['ReleaseDate'])
     ) {
         $errors['ReleaseDate'] = " Must have a release date.";
-    } elseif (
+        $numerror++;
+    } if (
         !preg_match($regexp1, $_POST['Description'])
     ) {
         $errors['Description'] = " Must have a description.";
-    } elseif (
+        $numerror++;
+    } if (
         !preg_match($regexp2, $_POST['Rating'])
     ) {
         $errors['Rating'] = " Must have a rating.";
-    } elseif (
+        $numerror++;
+    } if (
         !preg_match($regexp1, $_POST['Platform'])
     ) {
         $errors['Platform'] = " Must have a platform.";
-    } else {
+        $numerror++;
+    }
+    if ($numerror == 0) {
+        if (!mysqli_query($connection, $query)) {
+            die("DB error: " . mysqli_error($connection));
+        }
         echo "Product added" . "<br> at" . date("h:i:sa");
     }
 }
