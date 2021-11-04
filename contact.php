@@ -2,6 +2,7 @@
 <?php
 
 $errors = array ('firstname'=>'','lastname'=>'','email'=>'','subject'=>'','message'=>'');
+$numerror = 0;
 
 if (isset($_POST['submit'])) {
 
@@ -22,21 +23,25 @@ if (isset($_POST['submit'])) {
         !preg_match($regexp1, $_POST['email'])
     ) {
         $errors['email'] = " Email not valid.";
-    } elseif (
+        $numerror++;
+    } if (
         !preg_match($regexp2, $_POST['subject'])
     ) {
         $errors['subject'] = " Subject is required.";
-    } elseif (
+        $numerror++;
+    } if (
         !preg_match($regexp2, $_POST['message'])
     ) {
         $errors['message'] = " Message must contain something...";
-    } elseif (
+        $numerror++;
+    } if (
         !preg_match($regexp2, $_POST['firstname'])
         || !preg_match($regexp2, $_POST['lastname'])
     ) {
         $errors['firstname'] = " First name incorrectly filled out.";
         $errors['lastname'] = " Last name incorrectly filled out.";
-    } elseif (
+        $numerror++;
+    } if (
         empty($email)
         || empty($firstname)
         || empty($lastname)
@@ -44,13 +49,13 @@ if (isset($_POST['submit'])) {
         || empty($message)
     ) {
         echo "Empty fields";
-    } else {
-        $timestamp = date("h:i:sa");
-        $body = "$message\n\nE-mail: $email";
-        $body2 = "Thank you for your message \n\n$body";
-        mail($mymail, $subject, $body, "From: $email\n");
-        mail($email, $body2, $timestamp, "From: noreply@DWPGames.dk");
-        echo "Thanks for your E-mail" . "<br> Sent at" . date("h:i:sa");
+    } if ($numerror == 0) {
+            $timestamp = date("h:i:sa");
+            $body = "$message\n\nE-mail: $email";
+            $body2 = "Thank you for your message \n\n$body";
+            mail($mymail, $subject, $body, "From: $email\n");
+            mail($email, $body2, $timestamp, "From: noreply@DWPGames.dk");
+            echo "Thanks for your E-mail" . "<br> Sent at" . date("h:i:sa");
     }
 } ?>
 

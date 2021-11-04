@@ -54,7 +54,7 @@ if (isset($_POST['submit'])) {
         if (!mysqli_query($connection, $query)) {
             die("DB error: " . mysqli_error($connection));
         }
-        echo "Product added" . "<br> at" . date("h:i:sa");
+        echo "Product added" . "<br> at " . date("h:i:sa");
     }
 }
 ?>
