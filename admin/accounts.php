@@ -1,7 +1,15 @@
-<html>
-<?php include("../navigation/header.php"); ?>
-<?php require_once("includes/connection.php"); ?>
+<?php
+    require_once("../includes/connection.php"); 
+    require_once("../includes/session.php"); 
+    if (!admin()) {
+        redirect_to("../index.php");
+    }
+?>
 
+<html>
+<?php 
+    include("../navigation/adminNav.php");
+?>
 
 <h2>Current Registered Users</h2><br><br>
 
@@ -38,6 +46,4 @@ while ($row = mysqli_fetch_array($result)) {
     '> Edit </button></a><br>";
 }
 ?>
-
-<?php include("../navigation/footer.php"); ?>
 </html>

@@ -1,5 +1,6 @@
 <?php 
-require_once("../DWP-GameWebshop/users/includes/connection.php");
+require_once("includes/connection.php");
+require_once("includes/session.php");
 
 $sql = "SELECT id, Price FROM product";
 
@@ -15,7 +16,9 @@ mysqli_close($connection)
 
 
 <html>
-<?php include("navigation/header.php"); ?>
+<?php 
+    include("navigation/header.php");
+?>
 
 <br><br><br>
 <div align="center" style="font-size: 50px;">All Products Page</div>

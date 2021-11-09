@@ -1,5 +1,6 @@
 <?php
-require_once("../DWP-GameWebshop/users/includes/connection.php");
+require_once("includes/connection.php");
+require_once("includes/session.php");
 
 //check id parameter
 if(isset($_GET['id'])){
@@ -20,7 +21,9 @@ if(isset($_GET['id'])){
 ?>
 
 <html>
-<?php include("navigation/header.php"); ?>
+<?php 
+    include("navigation/header.php");
+?>
 
 <br><br><br>
 

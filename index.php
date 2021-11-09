@@ -1,10 +1,14 @@
 <?php 
-
+    require_once('includes/connection.php');
+    require_once('includes/session.php');
 ?>
-
+<!-- if(isset($_SESSION['usertype'])){
+            if($_SESSION['usertype']=="admin"){ -->
 <!DOCTYPE html>
 <html>
-    <?php include('navigation/header.php'); ?>
+    <?php 
+        include("navigation/header.php");
+    ?>
     
     <div class="content">
         <div class="hero">

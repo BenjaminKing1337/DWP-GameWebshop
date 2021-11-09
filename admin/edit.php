@@ -1,8 +1,10 @@
-<html>
-<?php include("../navigation/header.php"); ?>
-
 <?php
-require_once("../users/includes/connection.php");
+require_once("../includes/connection.php");
+require_once("../includes/session.php");
+if (!admin()) {
+    redirect_to("../index.php");
+}
+
 $id = $_GET['id'];
 $query = mysqli_query($connection, "SELECT * FROM `accounts` WHERE ID='$id'");
 
@@ -34,6 +36,10 @@ if (isset($_POST['update'])) {
 }
 ?>
 
+<html>
+<?php 
+    include("navigation/adminNav.php");
+?>
 
 <h3>Update Data</h3>
 

@@ -1,10 +1,15 @@
-<?php require_once("includes/session.php"); ?>
-<?php require_once("includes/connection.php"); ?>
-<?php require_once("includes/functions.php"); ?>
-<?php //confirm_logged_in(); ?>
+
+<?php 
+	require_once("includes/connection.php"); 
+	require_once("includes/session.php"); 
+
+?>
+
 
 <html>
-<?php include("../navigation/header.php"); ?>
+<?php 
+	include("navigation/header.php");
+?>
 	
 <?php
 // START FORM PROCESSING
@@ -49,7 +54,7 @@ if (!empty($message)) {
 </form>
 </div>
 </div>
-<?php include("../navigation/footer.php"); ?>
+<?php include("navigation/footer.php"); ?>
 <?php
 if (isset($connection)) {
 	mysqli_close($connection);
