@@ -22,17 +22,17 @@
                 <li class="desktop_link"><a href="#">Platform</a></li>
                 <div class="dropdown-content">
                     <li><a href="/DWP-GameWebshop/all.php">PC</a></li>
-                    <li><a href="#">Playstation</a></li>
-                    <li><a href="#">Xbox</a></li>
-                    <li><a href="#">Nintendo</a></li>
+                    <li><a href="/DWP-GameWebshop/all.php">Playstation</a></li>
+                    <li><a href="/DWP-GameWebshop/all.php">Xbox</a></li>
+                    <li><a href="/DWP-GameWebshop/all.php">Nintendo</a></li>
                 </div>
             </div>
             <li class="mobile_link"><a href="/DWP-GameWebshop/all.php">PC</a></li>
-            <li class="mobile_link"><a href="#">Playstation</a></li>
-            <li class="mobile_link"><a href="#">Xbox</a></li>
-            <li class="mobile_link"><a href="#">Nintendo</a></li>
-            <li><a href="#">Sales</a></li>
-            <li><a href="#">Genres</a></li>
+            <li class="mobile_link"><a href="/DWP-GameWebshop/all.php">Playstation</a></li>
+            <li class="mobile_link"><a href="/DWP-GameWebshop/all.php">Xbox</a></li>
+            <li class="mobile_link"><a href="/DWP-GameWebshop/all.php">Nintendo</a></li>
+            <li><a href="/DWP-GameWebshop/all.php">Sales</a></li>
+            <li><a href="/DWP-GameWebshop/all.php">Genres</a></li>
         </ul>
 
         <ul class="userMenu">

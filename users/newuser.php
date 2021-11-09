@@ -35,7 +35,7 @@ if (!empty($message)) {
 	echo "<p>" . $message . "</p>";
 }
 ?>
-<div id="CreateNewUser">
+<div class="CreateNewUser">
 <h2>Create New User</h2>
 
 <form action="" method="post">
@@ -44,7 +44,7 @@ if (!empty($message)) {
 	First Name:<br><input type="text" name="Fname"> <br><br>
 	Last Name:<br><input type="text" name="Lname"> <br><br>
 	Email:<br><input type="text" name="email"> <br><br>
-	Description:<br><input type="text" name="description"> <br><br>
+	Description:<br><textarea cols="21" rows="10" type="text" name="description"></textarea> <br><br>
 	<input type="submit" name="submit" value="Create" />
 </form>
 </div>
