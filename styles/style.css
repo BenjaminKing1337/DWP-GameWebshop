@@ -112,6 +112,7 @@ header ul li a:hover {
     height: 100vh;
     background: #2b2525;
     top: 48px;
+    display: hidden;
     left: -110%;
     text-align: center;
     -webkit-transition: all 0.5s;
@@ -152,8 +153,7 @@ header .cart {
 }
 
 .addlayer {
-  z-index: 4000;
-  position: absolute;
+  display: block;
 }
 
 footer {

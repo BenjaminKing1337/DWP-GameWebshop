@@ -100,6 +100,7 @@ header {
             height: 100vh;
             background: #2b2525;
             top: 48px;
+            display: hidden;
             left: -110%;
             text-align: center;
             transition: all 0.5s;
@@ -132,8 +133,7 @@ header {
 }
 
 .addlayer {
-    z-index:4000;
-    position: absolute;
+    display: block;
 }
 
 
