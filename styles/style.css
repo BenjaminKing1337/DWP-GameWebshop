@@ -133,9 +133,11 @@ header ul li a:hover {
             transform: translate(0, -50%);
   }
   header #check:checked ~ .platformMenu {
+    position: absolute;
     left: 0;
   }
   header #check2:checked ~ .userMenu {
+    position: absolute;
     left: 0;
   }
 }
@@ -147,6 +149,11 @@ header .icon {
 
 header .cart {
   margin-right: 15px;
+}
+
+.addlayer {
+  z-index: 4000;
+  position: absolute;
 }
 
 footer {

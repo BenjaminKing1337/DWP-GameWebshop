@@ -7,6 +7,9 @@ p {
     font-family: "Arimo", sans-serif;
 }
 
+
+
+
 body {
     background-color: #362c2c;
     color: white;
@@ -109,9 +112,13 @@ header {
             }
         }
         #check:checked ~ .platformMenu {
+            position: absolute;
+    
             left: 0;
         }
         #check2:checked ~ .userMenu {
+ 
+            position: absolute;
             left: 0;
         }
     }
@@ -123,6 +130,13 @@ header {
         margin-right: 15px;
     }
 }
+
+.addlayer {
+    z-index:4000;
+    position: absolute;
+}
+
+
 
 //footer
 footer {
