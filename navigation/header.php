@@ -4,6 +4,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" href="styles/style.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<!--     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js">
+ -->    <script src="../main.js"></script>
 </head>
 
 <body>
@@ -15,7 +17,7 @@
             <img onclick="window.location='index.php'" src="assets/logo.png" alt="DWP" height="65px">
             <h1>DWP Games</h1>
         </div>
-        <ul class="platformMenu">
+        <ul class="platformMenu" id="platformMenu">
             <div class="dropdown">
                 <li class="desktop_link"><a href="#">Platform</a></li>
                 <div class="dropdown-content">
@@ -56,7 +58,28 @@
 
         <div class="icons">
             <span class="material-icons icon cart">shopping_cart</span>
-            <label for="check" class="material-icons icon menu">menu</label>
-            <label for="check2" class="material-icons icon menu">account_circle</label>
+            <label for="check" id="addlayer1" class="material-icons icon menu">menu</label>
+            <label for="check2"  id="addlayer2"  class="material-icons icon menu">account_circle</label>
         </div>
     </header>
+
+
+    <script>
+
+    document.getElementById("addlayer1").addEventListener("click", function() {
+     console.log("lameo")
+
+        var element = document.getElementById("platformMenu");
+        element.classList.toggle("addlayer");
+    });
+
+
+    document.getElementById("addlayer2").addEventListener("click", function() {
+     console.log("lameo")
+
+        var element = document.getElementById("userMenu");
+        element.classList.toggle("addlayer");
+    });
+
+
+    </script>

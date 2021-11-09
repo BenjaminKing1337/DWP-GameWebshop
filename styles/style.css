@@ -133,9 +133,11 @@ header ul li a:hover {
             transform: translate(0, -50%);
   }
   header #check:checked ~ .platformMenu {
+    position: absolute;
     left: 0;
   }
   header #check2:checked ~ .userMenu {
+    position: absolute;
     left: 0;
   }
 }
@@ -147,6 +149,11 @@ header .icon {
 
 header .cart {
   margin-right: 15px;
+}
+
+.addlayer {
+  z-index: 4000;
+  position: absolute;
 }
 
 footer {
@@ -561,6 +568,22 @@ footer .policy .policies p {
 }
 
 .contactFormContainer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.CreateNewUser {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
