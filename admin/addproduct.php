@@ -1,6 +1,11 @@
 <?php
 
 require_once('../includes/connection.php');
+require_once('../includes/session.php');
+
+if (!admin()) {
+    redirect_to("../index.php");
+}
 
 $errors = array('Title' => '', 'Price' => '', 'ReleaseDate' => '', 'Description' => '', 'Rating' => '', 'Platform' => '');
 $numerror = 0;
@@ -61,7 +66,9 @@ if (isset($_POST['submit'])) {
 
 
 <html>
-<?php include('../../../DWP-GameWebshop/navigation/header.php'); ?>
+<?php 
+    include("../navigation/adminNav.php");
+?>
 
 <div class="addProductContainer">
     <h2>Here you can add a new product.</h2>
@@ -82,6 +89,6 @@ if (isset($_POST['submit'])) {
     </form>
 </div>
 
-<?php include('../../../DWP-GameWebshop/navigation/footer.php'); ?>
+
 
 </html>

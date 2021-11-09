@@ -1,5 +1,8 @@
 
 <?php
+require_once("includes/connection.php");
+require_once("includes/session.php");
+
 
 $errors = array ('firstname'=>'','lastname'=>'','email'=>'','subject'=>'','message'=>'');
 $numerror = 0;
@@ -61,7 +64,9 @@ if (isset($_POST['submit'])) {
 
 
 <html>
-<?php include("navigation/header.php"); ?>
+<?php 
+    include("navigation/header.php");
+?>
 
 <div class="contactFormContainer">
     <h2>Here you can write us an email!</h2>
