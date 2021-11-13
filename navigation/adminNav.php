@@ -10,7 +10,7 @@
     <header>
         <input type="checkbox" id="check" class="check1">
         <input type="checkbox" id="check2" class="check2">
-
+        
         <div class="logo">
             <img onclick="window.location='../index.php'" src="../assets/logo.png" alt="DWP" height="65px">
             <h1>DWP Games</h1>

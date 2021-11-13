@@ -7,9 +7,6 @@ p {
     font-family: "Arimo", sans-serif;
 }
 
-
-
-
 body {
     background-color: #362c2c;
     color: white;
@@ -114,11 +111,10 @@ header {
         }
         #check:checked ~ .platformMenu {
             position: absolute;
-    
+
             left: 0;
         }
         #check2:checked ~ .userMenu {
- 
             position: absolute;
             left: 0;
         }
@@ -135,8 +131,6 @@ header {
 .addlayer {
     display: block;
 }
-
-
 
 //footer
 footer {
@@ -438,6 +432,60 @@ footer {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+}
+
+.currentProductsContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border: 2px solid white;
+    margin: 0 auto 10ch auto;
+    border-radius: 8px;
+    width: clamp(200px, 80%, 1000px) ;
+    
+    .productNo {
+        align-self: flex-start;
+        border-radius: 8px;
+        border-bottom: 1px solid white;
+        padding: 0 2ch;
+    }
+    .productSubContainer {
+        display: flex;
+        .productInfoContainer {
+            flex-direction: row;
+            width: 100%;
+            .productImg {
+                border-radius: 8px;
+                border: 1px white solid;
+                margin: 1ch;
+                aspect-ratio: 16/9;
+                width: clamp(100px, 100%, 400px);
+                img {
+                    border-radius: 8px;
+                }
+            }
+            .productTitle {
+                padding: 1ch;
+                overflow-wrap: break-word;
+                min-width: 90%;
+
+            }
+        }
+        .productBtnContainer {
+            display: flex;
+            flex-direction: row;
+            justify-self: flex-end;
+            button {
+                padding: 10px;
+                border: 1px solid white;
+                border-radius: 8px;
+                text-decoration: none;
+                margin: 10px;
+                color: white;
+                background-color: transparent;
+            }
+        }
+    }
 }
 
 // contact page

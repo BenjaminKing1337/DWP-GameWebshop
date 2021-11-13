@@ -29,27 +29,32 @@ if (isset($_POST['submit'])) {
     ) {
         $errors['Title'] = " Must have a title.";
         $numerror++;
-    } if (
+    }
+    if (
         !preg_match($regexp2, $_POST['Price'])
     ) {
         $errors['Price'] = " Must have a price.";
         $numerror++;
-    } if (
+    }
+    if (
         !preg_match($regexp3, $_POST['ReleaseDate'])
     ) {
         $errors['ReleaseDate'] = " Must have a release date.";
         $numerror++;
-    } if (
+    }
+    if (
         !preg_match($regexp1, $_POST['Description'])
     ) {
         $errors['Description'] = " Must have a description.";
         $numerror++;
-    } if (
+    }
+    if (
         !preg_match($regexp2, $_POST['Rating'])
     ) {
         $errors['Rating'] = " Must have a rating.";
         $numerror++;
-    } if (
+    }
+    if (
         !preg_match($regexp1, $_POST['Platform'])
     ) {
         $errors['Platform'] = " Must have a platform.";
@@ -66,8 +71,8 @@ if (isset($_POST['submit'])) {
 
 
 <html>
-<?php 
-    include("../navigation/adminNav.php");
+<?php
+include("../navigation/adminNav.php");
 ?>
 
 <div class="addProductContainer">
@@ -90,5 +95,31 @@ if (isset($_POST['submit'])) {
 </div>
 
 
+<?php
+include("../navigation/adminNav.php");
+?>
+
+<h2>Current Registered Products</h2><br><br>
+
+<?php
+$query = "SELECT * FROM `product`";
+$result = mysqli_query($connection, $query) or die("nada joy!");
+while ($row = mysqli_fetch_array($result)) {
+?> <div class="currentProductsContainer">
+        <div class="productNo"> <?php echo "No.: " . $row["id"] ?> </div>
+        <div class="productSubContainer">
+            <div class="productInfoContainer">
+                <div class="productImg"> <?php echo $row["img"] . "</b><br>" ?> </div>
+                <div class="productTitle"> <?php echo "Title: " . "<b>" . $row["Title"] . "</b><br>" ?> </div>
+            </div>
+            <div class="productBtnContainer"> <?php echo "<a style='text-decoration: none;' href='deleteproduct.php?id=" . $row['id'] . "'" ?>
+                onclick="return confirm('Are you sure you want to annihilate?');"
+                <?php echo "> <button>Delete</button></a>" ?><?php echo
+                                                "<a style='text-decoration: none;' href='editproduct.php?id=" . $row['id'] . "'" ?>
+                onclick="return confirm('Are you sure you want to influence changes?');"
+                <?php echo ">  <button> Edit </button></a><br>"; ?> </div>
+        </div>
+    </div>
+<?php } ?>
 
 </html>

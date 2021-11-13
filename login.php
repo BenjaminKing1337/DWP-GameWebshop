@@ -7,7 +7,7 @@
 ?>
 	<?php
 		if (logged_in()) {
-			redirect_to("../index.php");
+			redirect_to("index.php");
 		}
  	?>
 
