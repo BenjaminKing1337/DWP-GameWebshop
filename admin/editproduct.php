@@ -18,10 +18,12 @@ if (isset($_POST['update'])) {
     $description = $_POST['Description'];
     $rating = $_POST['Rating'];
     $platform = $_POST['Platform'];
+    $trailer = $_POST['Trailer'];
+    $screenshots = $_POST['Screenshots'];
 
 
 
-    $sql = "UPDATE `product` SET `img`='$img', `Title`='$title', `Price`='$price', `ReleaseDate`='$releasedate', `Description`='$description', `Rating`='$rating', `Platform`='$platform' WHERE ID='$id'";
+    $sql = "UPDATE `product` SET `img`='$img', `Title`='$title', `Price`='$price', `ReleaseDate`='$releasedate', `Description`='$description', `Rating`='$rating', `Platform`='$platform', `Trailer`='$trailer', `Screenshots`='$screenshots' WHERE ID='$id'";
     echo $sql;
     $edit = mysqli_query($connection, $sql);
 
@@ -50,6 +52,8 @@ if (isset($_POST['update'])) {
     Description:<br><input type="text" name="Description" value="<?php echo $data['Description'] ?>" placeholder="Edit Description" Required> <br><br>
     Rating:<br><input type="text" name="Rating" value="<?php echo $data['Rating'] ?>" placeholder="Edit Rating" Required> <br><br>
     Platform:<br><input type="text" name="Platform" value="<?php echo $data['Platform'] ?>" placeholder="Edit Platform" Required> <br><br>
+    Trailer:<br><input type="text" name="Trailer" value="<?php echo $data['Trailer'] ?>" placeholder="Edit Trailer" Required> <br><br>
+    Screenshot(s):<br><input type="text" name="Screenshots" value="<?php echo $data['Screenshots'] ?>" placeholder="Edit Screenshot(s)" Required> <br><br>
     <input type="submit" name="update" value="Update">
 </form>
 

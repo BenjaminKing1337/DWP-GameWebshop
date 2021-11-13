@@ -17,6 +17,7 @@
         </div>
 
         <ul class="userMenu">
+            <li class="desktop_link"><a href="../index.php">Home</a></li>
             <div class="dropdown">
                 <li class="desktop_link"><a href="#">Settings</a></li>
                 <div class="dropdown-content">

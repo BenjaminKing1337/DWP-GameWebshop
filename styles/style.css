@@ -673,12 +673,12 @@ footer .policy .policies p {
   border-radius: 8px;
   border: 1px white solid;
   margin: 1ch;
-  aspect-ratio: 16/9;
-  width: clamp(100px, 100%, 400px);
+  width: clamp(100px, 60%, 400px);
 }
 
 .currentProductsContainer .productSubContainer .productInfoContainer .productImg img {
   border-radius: 8px;
+  aspect-ratio: 4/3;
 }
 
 .currentProductsContainer .productSubContainer .productInfoContainer .productTitle {

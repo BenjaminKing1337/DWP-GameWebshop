@@ -42,6 +42,9 @@
                     <div class="dropdown">
                         <li class="desktop_link"><a href="#">User</a></li>
                         <div class="dropdown-content">
+                            <?php if(admin()) { ?>
+                                <li><a href="admin/addproduct.php">Admin</a></li>
+                            <?php } ?>    
                             <li><a href="logout.php">Logout</a></li>
                         </div>
                     </div>

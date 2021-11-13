@@ -7,18 +7,21 @@ if (!admin()) {
     redirect_to("../index.php");
 }
 
-$errors = array('Title' => '', 'Price' => '', 'ReleaseDate' => '', 'Description' => '', 'Rating' => '', 'Platform' => '');
+$errors = array('Title' => '', 'Price' => '', 'ReleaseDate' => '', 'Description' => '', 'Rating' => '', 'Platform' => '', 'media' => '');
 $numerror = 0;
 
 if (isset($_POST['submit'])) {
     $Title = $_POST['Title'];
+    $img = $_POST['img'];
     $Price = $_POST['Price'];
     $ReleaseDate = $_POST['ReleaseDate'];
     $Description = $_POST['Description'];
     $Rating = $_POST['Rating'];
     $Platform = $_POST['Platform'];
+    $Trailer = $_POST['Trailer'];
+    $Screenshots = $_POST['Screenshots'];
 
-    $query = "INSERT INTO `product` (`id`, `Title`, `Price`, `ReleaseDate`, `Description`, `Rating`, `Platform`) VALUES (NULL, '$Title', '$Price', '$ReleaseDate', '$Description', '$Rating', '$Platform')";
+    $query = "INSERT INTO `product` (`id`, `Title`, `img`, `Price`, `ReleaseDate`, `Description`, `Rating`, `Platform`, `Trailer`, `Screenshots`) VALUES (NULL, '$Title','$img', '$Price', '$ReleaseDate', '$Description', '$Rating', '$Platform', '$Trailer', '$Screenshots')";
 
     $regexp1 = "/^[A-z0-9 ]{2,600}$/";
     $regexp2 = "/^[+-]?((\d+(\.\d*)?)|(\.\d+))$/";
@@ -60,6 +63,14 @@ if (isset($_POST['submit'])) {
         $errors['Platform'] = " Must have a platform.";
         $numerror++;
     }
+    if (
+        empty($img)
+        || empty($Trailer)
+        || empty($Screenshots)
+    ) {
+        $errors['media'] = " Must have a trailer.";
+        $numerror++;
+    }
     if ($numerror == 0) {
         if (!mysqli_query($connection, $query)) {
             die("DB error: " . mysqli_error($connection));
@@ -80,9 +91,11 @@ include("../navigation/adminNav.php");
     <form method="post" action="addproduct.php">
         Title:<br><input type="text" name="Title">
         <div style="color:red;"><?php echo $errors['Title']; ?></div> <br><br>
+        (Comma Seperated) <br> Thumbnail & Cover:<br><input type="text" name="img">
+        <div style="color:red;"><?php echo $errors['media']; ?></div> <br><br>
         Price:<br><input type="text" name="Price">
         <div style="color:red;"><?php echo $errors['Price']; ?></div> <br><br>
-        Release Date: (YYYY-MM-DD)<br><input type="text" name="ReleaseDate">
+        (YYYY-MM-DD) <br> Release Date:<br><input type="text" name="ReleaseDate">
         <div style="color:red;"><?php echo $errors['ReleaseDate']; ?></div> <br><br>
         Description:<br><textarea type="text" name="Description"></textarea>
         <div style="color:red;"><?php echo $errors['Description']; ?></div> <br><br>
@@ -90,6 +103,10 @@ include("../navigation/adminNav.php");
         <div style="color:red;"><?php echo $errors['Rating']; ?></div> <br><br>
         Platform:<br><input type="text" name="Platform">
         <div style="color:red;"><?php echo $errors['Platform']; ?></div> <br><br>
+        Trailer:<br><input type="text" name="Trailer">
+        <div style="color:red;"><?php echo $errors['media']; ?></div> <br><br>
+        Screenshots:<br><input type="text" name="Screenshots">
+        <div style="color:red;"><?php echo $errors['media']; ?></div> <br><br>
         <input type="submit" name="submit"> <br>
     </form>
 </div>
@@ -109,13 +126,14 @@ while ($row = mysqli_fetch_array($result)) {
         <div class="productNo"> <?php echo "No.: " . $row["id"] ?> </div>
         <div class="productSubContainer">
             <div class="productInfoContainer">
-                <div class="productImg"> <?php echo $row["img"] . "</b><br>" ?> </div>
+                <?php $img = explode(",", $row["img"]); ?>
+                <div class="productImg"><img src="<?php echo $img[0] ?>" alt="thumbnail" style="width:100%;"> </div>
                 <div class="productTitle"> <?php echo "Title: " . "<b>" . $row["Title"] . "</b><br>" ?> </div>
             </div>
             <div class="productBtnContainer"> <?php echo "<a style='text-decoration: none;' href='deleteproduct.php?id=" . $row['id'] . "'" ?>
                 onclick="return confirm('Are you sure you want to annihilate?');"
                 <?php echo "> <button>Delete</button></a>" ?><?php echo
-                                                "<a style='text-decoration: none;' href='editproduct.php?id=" . $row['id'] . "'" ?>
+                                                                "<a style='text-decoration: none;' href='editproduct.php?id=" . $row['id'] . "'" ?>
                 onclick="return confirm('Are you sure you want to influence changes?');"
                 <?php echo ">  <button> Edit </button></a><br>"; ?> </div>
         </div>
