@@ -82,7 +82,7 @@ include("../navigation/adminNav.php");
         <div style="color:red;"><?php echo $errors['Title']; ?></div> <br><br>
         Price:<br><input type="text" name="Price">
         <div style="color:red;"><?php echo $errors['Price']; ?></div> <br><br>
-        Release Date:<br><input type="text" name="ReleaseDate">
+        Release Date: (YYYY-MM-DD)<br><input type="text" name="ReleaseDate">
         <div style="color:red;"><?php echo $errors['ReleaseDate']; ?></div> <br><br>
         Description:<br><textarea type="text" name="Description"></textarea>
         <div style="color:red;"><?php echo $errors['Description']; ?></div> <br><br>

@@ -31,7 +31,8 @@ if(isset($_GET['id'])){
     <div class="singleProductContainer">
 
         <div class="thumbnail">
-            <img width="300px" height="200px" src="https://image.api.playstation.com/vulcan/img/cfn/11307DTu3lzL6thuipVwZruYSmRFn1_SpucegJYgtAzcjZLIRPxpCVJkr5C8vfVy5FYMRdHbaJHQXOZldbhjm9ypcA4w51iZ.png" alt="">
+            <?php $img = explode(',', $product['img']);?>
+            <img src="<?php echo htmlspecialchars($img[1]) ?>" alt="" style="width:100%">
         </div>
 
     <div class="titlecard">
@@ -48,10 +49,20 @@ if(isset($_GET['id'])){
         <div class="spec">Online Players</div>
     </div>
     <div class="video">
-        <h2>trailer goes here</h2>
+        <iframe src="<?php echo htmlspecialchars($product['Trailer']) ?>" style="width:100%" title="YouTube video player" frameborder="0" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
     </div>
-    <div class="slideshow">
-        <h2>images for game go here</h2>
+    <div class="slideshow-container">
+
+        <?php foreach(explode(',', $product['Screenshots']) as $scr){ ?>
+            <div class="mySlides fade">
+                <img src="<?php echo htmlspecialchars($scr) ?>" style="width:100%">
+            </div>
+        <?php } ?>
+        
+
+        <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+        <a class="next" onclick="plusSlides(1)">&#10095;</a>
+
     </div>
     <div class="secondarySpecs">
         <table>
@@ -92,3 +103,31 @@ if(isset($_GET['id'])){
 <?php include("navigation/footer.php"); ?>
 
 </html>
+<script>
+var slideIndex = 1;
+showSlides(slideIndex);
+
+function plusSlides(n) {
+  showSlides(slideIndex += n);
+}
+
+function currentSlide(n) {
+  showSlides(slideIndex = n);
+}
+
+function showSlides(n) {
+  var i;
+  var slides = document.getElementsByClassName("mySlides");
+  var dots = document.getElementsByClassName("dot");
+  if (n > slides.length) {slideIndex = 1}    
+  if (n < 1) {slideIndex = slides.length}
+  for (i = 0; i < slides.length; i++) {
+      slides[i].style.display = "none";  
+  }
+  for (i = 0; i < dots.length; i++) {
+      dots[i].className = dots[i].className.replace(" active", "");
+  }
+  slides[slideIndex-1].style.display = "block";  
+  dots[slideIndex-1].className += " active";
+}
+</script>

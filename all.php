@@ -2,7 +2,7 @@
 require_once("includes/connection.php");
 require_once("includes/session.php");
 
-$sql = "SELECT id, Price FROM product";
+$sql = "SELECT id, img, Price FROM product";
 
 $result = mysqli_query($connection, $sql);
 
@@ -32,7 +32,8 @@ mysqli_close($connection)
                 <div class="platformTag">
                     <img width="25px" height="25px" src="https://i.kym-cdn.com/entries/icons/original/000/012/368/playstation-wallpaper-46825-48282-hd-wallpapers.jpg" alt="">
                 </div>
-                <img width="190px" height="180px" src="https://image.api.playstation.com/vulcan/img/cfn/11307DTu3lzL6thuipVwZruYSmRFn1_SpucegJYgtAzcjZLIRPxpCVJkr5C8vfVy5FYMRdHbaJHQXOZldbhjm9ypcA4w51iZ.png" alt="">
+                <?php $img = explode(',', $product['img']);?>
+                    <img width="190px" height="180px" src="<?php echo htmlspecialchars($img[0])?>" alt="">
             </div>
             <div class="price">
                 <h3><?php echo htmlspecialchars($product['Price']); ?> DKK</h3> <br>

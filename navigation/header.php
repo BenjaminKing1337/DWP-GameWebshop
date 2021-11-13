@@ -38,7 +38,7 @@
 
         <ul class="userMenu" id="userMenu">
             <?php if(isset($_SESSION['usertype'])){
-                if($_SESSION['usertype']=="user" ||$_SESSION['usertype']=="admin" ){ ?>
+                if($_SESSION['usertype']=="user" || $_SESSION['usertype']=="admin"){ ?>
                     <div class="dropdown">
                         <li class="desktop_link"><a href="#">User</a></li>
                         <div class="dropdown-content">
