@@ -12,18 +12,52 @@ CREATE TABLE `accounts` (
     `Fname` VARCHAR(80) NULL, 
     `Lname` VARCHAR(80) NULL, 
     `email` VARCHAR(80) NOT NULL,  
-    `description` TEXT NULL);
+    `description` TEXT NULL,
+    `usertype` VARCHAR(50) DEFAULT 'user');
 
-CREATE TABLE product (
-	id INT,
-	Title VARCHAR(250),
-	Price DECIMAL(5,2),
-	ReleaseDate DATE,
-	Description TEXT,
-	Rating DECIMAL(3,1),
-	Platform VARCHAR(50)
-);
-insert into product (id, Title, Price, ReleaseDate, Description, Rating, Platform) values (1, 'On the Double ', 167.58, '2010-01-26', 'Fusce congue, diam id ornare imperdiet, sapien urna pretium nisl, ut volutpat sapien arcu sed augue. Aliquam erat volutpat. In congue. Etiam justo. Etiam pretium iaculis justo.', 8.8, 'Dodge');
+CREATE TABLE `product` (
+	`id` INT AUTO_INCREMENT NOT NULL PRIMARY KEY,
+    `img` VARCHAR(255) NOT NULL,
+	`Title` VARCHAR(250) NOT NULL,
+	`Price` DECIMAL(5,2) NOT NULL,
+	`ReleaseDate` DATE NOT NULL,
+	`Description` TEXT NOT NULL DEFAULT 'No Description',
+	`Rating` DECIMAL(3,1),
+	`Platform` VARCHAR(50) NOT NULL,
+    `Trailer` VARCHAR (255) NOT NULL,
+    `Screenshots` TEXT NOT NULL);
+
+INSERT INTO product 
+    (id, img, Title, Price, ReleaseDate, Description, Rating, Platform, Trailer, Screenshots) 
+VALUES 
+    (1, 'Ghost Of Tsushima', 'https://upload.wikimedia.org/wikipedia/en/b/b6/Ghost_of_Tsushima.jpg, https://gameranx.com/wp-content/uploads/2020/07/ghost-ost-featured.jpg', 445, '2020-07-17', 'Uncover the hidden wonders of Tsushima in this open-world action adventure from Sucker Punch Productions and PlayStation Studios, available for PS5 and PS4. Forge a new path and wage an unconventional war for the freedom of Tsushima. Challenge opponents with your katana, master the bow to eliminate distant threats, develop stealth tactics to ambush enemies and explore a new story on Iki Island.', 9.5, 'PS4/PS5', 'https://thecenturionreport.com/wp-content/uploads/2021/08/find-all-the-hot-springs.jpeg, https://robinsgames.com/wp-content/uploads/2020/11/Ghost-of-Tsushima-Review-Summary-of-the-Ghost-of-Tsushima-game-plot.jpg, https://i.guim.co.uk/img/media/c39bf8486b167ff4d297f4db15efe4e18078df98/683_269_2713_1628/master/2713.jpg?width=1200&quality=85&auto=format&fit=max&s=1134351c5ddce61338e3b3fb673166a6','https://www.youtube.com/embed/b_iU_gnn28U'),
+    (2, 'Bloodborne', 'https://i1.sndcdn.com/artworks-000117752385-zhasx1-t500x500.jpg, https://image.api.playstation.com/vulcan/img/rnd/202010/2614/O2Z66UWrZH8zcejxopwWxhGu.png', 225, '2015-03-24', 'Hunt your nightmares as you search for answers in the ancient city of Yharnam, now cursed with a strange endemic illness spreading through the streets like wildfire. Danger, death and madness lurk around every corner of this dark and horrific world, and you must discover its darkest secrets in order to survive.', 10, 'PS4/PS5', 'https://img.redbull.com/images/c_fill,w_1500,h_1000,g_auto,f_auto,q_auto/redbullcom/2015/03/03/1331709128868_2/bloodborne, https://media.wired.com/photos/5955c1dc5992c54331ac192f/master/pass/bloodborne_the_old_hunters_V2.jpg','https://www.youtube.com/embed/G203e1HhixY'),
+    (3, 'Outer Wilds', 'https://i1.sndcdn.com/artworks-000655287109-o7nxm0-t500x500.jpg, https://i.ytimg.com/vi/Sm7UlgK5HOw/maxresdefault.jpg', 240, '2019-05-28', 'Welcome to the Space Program! You are the newest recruit of Outer Wilds Ventures, a fledgling space program searching for answers in a strange, constantly evolving solar system.', 10, 'PS4/XBOX ONE/Nintendo/PC', 'https://www.pcinvasion.com/wp-content/uploads/2019/05/outer-wilds-1-1200x675.jpg, https://cdn.pastemagazine.com/www/articles/2019/05/31/outer%20wilds%20feature%20m%20ain.jpg, https://sm.ign.com/ign_nordic/news/o/outer-wild/outer-wilds-is-coming-to-switch_yhkx.jpg','https://www.youtube.com/embed/KYlpUxFbgTM'),
+    (4, 'Bioshock', 'https://www.mobygames.com/images/covers/l/662249-bioshock-remastered-nintendo-switch-front-cover.jpg, https://cdn02.nintendo-europe.com/media/images/10_share_images/games_15/nintendo_switch_4/H2x1_NSwitch_BioshockRemastered.jpg', 190, '2007-08-21', 'BioShock is a shooter unlike any you have ever played, loaded with weapons and tactics never seen. You will have a complete arsenal at your disposal from simple revolvers to grenade launchers and chemical throwers, but you will also be forced to genetically modify your DNA to create an even more deadly weapon: you. Injectable plasmids give you super human powers: blast electrical currents into water to electrocute multiple enemies, or freeze them solid and obliterate them with the swing of a wrench. No encounter ever plays out the same, and no two gamers will play the game the same way.', 8.6, 'PS3/PS4/PC/XBOX 360/XBOX ONE', 'https://cdn.vox-cdn.com/thumbor/88lmW_GOa15KgdwJzKoHKVXmGRE=/0x0:1280x720/1200x800/filters:focal(538x258:742x462)/cdn.vox-cdn.com/uploads/chorus_image/image/66917458/bioshock_the_collection_switch_screenshot02.0.jpg, https://cdn.mos.cms.futurecdn.net/d4132487bf648572736e71934de13be7.jpg','https://www.youtube.com/embed/_KVfPMSK8hA'),
+    (5, 'Far Cry 6', 'https://upload.wikimedia.org/wikipedia/en/3/35/Far_cry_6_cover.jpg, https://images.eurogamer.net/2021/articles/2021-10-07-14-29/far_cry_6_lead.jpg', 460, '2021-10-06', 'Welcome to Yara, a tropical paradise frozen in time. As the dictator of Yara, Antón Castillo is intent on restoring his nation back to its former glory by any means, with his son, Diego, following in his bloody footsteps. Their oppressive rule has ignited a revolution.', 3.4, 'PS4/PS5/XBOX ONE/XBOX SERIES X/PC', 'https://gmedia.playstation.com/is/image/SIEPDC/far-cry-6-comeback-shredder-screen-01-ps4-ps5-en-30jun21?$native$, https://assets2.rockpapershotgun.com/far-cry-6-crossbow-and-crocs.jpg/BROK/resize/1920x1920%3E/format/jpg/quality/80/far-cry-6-crossbow-and-crocs.jpg','https://www.youtube.com/embed/-IJuKT1mHO8'),
+    (6, 'Horizon Zero Dawn', 'https://s2.gaming-cdn.com/images/products/6202/orig/spil-steam-horizon-zero-dawn-complete-edition-cover.jpg, https://image.api.playstation.com/vulcan/ap/rnd/202010/0221/1jE1dG7sSfbJnhoRfAeVc2rs.png?w=1024', 150, '2017-02-28', 'In an era where Machines roam the land and mankind is no longer the dominant species, a young hunter named Aloy embarks on a journey to discover her destiny. In a lush, post-apocalyptic world where nature has reclaimed the ruins of a forgotten civilization, pockets of humanity live on in primitive hunter-gatherer tribes. Their dominion over the new wilderness has been usurped by the Machines – fearsome mechanical creatures of unknown origin.', 8.4, 'PS4/PS5', 'https://cdn.vox-cdn.com/thumbor/Qxdbz7ojsJMqKYcL8SLS9T8oXTk=/0x0:1920x1080/1200x800/filters:focal(807x387:1113x693)/cdn.vox-cdn.com/uploads/chorus_image/image/68982682/Aiming_at_Thunderjaw.0.0.png, https://variety.com/wp-content/uploads/2019/03/hzdaloy.jpeg, https://images0.persgroep.net/rcs/GvJrsEQ6TjdoOZ67v9K6cVpiM7k/diocontent/128897753/_focus/0.29/0.63/_fill/1200/630/?appId=21791a8992982cd8da851550a453bd7f&quality=0.7','https://www.youtube.com/embed/u4-FCsiF5x4'),
+    (7, 'Risk of Rain 2', 'https://cdn2.steamgriddb.com/file/sgdb-cdn/grid/f8dc3073b73dfb018693b7a1dbfcef43.png, https://thepromotiontime.com/wp-content/uploads/2021/01/H2x1_NSwitch_RiskOfRain2_image1600w.jpg', 185, '2020-08-11', 'SURVIVE AN ALIEN PLANET! Over a dozen handcrafted locales await, each packed with challenging monsters and enormous bosses that oppose your continued existence. Fight your way to the final boss and escape or continue your run indefinitely to see just how long you can survive. A unique scaling system means both you and your foes limitlessly increase in power over the course of a game.', 9, 'PS4/XBOX ONE/Nintendo/PC', 'https://gamingbolt.com/wp-content/uploads/2020/08/risk-of-rain-2-image-4.jpg, https://image.jeuxvideo.com/medias-md/159828/1598279048-1030-capture-d-ecran.png','https://www.youtube.com/embed/pJ-aR--gScM'),
+    (8, 'The Last Of Us 2', 'https://direct.rhapsody.com/imageserver/images/alb.482944940/500x500.jpg, https://cdn.mos.cms.futurecdn.net/CEajpQcrXWZQHMMDqoF3zF.jpeg', 445, '2020-06-19', ' Five years after their dangerous journey across the post-pandemic United States, Ellie and Joel have settled down in Jackson, Wyoming. Living amongst a thriving community of survivors has allowed them peace and stability, despite the constant threat of the infected and other, more desperate survivors. When a violent event disrupts that peace, Ellie embarks on a relentless journey to carry out justice and find closure. As she hunts those responsible one by one, she is confronted with the devastating physical and emotional repercussions of her actions.', 5.7, 'PS4/PS5', 'https://sm.ign.com/ign_nordic/news/t/the-last-o/the-last-of-us-part-2-is-getting-a-ps5-exclusive-performance_s43z.jpg, https://media.npr.org/assets/img/2021/02/25/2510225ed61038a780b9.08969556-tloupii_preview_screenshot_04_wide-933bf2d68d635cd07832685ab3b2ed887e1d249e.jpg, https://media.wired.com/photos/5edfe6ec39276c283696879a/master/pass/culture_tlou2_1.jpg','https://www.youtube.com/embed/vhII1qlcZ4E');
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 insert into product (id, Title, Price, ReleaseDate, Description, Rating, Platform) values (2, 'Grudge 2, The', 184.75, '2018-12-23', 'Aenean auctor gravida sem. Praesent id massa id nisl venenatis lacinia. Aenean sit amet justo. Morbi ut odio. Cras mi pede, malesuada in, imperdiet et, commodo vulputate, justo. In blandit ultrices enim. Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Proin interdum mauris non ligula pellentesque ultrices. Phasellus id sapien in sapien iaculis congue. Vivamus metus arcu, adipiscing molestie, hendrerit at, vulputate vitae, nisl. Aenean lectus. Pellentesque eget nunc. Donec quis orci eget orci vehicula condimentum.', 5.1, 'Honda');
 insert into product (id, Title, Price, ReleaseDate, Description, Rating, Platform) values (3, 'Hamster Factor and Other Tales of Twelve Monkeys, The', 117.1, '2016-11-13', 'Suspendisse ornare consequat lectus. In est risus, auctor sed, tristique in, tempus sit amet, sem. Fusce consequat. Nulla nisl. Nunc nisl. Duis bibendum, felis sed interdum venenatis, turpis enim blandit mi, in porttitor pede justo eu massa. Donec dapibus. Duis at velit eu est congue elementum. In hac habitasse platea dictumst. Morbi vestibulum, velit id pretium iaculis, diam erat fermentum justo, nec condimentum neque sapien placerat ante.', 7.5, 'Toyota');
 insert into product (id, Title, Price, ReleaseDate, Description, Rating, Platform) values (4, 'Black God, White Devil (Deus e o Diabo na Terra do Sol)', 66.52, '2011-05-30', 'Nullam sit amet turpis elementum ligula vehicula consequat. Morbi a ipsum. Integer a nibh. In quis justo.', 9.0, 'Buick');
