@@ -130,10 +130,9 @@ while ($row = mysqli_fetch_array($result)) {
                 <div class="productImg"><img src="<?php echo $img[0] ?>" alt="thumbnail" style="width:100%;"> </div>
                 <div class="productTitle"> <?php echo "Title: " . "<b>" . $row["Title"] . "</b><br>" ?> </div>
             </div>
-            <div class="productBtnContainer"> <?php echo "<a style='text-decoration: none;' href='deleteproduct.php?id=" . $row['id'] . "'" ?>
+            <div class="productBtnContainer"> <?php echo "<a style='text-decoration: none;' href='delproduct.php?id=" . $row['id'] . "'" ?>
                 onclick="return confirm('Are you sure you want to annihilate?');"
-                <?php echo "> <button>Delete</button></a>" ?><?php echo
-                                                                "<a style='text-decoration: none;' href='editproduct.php?id=" . $row['id'] . "'" ?>
+                <?php echo "> <button>Delete</button></a>" ?><?php echo "<a style='text-decoration: none;' href='editproduct.php?id=" . $row['id'] . "'" ?>
                 onclick="return confirm('Are you sure you want to influence changes?');"
                 <?php echo ">  <button> Edit </button></a><br>"; ?> </div>
         </div>
