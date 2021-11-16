@@ -40,7 +40,7 @@
             <?php if(isset($_SESSION['usertype'])){
                 if($_SESSION['usertype']=="user" || $_SESSION['usertype']=="admin"){ ?>
                     <div class="dropdown">
-                        <li class="desktop_link"><a href="#">User</a></li>
+                        <li class="desktop_link material-icons icon">account_circle</li>
                         <div class="dropdown-content">
                             <?php if(admin()) { ?>
                                 <li><a href="admin/addproduct.php">Admin</a></li>
@@ -48,6 +48,9 @@
                             <li><a href="logout.php">Logout</a></li>
                         </div>
                     </div>
+                    <?php if(admin()) { ?>
+                                <li class="mobile_link"><a href="admin/addproduct.php">Admin</a></li>
+                            <?php } ?> 
                     <li class="mobile_link"><a href="logout.php">Logout</a></li>
             <?php }} else { ?>
                 <div class="dropdown">
