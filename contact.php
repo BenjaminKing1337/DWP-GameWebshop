@@ -1,7 +1,7 @@
 
 <?php
-require_once("includes/connection.php");
-require_once("includes/session.php");
+require("includes/connection.php");
+require("includes/session.php");
 
 
 $errors = array ('firstname'=>'','lastname'=>'','email'=>'','subject'=>'','message'=>'');

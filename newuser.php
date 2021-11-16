@@ -1,17 +1,8 @@
-
 <?php 
-	require_once("includes/connection.php"); 
-	require_once("includes/session.php"); 
-
-?>
-
-
-<html>
-<?php 
-	include("navigation/header.php");
-?>
+	require("includes/connection.php"); 
+	// require("includes/session.php"); 
 	
-<?php
+
 // START FORM PROCESSING
 if (isset($_POST['submit'])) { // Form has been submitted.
 
@@ -28,17 +19,16 @@ if (isset($_POST['submit'])) { // Form has been submitted.
 	$query = "INSERT INTO `accounts` (`username`, `Fname`, `Lname`, `email`, `description`, `pass`) VALUES ('{$username}', '{$fname}', '{$lname}', '{$email}', '{$description}', '{$hashed_password}')";
 	$result = mysqli_query($connection, $query);
 	if ($result) {
-		$message = "User Created.";
-		header("Location: index.php");
+		
+		header("Location: index.php?uc=1");
 	} else {
 		$message = "User could not be created.";
 		$message .= "<br />" . mysqli_error($connection);
 	}
 }
 
-if (!empty($message)) {
-	echo "<p>" . $message . "</p>";
-}
+include("navigation/header.php");
+
 ?>
 <div class="CreateNewUser">
 <h2>Create New User</h2>

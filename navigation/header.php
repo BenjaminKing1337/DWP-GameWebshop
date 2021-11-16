@@ -53,9 +53,11 @@
                 <div class="dropdown">
                     <li class="desktop_link"><a href="#">User</a></li>
                     <div class="dropdown-content">
+                        <li><a href="newuser.php">Create New User</a></li>
                         <li><a href="login.php">Login</a></li>
                     </div>
                 </div>
+                <li class="mobile_link"><a href="newuser.php">Create New User</a></li>
                 <li class="mobile_link"><a href="login.php">Login</a></li>
             <?php } ?>
         </ul>

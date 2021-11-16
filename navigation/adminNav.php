@@ -26,6 +26,7 @@
                     <li><a href="../logout.php">Logout</a></li>
                 </div>
             </div>
+            <li class="mobile_link"><a href="../index.php">Home</a></li>
             <li class="mobile_link"><a href="accounts.php">User List</a></li>
             <li class="mobile_link"><a href="addproduct.php">Add Product</a></li>
             <li class="mobile_link"><a href="../logout.php">Logout</a></li>

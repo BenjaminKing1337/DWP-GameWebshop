@@ -1,4 +1,4 @@
  document.getElementById("addlayer2").addEventListener("click", function() {
-     console.log("Hi There Kim :)")
+     console.log(":)")
    // document.getElementById("demo").innerHTML = "Hello World";
   });

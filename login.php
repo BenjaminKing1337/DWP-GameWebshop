@@ -1,5 +1,5 @@
-<?php require_once("includes/connection.php"); ?>
-<?php require_once("includes/session.php"); ?>
+<?php require("includes/connection.php"); ?>
+<?php require("includes/session.php"); ?>
 
 <html>
 <?php 

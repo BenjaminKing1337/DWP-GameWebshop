@@ -1,6 +1,6 @@
 <?php
-require_once("includes/connection.php");
-require_once("includes/session.php");
+require("includes/connection.php");
+require("includes/session.php");
 
 //check id parameter
 if(isset($_GET['id'])){

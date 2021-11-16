@@ -1,6 +1,6 @@
 <?php 
-require_once("includes/connection.php");
-require_once("includes/session.php");
+require("includes/connection.php");
+require("includes/session.php");
 
 $sql = "SELECT id, img, Price FROM product";
 
