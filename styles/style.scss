@@ -1,4 +1,23 @@
 @import url("https://fonts.googleapis.com/css2?family=Arimo:wght@400;500;600;700&display=swap");
+
+// COLORSCHEME
+$cs: (
+    mainbg: #362c2c,
+    mainaccent: white,
+    header: #362c2c,
+    dropdownbg: #2b2525,
+    dropdownhover: yellow,
+    footer: #1c1616,
+    footeraccent: #707070,
+    pc: black,
+    ps: #004098,
+    xb: #0f7a10,
+    nt: #e60012,
+    filterbg: lightslategrey,
+    prev-next-btns: rgba(0, 0, 0, 0.3),
+    slideshowdots: #bbb
+);
+
 // font-weight:  regular 400, medium 500, semi-bold 600, bold 700
 h1,
 h2,
@@ -8,8 +27,8 @@ p {
 }
 
 body {
-    background-color: #362c2c;
-    color: white;
+    background-color: map-get($cs, mainbg);
+    color: map-get($cs, mainaccent);
     margin: 100px 0 0 0;
 }
 
@@ -19,7 +38,7 @@ header {
     width: calc(100% - 30px);
     padding: 0 15px;
     padding-right: 15px !important;
-    background-color: #362c2c;
+    background-color: map-get($cs, header);
     position: fixed;
     z-index: 999;
     top: 0;
@@ -27,6 +46,9 @@ header {
     font-family: "Arimo", sans-serif;
     align-items: center;
     justify-content: space-between;
+    .addlayer {
+        display: block;
+    }
     .logo {
         display: flex;
         align-items: center;
@@ -55,11 +77,11 @@ header {
             position: absolute;
             min-width: 160px;
             z-index: 1000;
-            background-color: #2b2525;
+            background-color: map-get($cs, dropdownbg);
             border-radius: 8px;
         }
         .dropdown-content a {
-            color: white;
+            color: map-get($cs, mainaccent);
             padding: 12px 16px;
             text-decoration: none;
             display: block;
@@ -73,9 +95,9 @@ header {
             font-size: 24px;
             a {
                 text-decoration: none;
-                color: white;
+                color: map-get($cs, mainaccent);
                 &:hover {
-                    color: yellow;
+                    color: map-get($cs, dropdownhover);
                 }
             }
         }
@@ -95,7 +117,7 @@ header {
             position: fixed;
             width: calc(100% - 30px);
             height: 100vh;
-            background: #2b2525;
+            background: map-get($cs, dropdownbg);
             top: 48px;
             display: hidden;
             left: -110%;
@@ -128,16 +150,12 @@ header {
     }
 }
 
-.addlayer {
-    display: block;
-}
-
 //footer
 footer {
     height: 97px;
     padding: 0 30px;
     margin-top: 45px;
-    background-color: #1c1616;
+    background-color: map-get($cs, footer);
     display: flex;
     align-items: center;
     justify-content: space-around;
@@ -149,20 +167,20 @@ footer {
         .line {
             height: 65px;
             width: 1px;
-            background-color: #707070;
+            background-color: map-get($cs, footeraccent);
         }
         .options {
             p {
                 font-size: 14px;
                 margin: 3px 0 0 10px;
-                color: #707070;
+                color: map-get($cs, footeraccent);
             }
         }
         .policies {
             p {
                 font-size: 14px;
                 margin: 10px 0 10px 10px;
-                color: #707070;
+                color: map-get($cs, footeraccent);
             }
         }
     }
@@ -171,152 +189,146 @@ footer {
 // index/homepage
 .content {
     padding: 0 15px;
-}
-.hero {
-    margin-top: 60px;
-    h1 {
-        font-weight: 700;
+    .hero {
+        margin-top: 60px;
+        h1 {
+            font-weight: 700;
+        }
+    }
+    .best-sales {
+        margin-top: 60px;
+        h2 {
+            font-weight: 500;
+        }
+        .cards {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            .card {
+                width: 190px;
+                height: 180px;
+                border: 2px solid map-get($cs, mainaccent);
+                border-radius: 8px;
+                margin: 0 auto 15px;
+                img {
+                    border-radius: 8px;
+                }
+            }
+        }
+        .button {
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            h2 {
+                margin-right: 10px;
+            }
+            span {
+                border: 2px solid map-get($cs, mainaccent);
+                border-radius: 100%;
+            }
+        }
+    }
+    .platform {
+        margin-top: 60px;
+        h2 {
+            font-weight: 500;
+        }
+        .pbox {
+            width: 100%;
+            height: 72px;
+            margin-bottom: 12px;
+            border-radius: 8px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .pc {
+            background-color: map-get($cs, pc);
+        }
+        .ps {
+            background-color: map-get($cs, ps);
+        }
+        .xb {
+            background-color: map-get($cs, xb);
+        }
+        .nt {
+            background-color: map-get($cs, nt);
+        }
     }
 }
-
-.best-sales {
-    margin-top: 60px;
-    h2 {
-        font-weight: 500;
+// all p page
+.allContent {
+    .filter {
+        width: 100%;
+        height: 60px;
+        background-color: map-get($cs, filterbg);
+        text-align: center;
     }
 
-    .cards {
+    .allProductsContainer {
+        margin: 0 auto;
+        max-width: 80%;
         display: flex;
         justify-content: center;
         flex-wrap: wrap;
-        .card {
-            width: 190px;
-            height: 180px;
-            border: 2px solid white;
-            border-radius: 8px;
-            margin: 0 auto 15px;
-            img {
-                border-radius: 8px;
-            }
+        @media (max-width: 500px) {
+            max-width: 100%;
         }
-    }
-    .button {
-        display: flex;
-        align-items: center;
-        justify-content: flex-end;
-        h2 {
-            margin-right: 10px;
-        }
-        span {
-            border: 2px solid white;
-            border-radius: 100%;
-        }
-    }
-}
-
-.platform {
-    margin-top: 60px;
-    h2 {
-        font-weight: 500;
-    }
-    .pbox {
-        width: 100%;
-        height: 72px;
-        background-color: gainsboro;
-        margin-bottom: 12px;
-        border-radius: 8px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
-    .pc {
-        background-color: black;
-    }
-    .ps {
-        background-color: #004098;
-    }
-    .xb {
-        background-color: #0f7a10;
-    }
-    .nt {
-        background-color: #e60012;
-    }
-}
-
-// all p page
-
-.filter {
-    width: 100%;
-    height: 60px;
-    background-color: lightslategrey;
-    text-align: center;
-}
-
-.allProductsContainer {
-    margin: 0 auto;
-    max-width: 80%;
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    @media (max-width: 500px) {
-        max-width: 100%;
-    }
-    .productContainer {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        margin: 10px auto 15px;
-        flex-basis: 25%;
-        .product {
-            width: 190px;
-            height: 180px;
-            border: 2px solid white;
-            border-radius: 8px;
-            position: relative;
-            cursor: pointer;
-
-            img {
+        .productContainer {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 10px auto 15px;
+            flex-basis: 25%;
+            .product {
+                width: 190px;
+                height: 180px;
+                border: 2px solid map-get($cs, mainaccent);
                 border-radius: 8px;
-            }
-            .platformTag {
-                position: absolute;
-                right: 10px;
-                bottom: 10px;
-                height: 25px;
-                width: 25px;
-                background-color: lightyellow;
-                border-radius: 8px;
-            }
-        }
+                position: relative;
+                cursor: pointer;
 
-        .price {
-            margin: 10px 0;
-            padding: 15px 0;
-            min-width: 180px;
-            h3,
-            h4 {
-                margin: 2px;
+                img {
+                    border-radius: 8px;
+                }
+                .platformTag {
+                    position: absolute;
+                    right: 10px;
+                    bottom: 10px;
+                    height: 25px;
+                    width: 25px;
+                    border-radius: 8px;
+                }
             }
-            h4 {
-                float: left;
-            }
-            button {
-                float: right;
-                height: 60px;
-                margin-top: -40px;
-                border: 2px solid white;
-                border-radius: 8px;
-                padding: 10px;
-                text-align: center;
-                font-weight: 900;
-                line-height: 13px;
+
+            .price {
+                margin: 10px 0;
+                padding: 15px 0;
+                min-width: 180px;
+                h3,
+                h4 {
+                    margin: 2px;
+                }
+                h4 {
+                    float: left;
+                }
+                button {
+                    float: right;
+                    height: 60px;
+                    margin-top: -40px;
+                    border: 2px solid map-get($cs, mainaccent);
+                    border-radius: 8px;
+                    padding: 10px;
+                    text-align: center;
+                    font-weight: 900;
+                    line-height: 13px;
+                }
             }
         }
     }
 }
 
 //single p page
-
 .singleProductContainer {
     display: flex;
     flex-direction: column;
@@ -324,7 +336,7 @@ footer {
     .thumbnail {
         width: clamp(200px, 80%, 1000px);
         img {
-            border: 2px solid white;
+            border: 2px solid map-get($cs, mainaccent);
             border-radius: 8px;
             aspect-ratio: 16 / 9;
         }
@@ -347,7 +359,7 @@ footer {
     }
     .break {
         width: 80%;
-        border-bottom: 2px solid white;
+        border-bottom: 2px solid map-get($cs, mainaccent);
     }
     .description {
         width: 80%;
@@ -359,7 +371,7 @@ footer {
         .spec {
             height: 50px;
             width: 60px;
-            background-color: white;
+            background-color: map-get($cs, mainaccent);
             border-radius: 8px;
             color: black;
             text-align: center;
@@ -370,17 +382,16 @@ footer {
         width: clamp(200px, 80%, 1000px);
         position: relative;
         margin: 20px 9.5%;
-        border: 2px solid white;
+        border: 2px solid map-get($cs, mainaccent);
         border-radius: 8px;
-        iframe{
+        iframe {
             vertical-align: middle;
             border-radius: 8px;
             aspect-ratio: 16 / 9;
-            
         }
     }
     .mySlides {
-        display: none
+        display: none;
     }
     img {
         vertical-align: middle;
@@ -393,19 +404,20 @@ footer {
         max-width: 1000px;
         position: relative;
         margin: auto 9.5%;
-        border: 2px solid white;
+        border: 2px solid map-get($cs, mainaccent);
         border-radius: 8px;
     }
 
     /* Next & previous buttons */
-    .prev, .next {
+    .prev,
+    .next {
         cursor: pointer;
         position: absolute;
         top: 50%;
         width: auto;
         padding: 16px;
         margin-top: -22px;
-        color: white;
+        color: map-get($cs, mainaccent);
         font-weight: bold;
         font-size: 18px;
         transition: 0.6s ease;
@@ -420,10 +432,16 @@ footer {
     }
 
     /* On hover, add a black background color with a little bit see-through */
-    .prev:hover, .next:hover {
-        background-color: rgba(0,0,0,0.8);
+    .prev:hover,
+    .next:hover {
+        background-color: map-get($cs, prev-next-btns);
     }
-
+    .prev:hover {
+        border-radius: 0 8px 8px 0;
+    }
+    .next:hover {
+        border-radius: 8px 0 0 8px;
+    }
 
     /* The dots/bullets/indicators */
     .dot {
@@ -431,7 +449,7 @@ footer {
         height: 15px;
         width: 15px;
         margin: 0 2px;
-        background-color: #bbb;
+        background-color: map-get($cs, slideshowdots);
         border-radius: 50%;
         display: inline-block;
         transition: background-color 0.6s ease;
@@ -443,12 +461,12 @@ footer {
             border-spacing: 0;
             border-radius: 8px;
             td {
-                border: 2px solid white;
+                border: 2px solid map-get($cs, mainaccent);
                 padding: 10px;
                 border-radius: 0 8px 8px 0;
             }
             th {
-                border: 2px solid white;
+                border: 2px solid map-get($cs, mainaccent);
                 padding: 10px;
                 border-radius: 8px 0 0 8px;
             }
@@ -482,63 +500,63 @@ footer {
 }
 
 // Add Product (admin page)
-
-.addProductContainer {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
-
-.currentProductsContainer {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    border: 2px solid white;
-    margin: 0 auto 10ch auto;
-    border-radius: 8px;
-    width: clamp(200px, 80%, 1000px) ;
-    
-    .productNo {
-        align-self: flex-start;
-        border-radius: 8px;
-        border-bottom: 1px solid white;
-        padding: 0 2ch;
-    }
-    .productSubContainer {
+.adminContent {
+    .addProductContainer {
         display: flex;
-        .productInfoContainer {
-            flex-direction: row;
-            width: 100%;
-            .productImg {
-                border-radius: 8px;
-                border: 1px white solid;
-                margin: 1ch;
-                width: clamp(100px, 60%, 400px);
-                img {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .currentProductsContainer {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        border: 2px solid map-get($cs, mainaccent);
+        margin: 0 auto 10ch auto;
+        border-radius: 8px;
+        width: clamp(200px, 80%, 1000px);
+
+        .productNo {
+            align-self: flex-start;
+            border-radius: 8px;
+            border-bottom: 1px solid map-get($cs, mainaccent);
+            padding: 0 2ch;
+        }
+        .productSubContainer {
+            display: flex;
+            .productInfoContainer {
+                flex-direction: row;
+                width: 100%;
+                .productImg {
                     border-radius: 8px;
-                    aspect-ratio: 4/3;
+                    border: 1px solid map-get($cs, mainaccent);
+                    margin: 1ch;
+                    width: clamp(100px, 60%, 400px);
+                    img {
+                        border-radius: 8px;
+                        aspect-ratio: 4/3;
+                    }
+                }
+                .productTitle {
+                    padding: 1ch;
+                    overflow-wrap: break-word;
+                    min-width: 90%;
                 }
             }
-            .productTitle {
-                padding: 1ch;
-                overflow-wrap: break-word;
-                min-width: 90%;
-
-            }
-        }
-        .productBtnContainer {
-            display: flex;
-            flex-direction: row;
-            justify-self: flex-end;
-            button {
-                padding: 10px;
-                border: 1px solid white;
-                border-radius: 8px;
-                text-decoration: none;
-                margin: 10px;
-                color: white;
-                background-color: transparent;
+            .productBtnContainer {
+                display: flex;
+                flex-direction: row;
+                justify-self: flex-end;
+                button {
+                    padding: 10px;
+                    border: 1px solid map-get($cs, mainaccent);
+                    border-radius: 8px;
+                    text-decoration: none;
+                    margin: 10px;
+                    color: map-get($cs, mainaccent);
+                    background-color: transparent;
+                }
             }
         }
     }

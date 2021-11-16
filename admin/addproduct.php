@@ -77,15 +77,10 @@ if (isset($_POST['submit'])) {
         }
         echo "Product added" . "<br> at " . date("h:i:sa");
     }
-}
-?>
-
-
-<html>
-<?php
+};
 include("../navigation/adminNav.php");
 ?>
-
+<div class="adminContent">
 <div class="addProductContainer">
     <h2>Here you can add a new product.</h2>
     <form method="post" action="addproduct.php">
@@ -111,13 +106,7 @@ include("../navigation/adminNav.php");
     </form>
 </div>
 
-
-<?php
-include("../navigation/adminNav.php");
-?>
-
 <h2>Current Registered Products</h2><br><br>
-
 <?php
 $query = "SELECT * FROM `product`";
 $result = mysqli_query($connection, $query) or die("nada joy!");
@@ -138,5 +127,7 @@ while ($row = mysqli_fetch_array($result)) {
         </div>
     </div>
 <?php } ?>
-
-</html>
+</div>
+<?php
+include("../navigation/footer.php");
+?>

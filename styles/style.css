@@ -33,6 +33,10 @@ header {
           justify-content: space-between;
 }
 
+header .addlayer {
+  display: block;
+}
+
 header .logo {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -152,10 +156,6 @@ header .cart {
   margin-right: 15px;
 }
 
-.addlayer {
-  display: block;
-}
-
 footer {
   height: 97px;
   padding: 0 30px;
@@ -207,23 +207,23 @@ footer .policy .policies p {
   padding: 0 15px;
 }
 
-.hero {
+.content .hero {
   margin-top: 60px;
 }
 
-.hero h1 {
+.content .hero h1 {
   font-weight: 700;
 }
 
-.best-sales {
+.content .best-sales {
   margin-top: 60px;
 }
 
-.best-sales h2 {
+.content .best-sales h2 {
   font-weight: 500;
 }
 
-.best-sales .cards {
+.content .best-sales .cards {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -234,7 +234,7 @@ footer .policy .policies p {
       flex-wrap: wrap;
 }
 
-.best-sales .cards .card {
+.content .best-sales .cards .card {
   width: 190px;
   height: 180px;
   border: 2px solid white;
@@ -242,11 +242,11 @@ footer .policy .policies p {
   margin: 0 auto 15px;
 }
 
-.best-sales .cards .card img {
+.content .best-sales .cards .card img {
   border-radius: 8px;
 }
 
-.best-sales .button {
+.content .best-sales .button {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -258,27 +258,26 @@ footer .policy .policies p {
           justify-content: flex-end;
 }
 
-.best-sales .button h2 {
+.content .best-sales .button h2 {
   margin-right: 10px;
 }
 
-.best-sales .button span {
+.content .best-sales .button span {
   border: 2px solid white;
   border-radius: 100%;
 }
 
-.platform {
+.content .platform {
   margin-top: 60px;
 }
 
-.platform h2 {
+.content .platform h2 {
   font-weight: 500;
 }
 
-.platform .pbox {
+.content .platform .pbox {
   width: 100%;
   height: 72px;
-  background-color: gainsboro;
   margin-bottom: 12px;
   border-radius: 8px;
   display: -webkit-box;
@@ -292,30 +291,30 @@ footer .policy .policies p {
           align-items: center;
 }
 
-.platform .pc {
+.content .platform .pc {
   background-color: black;
 }
 
-.platform .ps {
+.content .platform .ps {
   background-color: #004098;
 }
 
-.platform .xb {
+.content .platform .xb {
   background-color: #0f7a10;
 }
 
-.platform .nt {
+.content .platform .nt {
   background-color: #e60012;
 }
 
-.filter {
+.allContent .filter {
   width: 100%;
   height: 60px;
   background-color: lightslategrey;
   text-align: center;
 }
 
-.allProductsContainer {
+.allContent .allProductsContainer {
   margin: 0 auto;
   max-width: 80%;
   display: -webkit-box;
@@ -329,12 +328,12 @@ footer .policy .policies p {
 }
 
 @media (max-width: 500px) {
-  .allProductsContainer {
+  .allContent .allProductsContainer {
     max-width: 100%;
   }
 }
 
-.allProductsContainer .productContainer {
+.allContent .allProductsContainer .productContainer {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -350,7 +349,7 @@ footer .policy .policies p {
       flex-basis: 25%;
 }
 
-.allProductsContainer .productContainer .product {
+.allContent .allProductsContainer .productContainer .product {
   width: 190px;
   height: 180px;
   border: 2px solid white;
@@ -359,36 +358,35 @@ footer .policy .policies p {
   cursor: pointer;
 }
 
-.allProductsContainer .productContainer .product img {
+.allContent .allProductsContainer .productContainer .product img {
   border-radius: 8px;
 }
 
-.allProductsContainer .productContainer .product .platformTag {
+.allContent .allProductsContainer .productContainer .product .platformTag {
   position: absolute;
   right: 10px;
   bottom: 10px;
   height: 25px;
   width: 25px;
-  background-color: lightyellow;
   border-radius: 8px;
 }
 
-.allProductsContainer .productContainer .price {
+.allContent .allProductsContainer .productContainer .price {
   margin: 10px 0;
   padding: 15px 0;
   min-width: 180px;
 }
 
-.allProductsContainer .productContainer .price h3,
-.allProductsContainer .productContainer .price h4 {
+.allContent .allProductsContainer .productContainer .price h3,
+.allContent .allProductsContainer .productContainer .price h4 {
   margin: 2px;
 }
 
-.allProductsContainer .productContainer .price h4 {
+.allContent .allProductsContainer .productContainer .price h4 {
   float: left;
 }
 
-.allProductsContainer .productContainer .price button {
+.allContent .allProductsContainer .productContainer .price button {
   float: right;
   height: 60px;
   margin-top: -40px;
@@ -516,7 +514,8 @@ footer .policy .policies p {
   border-radius: 8px;
 }
 
-.singleProductContainer .prev, .singleProductContainer .next {
+.singleProductContainer .prev,
+.singleProductContainer .next {
   cursor: pointer;
   position: absolute;
   top: 50%;
@@ -540,8 +539,17 @@ footer .policy .policies p {
   border-radius: 3px 0 0 3px;
 }
 
-.singleProductContainer .prev:hover, .singleProductContainer .next:hover {
-  background-color: rgba(0, 0, 0, 0.8);
+.singleProductContainer .prev:hover,
+.singleProductContainer .next:hover {
+  background-color: rgba(0, 0, 0, 0.3);
+}
+
+.singleProductContainer .prev:hover {
+  border-radius: 0 8px 8px 0;
+}
+
+.singleProductContainer .next:hover {
+  border-radius: 8px 0 0 8px;
 }
 
 .singleProductContainer .dot {
@@ -614,7 +622,7 @@ footer .policy .policies p {
   margin: 0 10px;
 }
 
-.addProductContainer {
+.adminContent .addProductContainer {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -630,7 +638,7 @@ footer .policy .policies p {
           align-items: center;
 }
 
-.currentProductsContainer {
+.adminContent .currentProductsContainer {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -647,7 +655,7 @@ footer .policy .policies p {
   width: clamp(200px, 80%, 1000px);
 }
 
-.currentProductsContainer .productNo {
+.adminContent .currentProductsContainer .productNo {
   -ms-flex-item-align: start;
       align-self: flex-start;
   border-radius: 8px;
@@ -655,13 +663,13 @@ footer .policy .policies p {
   padding: 0 2ch;
 }
 
-.currentProductsContainer .productSubContainer {
+.adminContent .currentProductsContainer .productSubContainer {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
 }
 
-.currentProductsContainer .productSubContainer .productInfoContainer {
+.adminContent .currentProductsContainer .productSubContainer .productInfoContainer {
   -webkit-box-orient: horizontal;
   -webkit-box-direction: normal;
       -ms-flex-direction: row;
@@ -669,25 +677,25 @@ footer .policy .policies p {
   width: 100%;
 }
 
-.currentProductsContainer .productSubContainer .productInfoContainer .productImg {
+.adminContent .currentProductsContainer .productSubContainer .productInfoContainer .productImg {
   border-radius: 8px;
-  border: 1px white solid;
+  border: 1px solid white;
   margin: 1ch;
   width: clamp(100px, 60%, 400px);
 }
 
-.currentProductsContainer .productSubContainer .productInfoContainer .productImg img {
+.adminContent .currentProductsContainer .productSubContainer .productInfoContainer .productImg img {
   border-radius: 8px;
   aspect-ratio: 4/3;
 }
 
-.currentProductsContainer .productSubContainer .productInfoContainer .productTitle {
+.adminContent .currentProductsContainer .productSubContainer .productInfoContainer .productTitle {
   padding: 1ch;
   overflow-wrap: break-word;
   min-width: 90%;
 }
 
-.currentProductsContainer .productSubContainer .productBtnContainer {
+.adminContent .currentProductsContainer .productSubContainer .productBtnContainer {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -698,7 +706,7 @@ footer .policy .policies p {
   justify-self: flex-end;
 }
 
-.currentProductsContainer .productSubContainer .productBtnContainer button {
+.adminContent .currentProductsContainer .productSubContainer .productBtnContainer button {
   padding: 10px;
   border: 1px solid white;
   border-radius: 8px;
