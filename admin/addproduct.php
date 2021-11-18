@@ -7,6 +7,7 @@ if (!admin()) {
     redirect_to("../index.php");
 }
 
+$Title = $img = $Price = $ReleaseDate = $Description = $Rating = $Trailer = $Screenshots = '';
 $errors = array('Title' => '', 'Price' => '', 'ReleaseDate' => '', 'Description' => '', 'Rating' => '', 'Platform' => '', 'media' => '');
 $numerror = 0;
 
@@ -89,35 +90,35 @@ include("../navigation/adminNav.php");
     <form method="post" action="addproduct.php">    
         <fieldset>
             <legend><h3>Here you can add a new product</h3></legend>
-            Title:<br><input type="text" name="Title">
+            Title:<br><input type="text" name="Title" value="<?php echo $Title ?>">
             <div style="color:red;"><?php echo $errors['Title']; ?></div> <br>
-            (Comma Seperated) <br> Thumbnail & Cover:<br><input type="text" name="img">
+            (Comma Seperated) <br> Thumbnail & Cover:<br><input type="text" name="img" value="<?php echo $img ?>">
             <div style="color:red;"><?php echo $errors['media']; ?></div> <br>
-            Price:<br><input type="text" name="Price">
+            Price:<br><input type="text" name="Price" value="<?php echo $Price ?>">
             <div style="color:red;"><?php echo $errors['Price']; ?></div> <br>
-            (YYYY-MM-DD) <br> Release Date:<br><input type="text" name="ReleaseDate">
+            (YYYY-MM-DD) <br> Release Date:<br><input type="text" name="ReleaseDate" value="<?php echo $ReleaseDate ?>">
             <div style="color:red;"><?php echo $errors['ReleaseDate']; ?></div> <br>
-            Description:<br><textarea class="description" type="text" name="Description"></textarea>
+            Description:<br><textarea class="description" type="text" name="Description"><?php echo $Description ?></textarea>
             <div style="color:red;"><?php echo $errors['Description']; ?></div> <br>
-            Rating:<br><input type="text" name="Rating">
+            Rating:<br><input type="text" name="Rating" value="<?php echo $Rating ?>">
             <div style="color:red;"><?php echo $errors['Rating']; ?></div> <br>
             Platform:<br>
-            <input class="check" type="checkbox" name="PlatformChck[]" value="PS4">
+            <input class="check" type="checkbox" name="PlatformChck[]" value="PS4" <?php if(isset($_POST['PlatformChck']) && in_array('PS4',$_POST['PlatformChck'])) echo "checked='checked'"; ?>>
             <label>PS4</label><br>
-            <input class="check" type="checkbox" name="PlatformChck[]" value="PS5">
+            <input class="check" type="checkbox" name="PlatformChck[]" value="PS5" <?php if(isset($_POST['PlatformChck']) && in_array('PS5',$_POST['PlatformChck'])) echo "checked='checked'"; ?>>
             <label>PS5</label><br>
-            <input class="check" type="checkbox" name="PlatformChck[]" value="XBOX-ONE">
+            <input class="check" type="checkbox" name="PlatformChck[]" value="XBOX-ONE" <?php if(isset($_POST['PlatformChck']) && in_array('XBOX-ONE',$_POST['PlatformChck'])) echo "checked='checked'"; ?>>
             <label>XBOX ONE</label><br>
-            <input class="check" type="checkbox" name="PlatformChck[]" value="XBOX-SERIES-X">
+            <input class="check" type="checkbox" name="PlatformChck[]" value="XBOX-SERIES-X" <?php if(isset($_POST['PlatformChck']) && in_array('XBOX-SERIES-X',$_POST['PlatformChck'])) echo "checked='checked'"; ?>>
             <label>XBOX SERIES X</label><br>
-            <input class="check" type="checkbox" name="PlatformChck[]" value="PC">
+            <input class="check" type="checkbox" name="PlatformChck[]" value="PC" <?php if(isset($_POST['PlatformChck']) && in_array('PC',$_POST['PlatformChck'])) echo "checked='checked'"; ?>>
             <label>PC</label><br>
-            <input class="check" type="checkbox" name="PlatformChck[]" value="NINTENDO">
+            <input class="check" type="checkbox" name="PlatformChck[]" value="NINTENDO" <?php if(isset($_POST['PlatformChck']) && in_array('NINTENDO',$_POST['PlatformChck'])) echo "checked='checked'"; ?>>
             <label>NINTENDO</label><br>
             <div style="color:red;"><?php echo $errors['Platform']; ?></div> <br>
-            Trailer:<br><input type="text" name="Trailer">
+            Trailer:<br><input type="text" name="Trailer" value="<?php echo $Trailer ?>">
             <div style="color:red;"><?php echo $errors['media']; ?></div> <br>
-            Screenshots:<br><textarea type="text" name="Screenshots"></textarea>
+            Screenshots:<br><textarea type="text" name="Screenshots"><?php echo $Screenshots ?></textarea>
             <div style="color:red;"><?php echo $errors['media']; ?></div> <br>
             <input class="subButton" type="submit" name="submit" value="SUBMIT"> <br>
         </fieldset>
