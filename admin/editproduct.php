@@ -42,20 +42,23 @@ if (isset($_POST['update'])) {
     include("../navigation/adminNav.php");
 ?>
 
-<h3>Update Data</h3>
-
-<form method="POST">
-    Image:<br><input type="text" name="img" value="<?php echo $data['img'] ?>" placeholder="Edit Image" Required> <br><br>
-    Title:<br><input type="text" name="Title" value="<?php echo $data['Title'] ?>" placeholder="Edit Title" Required> <br><br>
-    Price:<br><input type="text" name="Price" value="<?php echo $data['Price'] ?>" placeholder="Edit Price" Required> <br><br>
-    Release Date:<br><input type="text" name="ReleaseDate" value="<?php echo $data['ReleaseDate'] ?>" placeholder="Edit Release Date" Required> <br><br>
-    Description:<br><input type="text" name="Description" value="<?php echo $data['Description'] ?>" placeholder="Edit Description" Required> <br><br>
-    Rating:<br><input type="text" name="Rating" value="<?php echo $data['Rating'] ?>" placeholder="Edit Rating" Required> <br><br>
-    Platform:<br><input type="text" name="Platform" value="<?php echo $data['Platform'] ?>" placeholder="Edit Platform" Required> <br><br>
-    Trailer:<br><input type="text" name="Trailer" value="<?php echo $data['Trailer'] ?>" placeholder="Edit Trailer" Required> <br><br>
-    Screenshot(s):<br><input type="text" name="Screenshots" value="<?php echo $data['Screenshots'] ?>" placeholder="Edit Screenshot(s)" Required> <br><br>
-    <input type="submit" name="update" value="Update">
-</form>
+<div class="editDiv">
+    <form method="POST">
+        <fieldset>
+            <legend><h3>Update Data</h3></legend>
+            Image:<br><input type="text" name="img" value="<?php echo $data['img'] ?>" placeholder="Edit Image" Required> <br><br>
+            Title:<br><input type="text" name="Title" value="<?php echo $data['Title'] ?>" placeholder="Edit Title" Required> <br><br>
+            Price:<br><input type="text" name="Price" value="<?php echo $data['Price'] ?>" placeholder="Edit Price" Required> <br><br>
+            Release Date:<br><input type="text" name="ReleaseDate" value="<?php echo $data['ReleaseDate'] ?>" placeholder="Edit Release Date" Required> <br><br>
+            Description:<br><textarea type="text" name="Description" placeholder="Edit Description" Required><?php echo $data['Description'] ?></textarea> <br><br>
+            Rating:<br><input type="text" name="Rating" value="<?php echo $data['Rating'] ?>" placeholder="Edit Rating" Required> <br><br>
+            Platform:<br><input type="text" name="Platform" value="<?php echo $data['Platform'] ?>" placeholder="Edit Platform" Required> <br><br>
+            Trailer:<br><input type="text" name="Trailer" value="<?php echo $data['Trailer'] ?>" placeholder="Edit Trailer" Required> <br><br>
+            Screenshot(s):<br><textarea type="text" name="Screenshots" placeholder="Edit Screenshot(s)" Required><?php echo $data['Screenshots'] ?></textarea> <br><br><br>
+            <input type="submit" name="update" value="UPDATE" class="subButton">
+        </fieldset>
+    </form>
+</div>
 
 <?php include("../navigation/footer.php"); ?>
 <html>

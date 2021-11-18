@@ -14,6 +14,18 @@ if (isset($_GET['id'])) {
 
     mysqli_free_result($result);
     mysqli_close($connection);
+
+    $rate = $product['Rating'];
+    $color = "";
+    if($rate < 4){
+        $color = "red";
+    }
+    elseif($rate < 6){
+        $color = "yellow";
+    }
+    else{
+        $color = "lightgreen";
+    }
 };
 include("navigation/header.php");
 ?>
@@ -28,9 +40,13 @@ include("navigation/header.php");
         </div>
         <div class="titlecard">
             <h2><?php echo htmlspecialchars($product['Title']) ?></h2>
-            <h3><?php echo htmlspecialchars($product['Platform']) ?></h3>
+            <h3><?php echo rtrim( htmlspecialchars($product['Platform']) , "/ ") ?></h3>
         </div>
         <div class="break"></div>
+        <div class="dateNrate">
+            <h3 class="releaseDate"> <?php echo htmlspecialchars($product['ReleaseDate']) ?></h3>
+            <h3 class="rating" style="color:<?php echo $color ?>"> <?php echo htmlspecialchars($product['Rating']) ?></h3>
+        </div>
         <div class="description">
             <h4><?php echo htmlspecialchars($product['Description']) ?></h4>
         </div>

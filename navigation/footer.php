@@ -14,7 +14,14 @@
             <p>Privacy Policy</p>
         </div>
     </div>
-    <img onclick="window.location='admin/addproduct.php'" height="50px" src="assets/logo.png" alt="">
+    <?php if(isset($_SESSION['usertype'])){ 
+        if($_SESSION['usertype']=="admin") { ?>
+            <img height="50px" src="https://iconarchive.com/download/i91959/icons8/windows-8/Users-Administrator.ico" alt="">
+        <?php } elseif(($_SESSION['usertype']=="user")){ ?>
+            <img onclick="window.location='index.php'" height="50px" src="assets/logo.png" alt="">
+    <?php }} else{ ?>
+        <img onclick="window.location='index.php'" height="50px" src="assets/logo.png" alt="">
+    <?php } ?>
 </footer>
 
 

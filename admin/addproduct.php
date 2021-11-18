@@ -17,7 +17,11 @@ if (isset($_POST['submit'])) {
     $ReleaseDate = $_POST['ReleaseDate'];
     $Description = $_POST['Description'];
     $Rating = $_POST['Rating'];
-    $Platform = $_POST['Platform'];
+    $PlatformChck = $_POST['PlatformChck'];
+    $Platform = "";
+    foreach($PlatformChck as $chk){
+        $Platform.= $chk."/";
+    }
     $Trailer = $_POST['Trailer'];
     $Screenshots = $_POST['Screenshots'];
 
@@ -57,12 +61,12 @@ if (isset($_POST['submit'])) {
         $errors['Rating'] = " Must have a rating.";
         $numerror++;
     }
-    if (
-        !preg_match($regexp1, $_POST['Platform'])
+    /* if (
+        !preg_match($regexp1, $_POST['PlatformChck'])
     ) {
         $errors['Platform'] = " Must have a platform.";
         $numerror++;
-    }
+    } */
     if (
         empty($img)
         || empty($Trailer)
@@ -82,36 +86,50 @@ include("../navigation/adminNav.php");
 ?>
 <div class="adminContent">
 <div class="addProductContainer">
-    <h2>Here you can add a new product.</h2>
-    <form method="post" action="addproduct.php">
-        Title:<br><input type="text" name="Title">
-        <div style="color:red;"><?php echo $errors['Title']; ?></div> <br><br>
-        (Comma Seperated) <br> Thumbnail & Cover:<br><input type="text" name="img">
-        <div style="color:red;"><?php echo $errors['media']; ?></div> <br><br>
-        Price:<br><input type="text" name="Price">
-        <div style="color:red;"><?php echo $errors['Price']; ?></div> <br><br>
-        (YYYY-MM-DD) <br> Release Date:<br><input type="text" name="ReleaseDate">
-        <div style="color:red;"><?php echo $errors['ReleaseDate']; ?></div> <br><br>
-        Description:<br><textarea type="text" name="Description"></textarea>
-        <div style="color:red;"><?php echo $errors['Description']; ?></div> <br><br>
-        Rating:<br><input type="text" name="Rating">
-        <div style="color:red;"><?php echo $errors['Rating']; ?></div> <br><br>
-        Platform:<br><input type="text" name="Platform">
-        <div style="color:red;"><?php echo $errors['Platform']; ?></div> <br><br>
-        Trailer:<br><input type="text" name="Trailer">
-        <div style="color:red;"><?php echo $errors['media']; ?></div> <br><br>
-        Screenshots:<br><input type="text" name="Screenshots">
-        <div style="color:red;"><?php echo $errors['media']; ?></div> <br><br>
-        <input type="submit" name="submit"> <br>
+    <form method="post" action="addproduct.php">    
+        <fieldset>
+            <legend><h3>Here you can add a new product</h3></legend>
+            Title:<br><input type="text" name="Title">
+            <div style="color:red;"><?php echo $errors['Title']; ?></div> <br>
+            (Comma Seperated) <br> Thumbnail & Cover:<br><input type="text" name="img">
+            <div style="color:red;"><?php echo $errors['media']; ?></div> <br>
+            Price:<br><input type="text" name="Price">
+            <div style="color:red;"><?php echo $errors['Price']; ?></div> <br>
+            (YYYY-MM-DD) <br> Release Date:<br><input type="text" name="ReleaseDate">
+            <div style="color:red;"><?php echo $errors['ReleaseDate']; ?></div> <br>
+            Description:<br><textarea class="description" type="text" name="Description"></textarea>
+            <div style="color:red;"><?php echo $errors['Description']; ?></div> <br>
+            Rating:<br><input type="text" name="Rating">
+            <div style="color:red;"><?php echo $errors['Rating']; ?></div> <br>
+            Platform:<br>
+            <input class="check" type="checkbox" name="PlatformChck[]" value="PS4">
+            <label>PS4</label><br>
+            <input class="check" type="checkbox" name="PlatformChck[]" value="PS5">
+            <label>PS5</label><br>
+            <input class="check" type="checkbox" name="PlatformChck[]" value="XBOX-ONE">
+            <label>XBOX ONE</label><br>
+            <input class="check" type="checkbox" name="PlatformChck[]" value="XBOX-SERIES-X">
+            <label>XBOX SERIES X</label><br>
+            <input class="check" type="checkbox" name="PlatformChck[]" value="PC">
+            <label>PC</label><br>
+            <input class="check" type="checkbox" name="PlatformChck[]" value="NINTENDO">
+            <label>NINTENDO</label><br>
+            <div style="color:red;"><?php echo $errors['Platform']; ?></div> <br>
+            Trailer:<br><input type="text" name="Trailer">
+            <div style="color:red;"><?php echo $errors['media']; ?></div> <br>
+            Screenshots:<br><textarea type="text" name="Screenshots"></textarea>
+            <div style="color:red;"><?php echo $errors['media']; ?></div> <br>
+            <input class="subButton" type="submit" name="submit" value="SUBMIT"> <br>
+        </fieldset>
     </form>
 </div>
 
-<h2>Current Registered Products</h2><br><br>
+<h2 align="center">Current Registered Products</h2><br><br>
 <?php
 $query = "SELECT * FROM `product`";
 $result = mysqli_query($connection, $query) or die("nada joy!");
-while ($row = mysqli_fetch_array($result)) {
-?> <div class="currentProductsContainer">
+while ($row = mysqli_fetch_array($result)) { ?>
+    <div class="currentProductsContainer">
         <div class="productNo"> <?php echo "No.: " . $row["id"] ?> </div>
         <div class="productSubContainer">
             <div class="productInfoContainer">

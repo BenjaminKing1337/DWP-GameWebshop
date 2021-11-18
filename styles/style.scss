@@ -45,7 +45,7 @@ header {
     display: flex;
     font-family: "Arimo", sans-serif;
     align-items: center;
-    justify-content: space-between;
+    justify-content: space-around;
     .addlayer {
         display: block;
     }
@@ -103,8 +103,12 @@ header {
         }
     }
     @media (max-width: 1100px) {
+        justify-content: space-between;
         .menu {
             display: block;
+        }
+        .cart {
+            margin-right: 15px;
         }
         ul {
             .desktop_link,
@@ -145,9 +149,7 @@ header {
         font-size: 2.5em;
         cursor: pointer;
     }
-    .cart {
-        margin-right: 15px;
-    }
+    
 }
 
 //footer
@@ -189,6 +191,11 @@ footer {
 // index/homepage
 .content {
     padding: 0 15px;
+    max-width: 1522px;
+    margin: 0 auto;
+    @media(min-width: 1100px){
+        width: 80%;
+    }
     .hero {
         margin-top: 60px;
         h1 {
@@ -210,6 +217,7 @@ footer {
                 border: 2px solid map-get($cs, mainaccent);
                 border-radius: 8px;
                 margin: 0 auto 15px;
+                cursor: pointer;
                 img {
                     border-radius: 8px;
                 }
@@ -241,6 +249,7 @@ footer {
             display: flex;
             justify-content: center;
             align-items: center;
+            overflow: hidden;
         }
         .pc {
             background-color: map-get($cs, pc);
@@ -355,11 +364,29 @@ footer {
         }
         h3 {
             align-self: flex-end;
+            text-align: end;
         }
     }
     .break {
         width: 80%;
         border-bottom: 2px solid map-get($cs, mainaccent);
+    }
+    .dateNrate{
+        width: 80%;
+        display: flex;
+        justify-content: space-between;
+        .releaseDate{
+            color: rgb(223, 200, 200);
+        }
+        .releaseDate::before{
+            content: "Released: ";
+            color: white;
+        }
+        
+        .rating::before{
+            content: "Metarating: ";
+            color: white;
+        }
     }
     .description {
         width: 80%;
@@ -401,7 +428,7 @@ footer {
 
     /* Slideshow container */
     .slideshow-container {
-        max-width: 1000px;
+        width: clamp(200px, 80%, 1000px);
         position: relative;
         margin: auto 9.5%;
         border: 2px solid map-get($cs, mainaccent);
@@ -506,6 +533,31 @@ footer {
         flex-direction: column;
         justify-content: center;
         align-items: center;
+        margin-bottom: 80px;
+        form{
+            width: clamp(250px, 80%, 1000px);
+            input{
+                width: 100%;
+                height: 30px;
+            }
+            .check{
+                height: 20px;
+                width: 20px;
+            }
+            textarea{
+                height: 120px;
+                width: 100%;
+                resize: vertical;
+            }
+            .subButton{
+                width: 250px;
+                height: 60px;
+                font-size: 20px;
+                position: absolute;
+                left: 50%;
+                transform: translate(-50%);
+            }
+        }
     }
 
     .currentProductsContainer {
@@ -513,7 +565,7 @@ footer {
         flex-direction: column;
         justify-content: center;
         border: 2px solid map-get($cs, mainaccent);
-        margin: 0 auto 10ch auto;
+        margin: 0 auto 6ch auto;
         border-radius: 8px;
         width: clamp(200px, 80%, 1000px);
 
@@ -558,6 +610,36 @@ footer {
                     background-color: transparent;
                 }
             }
+        }
+    }
+}
+
+// Edit product
+
+.editDiv{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 80px;
+    form{
+        width: clamp(250px, 80%, 1000px);
+        input{
+            width: 100%;
+            height: 30px;
+        }
+        textarea{
+            height: 120px;
+            width: 100%;
+            resize: vertical;
+        }
+        .subButton{
+            width: 250px;
+            height: 60px;
+            font-size: 20px;
+            position: absolute;
+            left: 50%;
+            transform: translate(-50%, -30%);
         }
     }
 }
