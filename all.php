@@ -2,7 +2,14 @@
 require("includes/connection.php");
 require("includes/session.php");
 
-$sql = "SELECT id, img, Price FROM product";
+$sql = "SELECT id, img, Title, Price, Platform FROM product ";
+
+if (isset($_POST['search'])){
+    $search_term = $_POST['search_box'];
+
+    $sql .= "WHERE Title = '{$search_term}' ";  
+    $sql .= "OR Platform = '{$search_term}' ";
+}
 
 $result = mysqli_query($connection, $sql);
 
@@ -12,13 +19,20 @@ mysqli_free_result($result);
 
 mysqli_close($connection);
 
+
+
 include("navigation/header.php");
 ?>
 
 <div class="allContent">
     <br><br><br>
     <div align="center" style="font-size: 50px;">All Products Page</div>
-    <div class="filter">FILTER</div>
+    <div class="filter">
+        <form method="POST" action="all.php">
+            Search: <input type="text" name="search_box" value="">
+            <input type="submit" name="search" value="Search">
+        </form>
+    </div>
     <div class="allProductsContainer">
         <?php foreach ($products as $product) { ?>
             <div class="productContainer">

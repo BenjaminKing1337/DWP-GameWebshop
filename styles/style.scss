@@ -270,8 +270,14 @@ footer {
     .filter {
         width: 100%;
         height: 60px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
         background-color: map-get($cs, filterbg);
         text-align: center;
+        form{
+            margin: 0;
+        }
     }
 
     .allProductsContainer {
