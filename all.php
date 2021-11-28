@@ -48,6 +48,9 @@ include("navigation/header.php");
                     <?php $img = explode(',', $product['img']); ?>
                     <img width="190px" height="180px" src="<?php echo htmlspecialchars($img[0]) ?>" alt="">
                 </div>
+                <div class="title">
+                    <h3><?php echo htmlspecialchars(strlen($product['Title']) > 16 ? substr($product['Title'], 0, 16)."..." : $product['Title']); ?></h3>
+                </div>
                 <div class="price">
                     <h3><?php echo htmlspecialchars($product['Price']); ?> DKK</h3> <br>
                     <h4>Old Price</h4>

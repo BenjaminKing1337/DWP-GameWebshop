@@ -373,6 +373,7 @@ footer .policy .policies p {
   margin: 10px auto 15px;
   -ms-flex-preferred-size: 25%;
       flex-basis: 25%;
+  max-width: 200px;
 }
 
 .allContent .allProductsContainer .productContainer .product {
@@ -395,6 +396,10 @@ footer .policy .policies p {
   height: 25px;
   width: 25px;
   border-radius: 8px;
+}
+
+.allContent .allProductsContainer .productContainer .title h3 {
+  margin: 5px 1ch;
 }
 
 .allContent .allProductsContainer .productContainer .price {
@@ -694,23 +699,27 @@ footer .policy .policies p {
   width: clamp(250px, 80%, 1000px);
 }
 
-.adminContent .addProductContainer form input {
+.adminContent .addProductContainer form fieldset {
+  padding: 0 60px;
+}
+
+.adminContent .addProductContainer form fieldset input {
   width: 100%;
   height: 30px;
 }
 
-.adminContent .addProductContainer form .check {
+.adminContent .addProductContainer form fieldset .check {
   height: 20px;
   width: 20px;
 }
 
-.adminContent .addProductContainer form textarea {
+.adminContent .addProductContainer form fieldset textarea {
   height: 120px;
   width: 100%;
   resize: vertical;
 }
 
-.adminContent .addProductContainer form .subButton {
+.adminContent .addProductContainer form fieldset .subButton {
   width: 250px;
   height: 60px;
   font-size: 20px;
@@ -751,19 +760,21 @@ footer .policy .policies p {
   display: flex;
 }
 
-.adminContent .currentProductsContainer .productSubContainer .productInfoContainer {
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
-  width: 100%;
+.adminContent .currentProductsContainer .productSubContainer .productTitle,
+.adminContent .currentProductsContainer .productSubContainer .productPrice,
+.adminContent .currentProductsContainer .productSubContainer .productReleaseDate,
+.adminContent .currentProductsContainer .productSubContainer .productRating,
+.adminContent .currentProductsContainer .productSubContainer .productPlatform {
+  padding: 1ch;
+  overflow-wrap: break-word;
+  min-width: 90%;
 }
 
 .adminContent .currentProductsContainer .productSubContainer .productInfoContainer .productImg {
   border-radius: 8px;
   border: 1px solid white;
-  margin: 1ch;
-  width: clamp(100px, 60%, 400px);
+  width: clamp(100px, 100%, 400px);
+  margin: 0;
 }
 
 .adminContent .currentProductsContainer .productSubContainer .productInfoContainer .productImg img {
@@ -771,24 +782,20 @@ footer .policy .policies p {
   aspect-ratio: 4/3;
 }
 
-.adminContent .currentProductsContainer .productSubContainer .productInfoContainer .productTitle {
-  padding: 1ch;
-  overflow-wrap: break-word;
-  min-width: 90%;
-}
-
 .adminContent .currentProductsContainer .productSubContainer .productBtnContainer {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
-  justify-self: flex-end;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: reverse;
+      -ms-flex-direction: column-reverse;
+          flex-direction: column-reverse;
+  -ms-flex-item-align: start;
+      align-self: flex-start;
 }
 
 .adminContent .currentProductsContainer .productSubContainer .productBtnContainer button {
+  width: 70px;
   padding: 10px;
   border: 1px solid white;
   border-radius: 8px;
