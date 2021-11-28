@@ -4,11 +4,17 @@ require("includes/session.php");
 
 $sql = "SELECT id, img, Title, Price, Platform FROM product ";
 
+
+if(!empty($_GET)){
+    $sql .= "WHERE Platform LIKE '%$_GET[f]%' ";
+}
+
+
 if (isset($_POST['search'])){
     $search_term = $_POST['search_box'];
 
-    $sql .= "WHERE Title = '{$search_term}' ";  
-    $sql .= "OR Platform = '{$search_term}' ";
+    $sql .= "WHERE Title LIKE '%$search_term%' ";  
+    $sql .= "OR Platform LIKE '%$search_term%' ";
 }
 
 $result = mysqli_query($connection, $sql);
@@ -18,7 +24,6 @@ $products = mysqli_fetch_all($result, MYSQLI_ASSOC);
 mysqli_free_result($result);
 
 mysqli_close($connection);
-
 
 
 include("navigation/header.php");

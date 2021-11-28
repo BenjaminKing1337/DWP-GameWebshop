@@ -22,16 +22,16 @@
             <div class="dropdown">
                 <li class="desktop_link"><a href="#">Platform</a></li>
                 <div class="dropdown-content">
-                    <li><a href="all.php">PC</a></li>
-                    <li><a href="#">Playstation</a></li>
-                    <li><a href="#">Xbox</a></li>
-                    <li><a href="#">Nintendo</a></li>
+                    <li><a href="all.php?f=PC">PC</a></li>
+                    <li><a href="all.php?f=PS">Playstation</a></li>
+                    <li><a href="all.php?f=XBOX">Xbox</a></li>
+                    <li><a href="all.php?f=NINTENDO">Nintendo</a></li>
                 </div>
             </div>
             <li class="mobile_link"><a href="all.php">PC</a></li>
-            <li class="mobile_link"><a href="#">Playstation</a></li>
-            <li class="mobile_link"><a href="#">Xbox</a></li>
-            <li class="mobile_link"><a href="#">Nintendo</a></li>
+            <li class="mobile_link"><a href="all.php?f=PS">Playstation</a></li>
+            <li class="mobile_link"><a href="all.php?f=XBOX">Xbox</a></li>
+            <li class="mobile_link"><a href="all.php?f=NINTENDO">Nintendo</a></li>
             <li><a href="#">Sales</a></li>
             <li><a href="#">Genres</a></li>
         </ul>
