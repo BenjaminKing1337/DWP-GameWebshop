@@ -66,16 +66,26 @@
         </ul>
 
         <div class="icons">
-            <span class="material-icons icon cart">shopping_cart</span>
+            <span class="material-icons icon cart" id="cart">shopping_cart</span>
             <label for="check" id="addlayer1" class="material-icons icon menu">menu</label>
             <label for="check2" id="addlayer2" class="material-icons icon menu">account_circle</label>
         </div>
+        <div id="basket" style="visibility: hidden; opacity:0;"></div>
     </header>
 
 
     <script>
-
-
+        const x = document.getElementById("basket")
+        const btn = document.getElementById("cart")
+        btn.onclick = function() {
+            if (x.style.visibility !== "hidden") {
+                x.style.visibility = "hidden";
+                x.style.opacity = "0";
+            } else {
+                x.style.visibility = "visible";
+                x.style.opacity = "1";
+            }
+        }
 
         document.getElementById("addlayer1").addEventListener("click", function() {
             console.log("lameo")

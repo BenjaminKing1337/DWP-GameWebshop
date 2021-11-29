@@ -34,7 +34,7 @@ include("navigation/header.php");
     <div align="center" style="font-size: 50px;">All Products Page</div>
     <div class="filter">
         <form method="POST" action="all.php">
-            Search: <input type="text" name="search_box" value="">
+            Search: <input type="search" name="search_box" placeholder="Search for a game" value="">
             <input type="submit" name="search" value="Search">
         </form>
     </div>

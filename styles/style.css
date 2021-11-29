@@ -156,7 +156,22 @@ header ul li a:hover {
 
 header .icon {
   font-size: 2.5em;
+  height: 40px;
+  width: 40px;
   cursor: pointer;
+}
+
+header #basket {
+  height: 300px;
+  width: 500px;
+  border-radius: 8px;
+  background-color: burlywood;
+  position: absolute;
+  top: 50%;
+  -webkit-transform: translate(0, 50%);
+          transform: translate(0, 50%);
+  -webkit-transition: .2s;
+  transition: .2s;
 }
 
 footer {
@@ -373,7 +388,6 @@ footer .policy .policies p {
   margin: 10px auto 15px;
   -ms-flex-preferred-size: 25%;
       flex-basis: 25%;
-  max-width: 200px;
 }
 
 .allContent .allProductsContainer .productContainer .product {
@@ -398,8 +412,12 @@ footer .policy .policies p {
   border-radius: 8px;
 }
 
+.allContent .allProductsContainer .productContainer .title {
+  width: 180px;
+}
+
 .allContent .allProductsContainer .productContainer .title h3 {
-  margin: 5px 1ch;
+  margin: 5px 0;
 }
 
 .allContent .allProductsContainer .productContainer .price {
