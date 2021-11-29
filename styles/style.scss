@@ -213,7 +213,7 @@ footer {
             .card {
                 width: 190px;
                 height: 180px;
-                border: 2px solid map-get($cs, mainaccent);
+                border: 1px solid map-get($cs, mainaccent);
                 border-radius: 8px;
                 margin: 0 auto 15px;
                 cursor: pointer;
@@ -230,7 +230,7 @@ footer {
                 margin-right: 10px;
             }
             span {
-                border: 2px solid map-get($cs, mainaccent);
+                border: 1px solid map-get($cs, mainaccent);
                 border-radius: 100%;
             }
         }
@@ -299,7 +299,7 @@ footer {
             .product {
                 width: 190px;
                 height: 180px;
-                border: 2px solid map-get($cs, mainaccent);
+                border: 1px solid map-get($cs, mainaccent);
                 border-radius: 8px;
                 position: relative;
                 cursor: pointer;
@@ -337,7 +337,7 @@ footer {
                     float: right;
                     height: 60px;
                     margin-top: -40px;
-                    border: 2px solid map-get($cs, mainaccent);
+                    border: 1px solid map-get($cs, mainaccent);
                     border-radius: 8px;
                     padding: 10px;
                     text-align: center;
@@ -357,7 +357,7 @@ footer {
     .thumbnail {
         width: clamp(200px, 80%, 1000px);
         img {
-            border: 2px solid map-get($cs, mainaccent);
+            border: 1px solid map-get($cs, mainaccent);
             border-radius: 8px;
             aspect-ratio: 16 / 9;
         }
@@ -421,7 +421,7 @@ footer {
         width: clamp(200px, 80%, 1000px);
         position: relative;
         margin: 20px 9.5%;
-        border: 2px solid map-get($cs, mainaccent);
+        border: 1px solid map-get($cs, mainaccent);
         border-radius: 8px;
         iframe {
             vertical-align: middle;
@@ -443,7 +443,7 @@ footer {
         width: clamp(200px, 80%, 1000px);
         position: relative;
         margin: auto 9.5%;
-        border: 2px solid map-get($cs, mainaccent);
+        border: 1px solid map-get($cs, mainaccent);
         border-radius: 8px;
     }
 
@@ -500,12 +500,12 @@ footer {
             border-spacing: 0;
             border-radius: 8px;
             td {
-                border: 2px solid map-get($cs, mainaccent);
+                border: 1px solid map-get($cs, mainaccent);
                 padding: 10px;
                 border-radius: 0 8px 8px 0;
             }
             th {
-                border: 2px solid map-get($cs, mainaccent);
+                border: 1px solid map-get($cs, mainaccent);
                 padding: 10px;
                 border-radius: 8px 0 0 8px;
             }
@@ -550,6 +550,7 @@ footer {
             width: clamp(250px, 80%, 1000px);
             fieldset {
                 padding: 0 60px;
+                border-radius: 8px;
 
                 input {
                     width: 100%;
@@ -580,10 +581,10 @@ footer {
         display: flex;
         flex-direction: column;
         justify-content: center;
-        border: 2px solid map-get($cs, mainaccent);
+        border: 1px solid map-get($cs, mainaccent);
         margin: 0 auto 6ch auto;
         border-radius: 8px;
-        width: clamp(200px, 80%, 1000px);
+        width: clamp(200px, 80%, 600px);
 
         .productNo {
             align-self: flex-start;
@@ -593,6 +594,7 @@ footer {
         }
         .productSubContainer {
             display: flex;
+            justify-content: space-between;
             //  flex-direction: column;
             .productTitle,
             .productPrice,
@@ -609,11 +611,12 @@ footer {
                     border-radius: 8px;
                     border: 1px solid map-get($cs, mainaccent);
                     //margin: 1ch;
-                    width: clamp(100px, 100%, 400px);
-                   margin: 0;
+
+                    margin: 1ch;
                     img {
                         border-radius: 8px;
                         aspect-ratio: 4/3;
+                        max-width: 300px;
                     }
                 }
             }
@@ -634,10 +637,31 @@ footer {
             }
         }
     }
+    .currentRegisteredUsers {
+        width: clamp(300px, 100%, 1200px);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        margin: 0 auto;
+
+        .user {
+            border: solid 1px map-get($cs, mainaccent);
+            border-radius: 8px;
+            padding: 1ch;
+            margin: 1ch;
+            button {
+                padding: 10px;
+                border: 1px solid rebeccapurple;
+                text-decoration: none;
+                margin: 10px;
+                color: rebeccapurple;
+                background-color: transparent;
+            }
+        }
+    }
 }
 
 // Edit product
-
 .editDiv {
     display: flex;
     flex-direction: column;
@@ -646,6 +670,12 @@ footer {
     margin-bottom: 80px;
     form {
         width: clamp(250px, 80%, 1000px);
+        fieldset {
+            width: 80%;
+            margin: 0 auto;
+            padding: 5ch;
+            border-radius: 8px;
+        }
         input {
             width: 100%;
             height: 30px;
@@ -661,22 +691,34 @@ footer {
             font-size: 20px;
             position: absolute;
             left: 50%;
-            transform: translate(-50%, -30%);
+            transform: translate(-50%, -0%);
         }
     }
 }
 
 // contact page
-
 .contactFormContainer {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    fieldset {
+        display: flex;
+        flex-direction: column;
+        padding: 0 6ch;
+        border-radius: 8px;
+    }
+    textarea {
+        resize: vertical;
+    }
+    .submitBtn {
+        margin: 0 auto;
+        margin-bottom: -1ch;
+        width: 60%;
+    }
 }
 
 // create new user page
-
 .CreateNewUser {
     display: flex;
     flex-direction: column;

@@ -248,7 +248,7 @@ footer .policy .policies p {
 .content .best-sales .cards .card {
   width: 190px;
   height: 180px;
-  border: 2px solid white;
+  border: 1px solid white;
   border-radius: 8px;
   margin: 0 auto 15px;
   cursor: pointer;
@@ -275,7 +275,7 @@ footer .policy .policies p {
 }
 
 .content .best-sales .button span {
-  border: 2px solid white;
+  border: 1px solid white;
   border-radius: 100%;
 }
 
@@ -379,7 +379,7 @@ footer .policy .policies p {
 .allContent .allProductsContainer .productContainer .product {
   width: 190px;
   height: 180px;
-  border: 2px solid white;
+  border: 1px solid white;
   border-radius: 8px;
   position: relative;
   cursor: pointer;
@@ -421,7 +421,7 @@ footer .policy .policies p {
   float: right;
   height: 60px;
   margin-top: -40px;
-  border: 2px solid white;
+  border: 1px solid white;
   border-radius: 8px;
   padding: 10px;
   text-align: center;
@@ -452,7 +452,7 @@ footer .policy .policies p {
 }
 
 .singleProductContainer .thumbnail img {
-  border: 2px solid white;
+  border: 1px solid white;
   border-radius: 8px;
   aspect-ratio: 16 / 9;
 }
@@ -542,7 +542,7 @@ footer .policy .policies p {
   width: clamp(200px, 80%, 1000px);
   position: relative;
   margin: 20px 9.5%;
-  border: 2px solid white;
+  border: 1px solid white;
   border-radius: 8px;
 }
 
@@ -566,7 +566,7 @@ footer .policy .policies p {
   width: clamp(200px, 80%, 1000px);
   position: relative;
   margin: auto 9.5%;
-  border: 2px solid white;
+  border: 1px solid white;
   border-radius: 8px;
 }
 
@@ -630,13 +630,13 @@ footer .policy .policies p {
 }
 
 .singleProductContainer .secondarySpecs table td {
-  border: 2px solid white;
+  border: 1px solid white;
   padding: 10px;
   border-radius: 0 8px 8px 0;
 }
 
 .singleProductContainer .secondarySpecs table th {
-  border: 2px solid white;
+  border: 1px solid white;
   padding: 10px;
   border-radius: 8px 0 0 8px;
 }
@@ -701,6 +701,7 @@ footer .policy .policies p {
 
 .adminContent .addProductContainer form fieldset {
   padding: 0 60px;
+  border-radius: 8px;
 }
 
 .adminContent .addProductContainer form fieldset input {
@@ -740,10 +741,10 @@ footer .policy .policies p {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  border: 2px solid white;
+  border: 1px solid white;
   margin: 0 auto 6ch auto;
   border-radius: 8px;
-  width: clamp(200px, 80%, 1000px);
+  width: clamp(200px, 80%, 600px);
 }
 
 .adminContent .currentProductsContainer .productNo {
@@ -758,6 +759,9 @@ footer .policy .policies p {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
 }
 
 .adminContent .currentProductsContainer .productSubContainer .productTitle,
@@ -773,13 +777,13 @@ footer .policy .policies p {
 .adminContent .currentProductsContainer .productSubContainer .productInfoContainer .productImg {
   border-radius: 8px;
   border: 1px solid white;
-  width: clamp(100px, 100%, 400px);
-  margin: 0;
+  margin: 1ch;
 }
 
 .adminContent .currentProductsContainer .productSubContainer .productInfoContainer .productImg img {
   border-radius: 8px;
   aspect-ratio: 4/3;
+  max-width: 300px;
 }
 
 .adminContent .currentProductsContainer .productSubContainer .productBtnContainer {
@@ -805,6 +809,37 @@ footer .policy .policies p {
   background-color: transparent;
 }
 
+.adminContent .currentRegisteredUsers {
+  width: clamp(300px, 100%, 1200px);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  margin: 0 auto;
+}
+
+.adminContent .currentRegisteredUsers .user {
+  border: solid 1px white;
+  border-radius: 8px;
+  padding: 1ch;
+  margin: 1ch;
+}
+
+.adminContent .currentRegisteredUsers .user button {
+  padding: 10px;
+  border: 1px solid rebeccapurple;
+  text-decoration: none;
+  margin: 10px;
+  color: rebeccapurple;
+  background-color: transparent;
+}
+
 .editDiv {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -826,6 +861,13 @@ footer .policy .policies p {
   width: clamp(250px, 80%, 1000px);
 }
 
+.editDiv form fieldset {
+  width: 80%;
+  margin: 0 auto;
+  padding: 5ch;
+  border-radius: 8px;
+}
+
 .editDiv form input {
   width: 100%;
   height: 30px;
@@ -843,8 +885,8 @@ footer .policy .policies p {
   font-size: 20px;
   position: absolute;
   left: 50%;
-  -webkit-transform: translate(-50%, -30%);
-          transform: translate(-50%, -30%);
+  -webkit-transform: translate(-50%, 0%);
+          transform: translate(-50%, 0%);
 }
 
 .contactFormContainer {
@@ -861,6 +903,28 @@ footer .policy .policies p {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+}
+
+.contactFormContainer fieldset {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  padding: 0 6ch;
+  border-radius: 8px;
+}
+
+.contactFormContainer textarea {
+  resize: vertical;
+}
+
+.contactFormContainer .submitBtn {
+  margin: 0 auto;
+  margin-bottom: -1ch;
+  width: 60%;
 }
 
 .CreateNewUser {
