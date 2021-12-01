@@ -152,14 +152,18 @@ header {
         cursor: pointer;
     }
     #basket{
-        height: 300px;
-        width: 500px;
+        height: 400px;
+        width: clamp(300px, 80%, 600px);
         border-radius: 8px;
         background-color: burlywood;
         position: absolute;
         top: 50%;
         transform: translate(0, 50%);
         transition: .2s;
+        @media (max-width: 1100px){
+            left: 50%;
+            transform: translate(-50%, 50%);
+        }
     }
 }
 

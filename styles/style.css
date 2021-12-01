@@ -162,8 +162,8 @@ header .icon {
 }
 
 header #basket {
-  height: 300px;
-  width: 500px;
+  height: 400px;
+  width: clamp(300px, 80%, 600px);
   border-radius: 8px;
   background-color: burlywood;
   position: absolute;
@@ -172,6 +172,14 @@ header #basket {
           transform: translate(0, 50%);
   -webkit-transition: .2s;
   transition: .2s;
+}
+
+@media (max-width: 1100px) {
+  header #basket {
+    left: 50%;
+    -webkit-transform: translate(-50%, 50%);
+            transform: translate(-50%, 50%);
+  }
 }
 
 footer {
