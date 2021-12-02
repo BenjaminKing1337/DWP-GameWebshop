@@ -1,17 +1,17 @@
-<footer>
+</div><footer>
     <div class="nav">
         <div class="line"></div>
         <div class="options">
-            <p>About</p>
-            <p><a style="text-decoration: none; color:unset;" href="/DWP-GameWebshop/contact.php">Contact</a></p>
-            <p>FAQ</p>
+            <p><a style="text-decoration: none; color:unset;" href="about.php">About</a></p>
+            <p><a style="text-decoration: none; color:unset;" href="contact.php">Contact</a></p>
+            <p><a style="text-decoration: none; color:unset;" href="faq.php">FAQ</a></p>
         </div>
     </div>
     <div class="policy">
     <div class="line"></div>
         <div class="policies">
-            <p>Terms of Service</p>
-            <p>Privacy Policy</p>
+            <p><a style="text-decoration: none; color:unset;" href="terms.php">Terms of Service</a></p>
+            <p><a style="text-decoration: none; color:unset;" href="policy.php">Privacy Policy</a></p>
         </div>
     </div>
     <?php if(isset($_SESSION['usertype'])){ 

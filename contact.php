@@ -67,13 +67,12 @@ if (isset($_POST['submit'])) {
 } ?>
 
 
-<html>
 <?php
 include("navigation/header.php");
 ?>
 
 <div class="contactFormContainer">
-    <form method="post" action="/DWP-GameWebshop/contact.php">
+    <form method="post" action="contact.php">
         <fieldset>
             <legend>
                 <h2>Here you can write us an email!</h2>
@@ -95,5 +94,4 @@ include("navigation/header.php");
 </div>
 
 
-<?php include("navigation/footer.php"); ?>
-<html>
+<?php  include("navigation/footer.php"); ?>

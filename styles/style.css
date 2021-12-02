@@ -114,9 +114,6 @@ header ul li a:hover {
   header .menu {
     display: block;
   }
-  header .cart {
-    margin-right: 15px;
-  }
   header ul {
     position: fixed;
     width: calc(100% - 30px);
@@ -161,8 +158,17 @@ header .icon {
   cursor: pointer;
 }
 
+header .icons {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 1ch;
+}
+
 header #basket {
-  height: 400px;
   width: clamp(300px, 80%, 600px);
   border-radius: 8px;
   background-color: burlywood;
@@ -170,8 +176,21 @@ header #basket {
   top: 50%;
   -webkit-transform: translate(0, 50%);
           transform: translate(0, 50%);
-  -webkit-transition: .2s;
-  transition: .2s;
+  -webkit-transition: 0.2s;
+  transition: 0.2s;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 @media (max-width: 1100px) {
@@ -180,6 +199,66 @@ header #basket {
     -webkit-transform: translate(-50%, 50%);
             transform: translate(-50%, 50%);
   }
+}
+
+header #basket .userinfo {
+  text-align: center;
+}
+
+header #basket .userinfo .username {
+  margin: 1ch;
+}
+
+header #basket .userinfo .message {
+  margin: 1ch;
+}
+
+header #basket .item {
+  width: 50%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  border-bottom: 1px solid white;
+}
+
+header #basket .item .quantity {
+  width: 20%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+}
+
+header #basket .item .quantity .incrementer,
+header #basket .item .quantity .decrementer {
+  text-align: center;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(255, 255, 255, 0);
+  border-radius: 8px;
+  border: 1px solid white;
+  color: white;
+}
+
+header #basket .checkout {
+  margin: 1ch;
+}
+
+header #basket .checkout .checkoutBtn {
+  padding: 1ch 3ch;
+  font-size: 26px;
+  border-radius: 8px;
+  border: 1px solid white;
+  background-color: rgba(255, 255, 255, 0);
+  color: white;
 }
 
 footer {
@@ -951,6 +1030,38 @@ footer .policy .policies p {
   margin: 0 auto;
   margin-bottom: -1ch;
   width: 60%;
+}
+
+.termsOfService {
+  width: 60%;
+  margin: 0 auto;
+}
+
+.termsOfService .termsBox {
+  border-radius: 8px;
+  border: 1px solid white;
+  background-color: #2b2525;
+  padding: 0 1ch;
+  color: rgba(236, 231, 225, 0.815);
+}
+
+.FAQ {
+  width: 80%;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.FAQ .faq {
+  padding: 2ch;
+  background-color: #2b2525;
+  border-radius: 8px;
+  margin: 2ch auto;
+  text-align: left;
+}
+
+.FAQ .faq .question {
+  font-style: italic;
+  font-weight: 400;
 }
 
 .CreateNewUser {

@@ -4,7 +4,9 @@
 $cs: (
     mainbg: #362c2c,
     mainaccent: white,
+    offwhite: rgba(236, 231, 225, 0.815),
     header: #362c2c,
+    see-thru: rgba(255, 255, 255, 0),
     dropdownbg: #2b2525,
     dropdownhover: yellow,
     footer: #1c1616,
@@ -107,9 +109,7 @@ header {
         .menu {
             display: block;
         }
-        .cart {
-            margin-right: 15px;
-        }
+
         ul {
             .desktop_link,
             .dropdown {
@@ -151,18 +151,70 @@ header {
         width: 40px;
         cursor: pointer;
     }
-    #basket{
-        height: 400px;
+    .icons {
+        display: flex;
+        align-items: center;
+        padding: 1ch;
+    }
+    #basket {
         width: clamp(300px, 80%, 600px);
         border-radius: 8px;
         background-color: burlywood;
         position: absolute;
         top: 50%;
         transform: translate(0, 50%);
-        transition: .2s;
-        @media (max-width: 1100px){
+        transition: 0.2s;
+        @media (max-width: 1100px) {
             left: 50%;
             transform: translate(-50%, 50%);
+        }
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+        .userinfo {
+            text-align: center;
+            .username {
+                margin: 1ch;
+            }
+            .message {
+                margin: 1ch;
+            }
+        }
+        .item {
+            width: 50%;
+            display: flex;
+            justify-content: space-evenly;
+            align-items: center;
+            border-bottom:1px solid map-get($cs, mainaccent) ;
+            .productName {
+            }
+            .quantity {
+                width: 20%;
+                display: flex;
+                justify-content: space-evenly;
+                .incrementer,
+                .decrementer {
+                    text-align: center;
+                    width: 100%;
+                    height: 100%;
+                    background-color: map-get($cs, see-thru);
+                    border-radius: 8px;
+                    border: 1px solid map-get($cs, mainaccent);
+                    color: map-get($cs, mainaccent);
+                }
+            }
+        }
+        .checkout {
+            margin: 1ch;
+            .checkoutBtn {
+                padding: 1ch 3ch;
+                font-size: 26px;
+                border-radius: 8px;
+                border: 1px solid map-get($cs, mainaccent);
+                background-color: map-get($cs, see-thru);
+                color: map-get($cs, mainaccent);
+            }
         }
     }
 }
@@ -310,7 +362,6 @@ footer {
             align-items: center;
             margin: 10px auto 15px;
             flex-basis: 25%;
-            
 
             .product {
                 width: 190px;
@@ -732,6 +783,39 @@ footer {
         margin: 0 auto;
         margin-bottom: -1ch;
         width: 60%;
+    }
+}
+
+// terms of service
+.termsOfService {
+    width: 60%;
+    margin: 0 auto;
+    .termsBox {
+        border-radius: 8px;
+        border: 1px solid map-get($cs, mainaccent);
+        background-color: map-get($cs, dropdownbg);
+        padding: 0 1ch;
+        color: map-get($cs, offwhite);
+    }
+}
+// FAQ
+.FAQ {
+    width: 80%;
+    margin: 0 auto;
+    text-align: center;
+    .faq {
+        padding: 2ch;
+        background-color: map-get($cs, dropdownbg);
+        border-radius: 8px;
+        margin: 2ch auto;
+        text-align: left;
+        .question {
+            font-style: italic;
+            font-weight: 400;
+        }
+        .answer {
+
+        }
     }
 }
 
