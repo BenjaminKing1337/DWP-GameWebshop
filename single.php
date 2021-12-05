@@ -6,7 +6,7 @@ require("includes/session.php");
 if (isset($_GET['id'])) {
     $id = mysqli_real_escape_string($connection, $_GET['id']);
 
-    $sql = "SELECT * FROM product WHERE id = $id";
+    $sql = "SELECT * FROM games WHERE id = $id";
 
     $result = mysqli_query($connection, $sql);
 
@@ -35,8 +35,7 @@ include("navigation/header.php");
 <?php if ($product) : ?>
     <div class="singleProductContainer">
         <div class="thumbnail">
-            <?php $img = explode(',', $product['img']); ?>
-            <img src="<?php echo htmlspecialchars($img[1]) ?>" alt="" style="width:100%">
+            <img src="<?php echo htmlspecialchars($product['Cover']) ?>" alt="" style="width:100%">
         </div>
         <div class="titlecard">
             <h2><?php echo htmlspecialchars($product['Title']) ?></h2>

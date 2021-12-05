@@ -22,19 +22,19 @@ $date = date('Y-m-d');
 $rate = 8;
 
 // Displays the four best sales by ordering prices low to high
-$price = "SELECT id, img, Price FROM product ORDER BY Price ASC LIMIT 4";
+$price = "SELECT id, Thumbnail, Price FROM games ORDER BY Price ASC LIMIT 4";
 $res_price = mysqli_query($connection, $price);
 $products_price = mysqli_fetch_all($res_price, MYSQLI_ASSOC);
 mysqli_free_result($res_price);
 
 // Displays the four newest releases by ordering release date high to low
-$new = "SELECT id, img, ReleaseDate FROM product ORDER BY ReleaseDate DESC LIMIT 4";
+$new = "SELECT id, Thumbnail, ReleaseDate FROM games ORDER BY ReleaseDate DESC LIMIT 4";
 $res_new = mysqli_query($connection, $new);
 $products_new = mysqli_fetch_all($res_new, MYSQLI_ASSOC);
 mysqli_free_result($res_new);
 
 // Displays the four highest rated items by ordering rating high to low
-$popular = "SELECT id, img, Rating FROM product ORDER BY Rating DESC LIMIT 4";
+$popular = "SELECT id, Thumbnail, Rating FROM games ORDER BY Rating DESC LIMIT 4";
 $res_popular = mysqli_query($connection, $popular);
 $products_popular = mysqli_fetch_all($res_popular, MYSQLI_ASSOC);
 mysqli_free_result($res_popular);
@@ -69,9 +69,8 @@ include("navigation/header.php");
         <h2>Best sales ATM</h2>
         <div class="cards">
             <?php foreach ($products_price as $product) { ?>
-                <?php $img = explode(',', $product['img']); ?>
                 <div class="card" onclick="window.location='single.php?id=<?php echo $product['id'] ?>'">
-                    <img width="190px" height="180px" src="<?php echo htmlspecialchars($img[0]) ?>" alt="">
+                    <img width="190px" height="180px" src="<?php echo htmlspecialchars($product['Thumbnail']) ?>" alt="">
                 </div>
             <?php } ?>
         </div>
@@ -87,9 +86,8 @@ include("navigation/header.php");
         <h2>New releases</h2>
         <div class="cards">
             <?php foreach ($products_new as $product) { ?>
-                <?php $img = explode(',', $product['img']); ?>
                 <div class="card" onclick="window.location='single.php?id=<?php echo $product['id'] ?>'">
-                    <img width="190px" height="180px" src="<?php echo htmlspecialchars($img[0]) ?>" alt="">
+                    <img width="190px" height="180px" src="<?php echo htmlspecialchars($product['Thumbnail']) ?>" alt="">
                 </div>
             <?php } ?>
         </div>
@@ -105,9 +103,8 @@ include("navigation/header.php");
         <h2>Best rated games</h2>
         <div class="cards">
             <?php foreach ($products_popular as $product) { ?>
-                <?php $img = explode(',', $product['img']); ?>
                 <div class="card" onclick="window.location='single.php?id=<?php echo $product['id'] ?>'">
-                    <img width="190px" height="180px" src="<?php echo htmlspecialchars($img[0]) ?>" alt="">
+                    <img width="190px" height="180px" src="<?php echo htmlspecialchars($product['Thumbnail']) ?>" alt="">
                 </div>
             <?php } ?>
         </div>

@@ -2,7 +2,7 @@
 require("includes/connection.php");
 require("includes/session.php");
 
-$sql = "SELECT id, img, Title, Price, ReleaseDate, Rating, Platform FROM product ";
+$sql = "SELECT id, Thumbnail, Title, Price, Platform FROM games ";
 
 // Gets current date
 $today = date('Y-m-d');
@@ -56,8 +56,7 @@ include("navigation/header.php");
                     <div class="platformTag">
                         <img width="25px" height="25px" src="https://i.kym-cdn.com/entries/icons/original/000/012/368/playstation-wallpaper-46825-48282-hd-wallpapers.jpg" alt="">
                     </div>
-                    <?php $img = explode(',', $product['img']); ?>
-                    <img width="190px" height="180px" src="<?php echo htmlspecialchars($img[0]) ?>" alt="">
+                    <img width="190px" height="180px" src="<?php echo htmlspecialchars($product['Thumbnail']) ?>" alt="">
                 </div>
                 <div class="title">
                     <h3><?php echo htmlspecialchars(strlen($product['Title']) > 16 ? substr($product['Title'], 0, 16) . "..." : $product['Title']); ?></h3>
