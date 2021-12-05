@@ -32,6 +32,10 @@ header {
       justify-content: space-around;
 }
 
+header .userMenu {
+  padding: 0;
+}
+
 header .addlayer {
   display: block;
 }
@@ -165,7 +169,7 @@ header .icons {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  padding: 1ch;
+  padding: 14px;
 }
 
 header #basket {
@@ -318,6 +322,17 @@ footer .policy .policies p {
   .content {
     width: 80%;
   }
+}
+
+.content a {
+  text-decoration: none;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  color: white;
 }
 
 .content .hero {
@@ -781,6 +796,47 @@ footer .policy .policies p {
 .singleProductContainer .addToBasket button p,
 .singleProductContainer .addToBasket button i {
   margin: 0 10px;
+}
+
+.adminContent .newsContainer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-bottom: 80px;
+}
+
+.adminContent .newsContainer form {
+  width: clamp(250px, 80%, 1000px);
+}
+
+.adminContent .newsContainer form fieldset {
+  padding: 0 60px;
+  border-radius: 8px;
+}
+
+.adminContent .newsContainer form fieldset input {
+  width: 100%;
+  height: 30px;
+}
+
+.adminContent .newsContainer form .subButton {
+  width: 250px;
+  height: 60px;
+  font-size: 20px;
+  position: absolute;
+  left: 50%;
+  -webkit-transform: translate(-50%);
+          transform: translate(-50%);
 }
 
 .adminContent .addProductContainer {

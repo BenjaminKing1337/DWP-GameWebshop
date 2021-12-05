@@ -2,33 +2,44 @@
 require("includes/connection.php");
 require("includes/session.php");
 
-$sql = "SELECT id, img, Title, Price, Platform FROM product ";
+$sql = "SELECT id, img, Title, Price, ReleaseDate, Rating, Platform FROM product ";
 
+// Gets current date
+$today = date('Y-m-d');
+// Gets current date minus 3 months
+$olddate = date('Y-m-d', strtotime('-3 months', strtotime($today)));
 
-if(!empty($_GET)){
+// if the GET isn't empty, load one of the following options depending on where user navigated from.
+if (isset($_GET['d'])) {
+    $sql .= "WHERE ReleaseDate BETWEEN '$olddate' AND '$_GET[d]' ";
+}
+if (isset($_GET['f'])) {
     $sql .= "WHERE Platform LIKE '%$_GET[f]%' ";
+}
+if (isset($_GET['s'])) {
+    $sql .= "WHERE Price < '$_GET[s]' ";
+}
+if (isset($_GET['r'])) {
+    $sql .= "WHERE Rating > '$_GET[r]' ";
 }
 
 
-if (isset($_POST['search'])){
+if (isset($_POST['search'])) {
     $search_term = $_POST['search_box'];
 
-    $sql .= "WHERE Title LIKE '%$search_term%' ";  
+    $sql .= "WHERE Title LIKE '%$search_term%' ";
     $sql .= "OR Platform LIKE '%$search_term%' ";
 }
 
 $result = mysqli_query($connection, $sql);
-
 $products = mysqli_fetch_all($result, MYSQLI_ASSOC);
 
 mysqli_free_result($result);
-
 mysqli_close($connection);
 
 
 include("navigation/header.php");
 ?>
-
 <div class="allContent">
     <br><br><br>
     <div align="center" style="font-size: 50px;">All Products Page</div>
@@ -49,7 +60,7 @@ include("navigation/header.php");
                     <img width="190px" height="180px" src="<?php echo htmlspecialchars($img[0]) ?>" alt="">
                 </div>
                 <div class="title">
-                    <h3><?php echo htmlspecialchars(strlen($product['Title']) > 16 ? substr($product['Title'], 0, 16)."..." : $product['Title']); ?></h3>
+                    <h3><?php echo htmlspecialchars(strlen($product['Title']) > 16 ? substr($product['Title'], 0, 16) . "..." : $product['Title']); ?></h3>
                 </div>
                 <div class="price">
                     <h3><?php echo htmlspecialchars($product['Price']); ?> DKK</h3> <br>

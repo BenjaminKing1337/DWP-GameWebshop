@@ -83,6 +83,7 @@ if (isset($_POST['submit'])) {
         echo "Product added" . "<br> at " . date("h:i:sa");
     }
 };
+
 include("../navigation/adminNav.php");
 ?>
 <div class="adminContent">

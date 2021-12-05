@@ -2,20 +2,43 @@
 require('includes/connection.php');
 require('includes/session.php');
 
+// $news = "SELECT * FROM `new`";
+// $newsResult = mysqli_query($connection, $news);
+// $new = mysqli_fetch_all($newsResult, MYSQLI_ASSOC);
+
+// // Gets current date
+// $today = date('Y-m-d');
+// // Gets current date minus 3 months
+// $olddate = date('Y-m-d', strtotime('-' . $new['date'[0]]  . 'months', strtotime($today)));
+// // Determines when a product:
+// // is on sale.
+// $sale = $new['sale'[0]];
+// // is a new release.
+// $date = $olddate;
+// // is highly rated.
+// $rate = $new['rate'[0]];
+$sale = 200;
+$date = date('Y-m-d');
+$rate = 8;
+
+// Displays the four best sales by ordering prices low to high
 $price = "SELECT id, img, Price FROM product ORDER BY Price ASC LIMIT 4";
 $res_price = mysqli_query($connection, $price);
 $products_price = mysqli_fetch_all($res_price, MYSQLI_ASSOC);
 mysqli_free_result($res_price);
 
+// Displays the four newest releases by ordering release date high to low
 $new = "SELECT id, img, ReleaseDate FROM product ORDER BY ReleaseDate DESC LIMIT 4";
 $res_new = mysqli_query($connection, $new);
 $products_new = mysqli_fetch_all($res_new, MYSQLI_ASSOC);
 mysqli_free_result($res_new);
 
+// Displays the four highest rated items by ordering rating high to low
 $popular = "SELECT id, img, Rating FROM product ORDER BY Rating DESC LIMIT 4";
 $res_popular = mysqli_query($connection, $popular);
 $products_popular = mysqli_fetch_all($res_popular, MYSQLI_ASSOC);
 mysqli_free_result($res_popular);
+
 
 mysqli_close($connection);
 
@@ -53,8 +76,10 @@ include("navigation/header.php");
             <?php } ?>
         </div>
         <div class="button">
+            <a href="all.php?s=<?= $sale ?>">
             <h2>See all</h2>
             <span class="material-icons">keyboard_arrow_right</span>
+            </a>
         </div>
     </div>
 
@@ -69,8 +94,10 @@ include("navigation/header.php");
             <?php } ?>
         </div>
         <div class="button">
+        <a href="all.php?d=<?= $date ?>">
             <h2>See all</h2>
             <span class="material-icons">keyboard_arrow_right</span>
+        </a>
         </div>
     </div>
 
@@ -85,8 +112,10 @@ include("navigation/header.php");
             <?php } ?>
         </div>
         <div class="button">
+        <a href="all.php?r=<?= $rate ?>">
             <h2>See all</h2>
             <span class="material-icons">keyboard_arrow_right</span>
+        </a>
         </div>
     </div>
 
