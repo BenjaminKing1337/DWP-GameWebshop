@@ -7,8 +7,14 @@ if (!admin()) {
     redirect_to("../index.php");
 }
 
-$Title = $Thumbnail = $Cover = $Price = $ReleaseDate = $Description = $Rating = $Trailer = $Screenshots = '';
-$errors = array('Title' => '', 'Price' => '', 'ReleaseDate' => '', 'Description' => '', 'Rating' => '', 'Platform' => '', 'media' => '');
+$query_select = "SELECT * FROM `games`";
+$result = mysqli_query($connection, $query_select) or die("DB error: " . mysqli_error($connection));
+$product = mysqli_fetch_all($result, MYSQLI_ASSOC);
+mysqli_free_result($result);
+
+
+$Title = $Thumbnail = $Cover = $Price = $ReleaseDate = $Description = $Rating = $PlatformChck = $GenreChck = $Trailer = $Screenshots = '';
+$errors = array('Title' => '', 'Price' => '', 'ReleaseDate' => '', 'Description' => '', 'Rating' => '', 'Platform' => '', 'Genre' => '', 'media' => '');
 $numerror = 0;
 
 if (isset($_POST['submit'])) {
@@ -19,15 +25,19 @@ if (isset($_POST['submit'])) {
     $ReleaseDate = $_POST['ReleaseDate'];
     $Description = $_POST['Description'];
     $Rating = $_POST['Rating'];
-    $GenreChck = $_POST['GenreChck'];
-    $Genre = '';
-    foreach ($GenreChck as $Gchk) {
-        $Genre .= $Gchk . "/";
-    }
-    $PlatformChck = $_POST['PlatformChck'];
+    $PlatformChck = !empty($_POST['PlatformChck']) ? $_POST['PlatformChck'] : '';
     $Platform = "";
-    foreach ($PlatformChck as $Pchk) {
-        $Platform .= $Pchk . "/";
+    if(!empty($PlatformChck)){
+        foreach ($PlatformChck as $Pchk) {
+            $Platform .= $Pchk . "/";
+        }
+    }
+    $GenreChck = !empty($_POST['GenreChck']) ? $_POST['GenreChck'] : '';
+    $Genre = '';
+    if(!empty($GenreChck)){
+        foreach ($GenreChck as $Gchk) {
+            $Genre .= $Gchk . "/";
+        }
     }
     $Trailer = $_POST['Trailer'];
     $Screenshots = $_POST['Screenshots'];
@@ -84,10 +94,24 @@ if (isset($_POST['submit'])) {
         $errors['media'] = " Must have a trailer.";
         $numerror++;
     }
+    if (
+        empty($Platform)
+    ) {
+        $errors['Platform'] = " Must have a platform.";
+        $numerror++;
+    }
+    if (
+        empty($Genre)
+    ) {
+        $errors['Genre'] = " Must have a genre.";
+        $numerror++;
+    }
     if ($numerror == 0) {
         if (!mysqli_multi_query($connection, $query)) {
             die("DB error: " . mysqli_error($connection));
         }
+        header('Location: '.$_SERVER['PHP_SELF']);
+        exit;
         echo "Product added" . "<br> at " . date("h:i:sa");
         $Title = $Thumbnail = $Cover = $Price = $ReleaseDate = $Description = $Rating = $GenreChck = $PlatformChck = $Trailer = $Screenshots = '';
     }
@@ -145,7 +169,7 @@ include("../navigation/adminNav.php");
                     <label>FPS</label><br>
                     <input class="check" type="checkbox" name="GenreChck[]" value="Horror" <?php if (isset($_POST['GenreChck']) && in_array('Horror', $_POST['GenreChck'])) echo "checked='checked'"; ?>>
                     <label>Horror</label><br>
-                <div style="color:red;"><?php echo $errors['Platform']; ?></div> <br>
+                <div style="color:red;"><?php echo $errors['Genre']; ?></div> <br>
                 Trailer:<br><input type="text" name="Trailer" value="<?php echo $Trailer ?>">
                 <div style="color:red;"><?php echo $errors['media']; ?></div> <br>
                 Screenshots:<br><textarea type="text" name="Screenshots"><?php echo $Screenshots ?></textarea>
@@ -157,9 +181,8 @@ include("../navigation/adminNav.php");
 
     <h2 align="center">Current Registered Products</h2><br><br>
     <?php
-    $query = "SELECT * FROM `games`";
-    $result = mysqli_query($connection, $query) or die("nada joy!");
-    while ($row = mysqli_fetch_array($result)) { ?>
+    
+    foreach ($product as $row) { ?>
         <div class="currentProductsContainer">
             <div class="productNo"> <?php echo "No.: " . $row["id"] ?> </div>
             <div class="productSubContainer">

@@ -40,37 +40,37 @@
                 <label for="check" id="addlayer1" class="material-icons menu" style="font-size: 3em; cursor: pointer;">menu</label>
                 <label class="material-icons icon cart" id="cart">shopping_cart</label>
                 <label for="check2" id="addlayer2" class="material-icons icon menu">account_circle</label>
-            </div>
+        </div>
         
-            <ul class="userMenu" id="userMenu">
-                <?php if (isset($_SESSION['usertype'])) {
-                    if ($_SESSION['usertype'] == "user" || $_SESSION['usertype'] == "admin") { ?>
-                        <div class="dropdown">
-                            <li class="desktop_link material-icons icon">account_circle</li>
-                            <div class="dropdown-content">
-                                <?php if (admin()) { ?>
-                                    <li><a href="admin/addproduct.php">Admin</a></li>
-                                <?php } ?>
-                                <li><a href="logout.php">Logout</a></li>
-                            </div>
-                        </div>
-                        <?php if (admin()) { ?>
-                            <li class="mobile_link"><a href="admin/addproduct.php">Admin</a></li>
-                        <?php } ?>
-                        <li class="mobile_link"><a href="logout.php">Logout</a></li>
-                    <?php }
-                } else { ?>
+        <ul class="userMenu" id="userMenu">
+            <?php if (isset($_SESSION['usertype'])) {
+                if ($_SESSION['usertype'] == "user" || $_SESSION['usertype'] == "admin") { ?>
                     <div class="dropdown">
-                        <li class="desktop_link"><a href="#">User</a></li>
+                        <li class="desktop_link material-icons icon">account_circle</li>
                         <div class="dropdown-content">
-                            <li><a href="newuser.php">Create New User</a></li>
-                            <li><a href="login.php">Login</a></li>
+                            <?php if (admin()) { ?>
+                                <li><a href="admin/addproduct.php">Admin</a></li>
+                            <?php } ?>
+                            <li><a href="logout.php">Logout</a></li>
                         </div>
                     </div>
-                    <li class="mobile_link"><a href="newuser.php">Create New User</a></li>
-                    <li class="mobile_link"><a href="login.php">Login</a></li>
-                <?php } ?>
-            </ul>
+                    <?php if (admin()) { ?>
+                        <li class="mobile_link"><a href="admin/addproduct.php">Admin</a></li>
+                    <?php } ?>
+                    <li class="mobile_link"><a href="logout.php">Logout</a></li>
+                <?php }
+            } else { ?>
+                <div class="dropdown">
+                    <li class="desktop_link"><a href="#">User</a></li>
+                    <div class="dropdown-content">
+                        <li><a href="newuser.php">Create New User</a></li>
+                        <li><a href="login.php">Login</a></li>
+                    </div>
+                </div>
+                <li class="mobile_link"><a href="newuser.php">Create New User</a></li>
+                <li class="mobile_link"><a href="login.php">Login</a></li>
+            <?php } ?>
+        </ul>
 
             
         

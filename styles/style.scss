@@ -47,7 +47,7 @@ header {
     display: flex;
     font-family: "Arimo", sans-serif;
     align-items: center;
-    justify-content: space-around;
+    justify-content: center ;
     .userMenu {
         padding: 0;
     }
@@ -57,7 +57,9 @@ header {
     .logo {
         display: flex;
         align-items: center;
+        justify-content: end;
         cursor: pointer;
+        flex-grow: 0.8;
     }
     .menu {
         float: right;
@@ -69,7 +71,8 @@ header {
     }
     ul {
         list-style: none;
-        float: right;
+        flex-grow: 4;
+        text-align: center;
         .mobile_link {
             display: none;
         }
@@ -107,8 +110,16 @@ header {
             }
         }
     }
+    .userMenu{
+        flex-grow: 1;
+        text-align: start;
+    }
     @media (max-width: 1100px) {
         justify-content: space-between;
+        flex-grow: 0;
+        .logo{
+            justify-content: start;
+        }
         .menu {
             display: block;
         }
@@ -121,21 +132,27 @@ header {
                 display: block;
             }
             position: fixed;
-            width: calc(100% - 30px);
+            width: 100%;
             height: 100vh;
+            padding: 0;
             background: map-get($cs, dropdownbg);
             top: 48px;
             display: hidden;
-            left: -110%;
+            left: -100%;
             text-align: center;
             transition: all 0.5s;
             li {
                 display: block;
                 line-height: 100px;
                 position: relative;
+                margin: 0;
                 top: 15%;
                 transform: translate(0, -50%);
             }
+        }
+        .userMenu{
+            flex-grow: 0;
+            text-align: center;
         }
         #check:checked ~ .platformMenu {
             position: absolute;
@@ -164,7 +181,8 @@ header {
         background-color: burlywood;
         position: absolute;
         top: 50%;
-        transform: translate(0, 50%);
+        left: 50%;
+        transform: translate(-50%, 50%);
         transition: 0.2s;
         @media (max-width: 1100px) {
             left: 50%;
