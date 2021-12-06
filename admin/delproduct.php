@@ -1,8 +1,11 @@
 <?php
 require ("../includes/connection.php");
-if(isset($_GET['id'])) {
-    $query = "DELETE FROM `product` WHERE id=" .$_GET['id'];
-    mysqli_query($connection, $query);
+$id = $_GET['id'];
+if(isset($id)) {
+    $query = "DELETE FROM `product` WHERE id='$id';
+                DELETE FROM `media` WHERE mediaID='$id'";
+    
+    mysqli_multi_query($connection, $query);
     header("Location: addproduct.php");
 
 }

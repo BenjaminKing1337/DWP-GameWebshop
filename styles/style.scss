@@ -342,14 +342,16 @@ footer {
 .allContent {
     .filter {
         width: 100%;
-        height: 60px;
+        height: auto;
+        padding: 10px 0;
         display: flex;
+        flex-direction: column;
         align-items: center;
         justify-content: center;
         background-color: map-get($cs, filterbg);
         text-align: center;
         form {
-            margin: 0;
+            margin: 10px 0;
         }
     }
 
@@ -696,6 +698,10 @@ footer {
         .productSubContainer {
             display: flex;
             justify-content: space-between;
+            @media(max-width: 700px){
+                flex-direction: column;
+                align-items: center;
+            }
             //  flex-direction: column;
             .productTitle,
             .productPrice,
@@ -717,7 +723,8 @@ footer {
                     img {
                         border-radius: 8px;
                         aspect-ratio: 4/3;
-                        max-width: 300px;
+                        min-width: 250px;
+                        max-width: 250px;
                     }
                 }
             }
@@ -725,6 +732,10 @@ footer {
                 display: flex;
                 flex-direction: column-reverse;
                 align-self: flex-start;
+                @media(max-width: 700px){
+                    flex-direction: row-reverse;
+                    align-self: center;
+                }
                 button {
                     width: 70px;
                     padding: 10px;

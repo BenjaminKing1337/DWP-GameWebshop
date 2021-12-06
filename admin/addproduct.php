@@ -7,26 +7,33 @@ if (!admin()) {
     redirect_to("../index.php");
 }
 
-$Title = $img = $Price = $ReleaseDate = $Description = $Rating = $Trailer = $Screenshots = '';
+$Title = $Thumbnail = $Cover = $Price = $ReleaseDate = $Description = $Rating = $Trailer = $Screenshots = '';
 $errors = array('Title' => '', 'Price' => '', 'ReleaseDate' => '', 'Description' => '', 'Rating' => '', 'Platform' => '', 'media' => '');
 $numerror = 0;
 
 if (isset($_POST['submit'])) {
     $Title = $_POST['Title'];
-    $img = $_POST['img'];
+    $Thumbnail = $_POST['Thumbnail'];
+    $Cover = $_POST['Cover'];
     $Price = $_POST['Price'];
     $ReleaseDate = $_POST['ReleaseDate'];
     $Description = $_POST['Description'];
     $Rating = $_POST['Rating'];
+    $GenreChck = $_POST['GenreChck'];
+    $Genre = '';
+    foreach ($GenreChck as $Gchk) {
+        $Genre .= $Gchk . "/";
+    }
     $PlatformChck = $_POST['PlatformChck'];
     $Platform = "";
-    foreach ($PlatformChck as $chk) {
-        $Platform .= $chk . "/";
+    foreach ($PlatformChck as $Pchk) {
+        $Platform .= $Pchk . "/";
     }
     $Trailer = $_POST['Trailer'];
     $Screenshots = $_POST['Screenshots'];
 
-    $query = "INSERT INTO `product` (`id`, `Title`, `img`, `Price`, `ReleaseDate`, `Description`, `Rating`, `Platform`, `Trailer`, `Screenshots`) VALUES (NULL, '$Title','$img', '$Price', '$ReleaseDate', '$Description', '$Rating', '$Platform', '$Trailer', '$Screenshots')";
+    $query = "INSERT INTO `product` (`id`, `Title`, `Price`, `ReleaseDate`, `Description`, `Rating`, `Platform`, `Genre`) VALUES (NULL, '$Title', '$Price', '$ReleaseDate', '$Description', '$Rating', '$Platform', '$Genre'); 
+                INSERT INTO `media` (`mediaID`, `Thumbnail`, `Cover`, `Trailer`, `Screenshots`) VALUES (NULL, '$Thumbnail', '$Cover', '$Trailer', '$Screenshots');";
 
     $regexp1 = "/^[A-z0-9 ]{2,600}$/";
     $regexp2 = "/^[+-]?((\d+(\.\d*)?)|(\.\d+))$/";
@@ -69,18 +76,20 @@ if (isset($_POST['submit'])) {
         $numerror++;
     } */
     if (
-        empty($img)
+        empty($Thumbnail)
         || empty($Trailer)
         || empty($Screenshots)
+        || empty($Cover)
     ) {
         $errors['media'] = " Must have a trailer.";
         $numerror++;
     }
     if ($numerror == 0) {
-        if (!mysqli_query($connection, $query)) {
+        if (!mysqli_multi_query($connection, $query)) {
             die("DB error: " . mysqli_error($connection));
         }
         echo "Product added" . "<br> at " . date("h:i:sa");
+        $Title = $Thumbnail = $Cover = $Price = $ReleaseDate = $Description = $Rating = $GenreChck = $PlatformChck = $Trailer = $Screenshots = '';
     }
 };
 
@@ -95,7 +104,9 @@ include("../navigation/adminNav.php");
                 </legend>
                 Title:<br><input type="text" name="Title" value="<?php echo $Title ?>">
                 <div style="color:red;"><?php echo $errors['Title']; ?></div> <br>
-                (Comma Seperated) <br> Thumbnail & Cover:<br><input type="text" name="img" value="<?php echo $img ?>">
+                Thumbnail:<br><input type="text" name="Thumbnail" value="<?php echo $Thumbnail ?>">
+                <div style="color:red;"><?php echo $errors['media']; ?></div> <br>
+                Cover:<br><input type="text" name="Cover" value="<?php echo $Cover ?>">
                 <div style="color:red;"><?php echo $errors['media']; ?></div> <br>
                 Price:<br><input type="text" name="Price" value="<?php echo $Price ?>">
                 <div style="color:red;"><?php echo $errors['Price']; ?></div> <br>
@@ -106,18 +117,34 @@ include("../navigation/adminNav.php");
                 Rating:<br><input type="text" name="Rating" value="<?php echo $Rating ?>">
                 <div style="color:red;"><?php echo $errors['Rating']; ?></div> <br>
                 Platform:<br>
-                <input class="check" type="checkbox" name="PlatformChck[]" value="PS4" <?php if (isset($_POST['PlatformChck']) && in_array('PS4', $_POST['PlatformChck'])) echo "checked='checked'"; ?>>
-                <label>PS4</label><br>
-                <input class="check" type="checkbox" name="PlatformChck[]" value="PS5" <?php if (isset($_POST['PlatformChck']) && in_array('PS5', $_POST['PlatformChck'])) echo "checked='checked'"; ?>>
-                <label>PS5</label><br>
-                <input class="check" type="checkbox" name="PlatformChck[]" value="XBOX-ONE" <?php if (isset($_POST['PlatformChck']) && in_array('XBOX-ONE', $_POST['PlatformChck'])) echo "checked='checked'"; ?>>
-                <label>XBOX ONE</label><br>
-                <input class="check" type="checkbox" name="PlatformChck[]" value="XBOX-SERIES-X" <?php if (isset($_POST['PlatformChck']) && in_array('XBOX-SERIES-X', $_POST['PlatformChck'])) echo "checked='checked'"; ?>>
-                <label>XBOX SERIES X</label><br>
-                <input class="check" type="checkbox" name="PlatformChck[]" value="PC" <?php if (isset($_POST['PlatformChck']) && in_array('PC', $_POST['PlatformChck'])) echo "checked='checked'"; ?>>
-                <label>PC</label><br>
-                <input class="check" type="checkbox" name="PlatformChck[]" value="NINTENDO" <?php if (isset($_POST['PlatformChck']) && in_array('NINTENDO', $_POST['PlatformChck'])) echo "checked='checked'"; ?>>
-                <label>NINTENDO</label><br>
+                    <input class="check" type="checkbox" name="PlatformChck[]" value="PS4" <?php if (isset($_POST['PlatformChck']) && in_array('PS4', $_POST['PlatformChck'])) echo "checked='checked'"; ?>>
+                    <label>PS4</label><br>
+                    <input class="check" type="checkbox" name="PlatformChck[]" value="PS5" <?php if (isset($_POST['PlatformChck']) && in_array('PS5', $_POST['PlatformChck'])) echo "checked='checked'"; ?>>
+                    <label>PS5</label><br>
+                    <input class="check" type="checkbox" name="PlatformChck[]" value="XBOX-ONE" <?php if (isset($_POST['PlatformChck']) && in_array('XBOX-ONE', $_POST['PlatformChck'])) echo "checked='checked'"; ?>>
+                    <label>XBOX ONE</label><br>
+                    <input class="check" type="checkbox" name="PlatformChck[]" value="XBOX-SERIES-X" <?php if (isset($_POST['PlatformChck']) && in_array('XBOX-SERIES-X', $_POST['PlatformChck'])) echo "checked='checked'"; ?>>
+                    <label>XBOX SERIES X</label><br>
+                    <input class="check" type="checkbox" name="PlatformChck[]" value="PC" <?php if (isset($_POST['PlatformChck']) && in_array('PC', $_POST['PlatformChck'])) echo "checked='checked'"; ?>>
+                    <label>PC</label><br>
+                    <input class="check" type="checkbox" name="PlatformChck[]" value="NINTENDO" <?php if (isset($_POST['PlatformChck']) && in_array('NINTENDO', $_POST['PlatformChck'])) echo "checked='checked'"; ?>>
+                    <label>NINTENDO</label><br>
+                <div style="color:red;"><?php echo $errors['Platform']; ?></div> <br>
+                Genre: <br>
+                    <input class="check" type="checkbox" name="GenreChck[]" value="Action" <?php if (isset($_POST['GenreChck']) && in_array('Action', $_POST['GenreChck'])) echo "checked='checked'"; ?>>
+                    <label>Action</label><br>
+                    <input class="check" type="checkbox" name="GenreChck[]" value="Adventure" <?php if (isset($_POST['GenreChck']) && in_array('Adventure', $_POST['GenreChck'])) echo "checked='checked'"; ?>>
+                    <label>Adventure</label><br>
+                    <input class="check" type="checkbox" name="GenreChck[]" value="RPG" <?php if (isset($_POST['GenreChck']) && in_array('RPG', $_POST['GenreChck'])) echo "checked='checked'"; ?>>
+                    <label>RPG</label><br>
+                    <input class="check" type="checkbox" name="GenreChck[]" value="Roguelike" <?php if (isset($_POST['GenreChck']) && in_array('Roguelike', $_POST['GenreChck'])) echo "checked='checked'"; ?>>
+                    <label>Roguelike</label><br>
+                    <input class="check" type="checkbox" name="GenreChck[]" value="Stealth" <?php if (isset($_POST['GenreChck']) && in_array('Stealth', $_POST['GenreChck'])) echo "checked='checked'"; ?>>
+                    <label>Stealth</label><br>
+                    <input class="check" type="checkbox" name="GenreChck[]" value="FPS" <?php if (isset($_POST['GenreChck']) && in_array('FPS', $_POST['GenreChck'])) echo "checked='checked'"; ?>>
+                    <label>FPS</label><br>
+                    <input class="check" type="checkbox" name="GenreChck[]" value="Horror" <?php if (isset($_POST['GenreChck']) && in_array('Horror', $_POST['GenreChck'])) echo "checked='checked'"; ?>>
+                    <label>Horror</label><br>
                 <div style="color:red;"><?php echo $errors['Platform']; ?></div> <br>
                 Trailer:<br><input type="text" name="Trailer" value="<?php echo $Trailer ?>">
                 <div style="color:red;"><?php echo $errors['media']; ?></div> <br>
@@ -130,15 +157,14 @@ include("../navigation/adminNav.php");
 
     <h2 align="center">Current Registered Products</h2><br><br>
     <?php
-    $query = "SELECT * FROM `product`";
+    $query = "SELECT * FROM `games`";
     $result = mysqli_query($connection, $query) or die("nada joy!");
     while ($row = mysqli_fetch_array($result)) { ?>
         <div class="currentProductsContainer">
             <div class="productNo"> <?php echo "No.: " . $row["id"] ?> </div>
             <div class="productSubContainer">
                 <div class="productInfoContainer">
-                    <?php $img = explode(",", $row["img"]); ?>
-                    <div class="productImg"><img src="<?php echo $img[0] ?>" alt="thumbnail" style="width:100%;"> </div>
+                    <div class="productImg"><img src="<?php echo $row["Thumbnail"] ?>" alt="thumbnail" style="width:100%;"> </div>
                 </div>
                 <div>
                     <div class="productTitle"> <?php echo "Title: " . "<b>" . $row["Title"] . "</b><br>" ?> </div>

@@ -2,7 +2,7 @@
 require("includes/connection.php");
 require("includes/session.php");
 
-$sql = "SELECT id, Thumbnail, Title, Price, Platform FROM games ";
+$sql = "SELECT id, Thumbnail, Title, Price, Platform, Genre FROM games ";
 
 // Gets current date
 $today = date('Y-m-d');
@@ -30,6 +30,13 @@ if (isset($_POST['search'])) {
     $sql .= "WHERE Title LIKE '%$search_term%' ";
     $sql .= "OR Platform LIKE '%$search_term%' ";
 }
+if (isset($_POST['filter_submit'])) {
+    $filter = $_POST['filter'];
+
+    $sql .= "WHERE Title LIKE '%$filter%' ";
+    $sql .= "OR Platform LIKE '%$filter%' ";
+    $sql .= "OR Genre LIKE '%$filter%' ";
+}
 
 $result = mysqli_query($connection, $sql);
 $products = mysqli_fetch_all($result, MYSQLI_ASSOC);
@@ -46,8 +53,25 @@ include("navigation/header.php");
     <div class="filter">
         <form method="POST" action="all.php">
             Search: <input type="search" name="search_box" placeholder="Search for a game" value="">
-            <input type="submit" name="search" value="Search">
+            <input type="submit" name="search" value="Search"> 
         </form>
+        <details>
+            <summary>Filters</summary>
+            <form method="POST" action="all.php">
+                <input type="radio" name="filter" value="Action">
+                <label>Action</label>
+                <input type="radio" name="filter" value="Adventure">
+                <label>Adventure</label>
+                <input type="radio" name="filter" value="RPG">
+                <label>RPG</label>
+                <input type="radio" name="filter" value="FPS">
+                <label>FPS</label>
+                <input type="radio" name="filter" value="Roguelike">
+                <label>Roguelike</label>
+
+                <input type="submit" name="filter_submit" value="Apply filter"> 
+            </form>
+        </details>
     </div>
     <div class="allProductsContainer">
         <?php foreach ($products as $product) { ?>

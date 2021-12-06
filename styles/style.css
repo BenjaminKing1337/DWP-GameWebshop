@@ -439,10 +439,15 @@ footer .policy .policies p {
 
 .allContent .filter {
   width: 100%;
-  height: 60px;
+  height: auto;
+  padding: 10px 0;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
@@ -454,7 +459,7 @@ footer .policy .policies p {
 }
 
 .allContent .filter form {
-  margin: 0;
+  margin: 10px 0;
 }
 
 .allContent .allProductsContainer {
@@ -925,6 +930,18 @@ footer .policy .policies p {
           justify-content: space-between;
 }
 
+@media (max-width: 700px) {
+  .adminContent .currentProductsContainer .productSubContainer {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+}
+
 .adminContent .currentProductsContainer .productSubContainer .productTitle,
 .adminContent .currentProductsContainer .productSubContainer .productPrice,
 .adminContent .currentProductsContainer .productSubContainer .productReleaseDate,
@@ -944,7 +961,8 @@ footer .policy .policies p {
 .adminContent .currentProductsContainer .productSubContainer .productInfoContainer .productImg img {
   border-radius: 8px;
   aspect-ratio: 4/3;
-  max-width: 300px;
+  min-width: 250px;
+  max-width: 250px;
 }
 
 .adminContent .currentProductsContainer .productSubContainer .productBtnContainer {
@@ -957,6 +975,18 @@ footer .policy .policies p {
           flex-direction: column-reverse;
   -ms-flex-item-align: start;
       align-self: flex-start;
+}
+
+@media (max-width: 700px) {
+  .adminContent .currentProductsContainer .productSubContainer .productBtnContainer {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: reverse;
+        -ms-flex-direction: row-reverse;
+            flex-direction: row-reverse;
+    -ms-flex-item-align: center;
+        -ms-grid-row-align: center;
+        align-self: center;
+  }
 }
 
 .adminContent .currentProductsContainer .productSubContainer .productBtnContainer button {

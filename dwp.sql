@@ -18,7 +18,7 @@ CREATE TABLE `accounts` (
 
 CREATE TABLE `product` (
 	`id` INT AUTO_INCREMENT NOT NULL PRIMARY KEY,
-	`Title` VARCHAR(255) NOT NULL,
+	`Title` VARCHAR(255) NOT NULL UNIQUE,
 	`Price` DECIMAL(5,2) NOT NULL,
 	`ReleaseDate` DATE NOT NULL,
 	`Description` TEXT NOT NULL,
@@ -28,7 +28,7 @@ CREATE TABLE `product` (
 );
 
 CREATE TABLE `media` (
-	`mediaID` VARCHAR(255) NOT NULL PRIMARY KEY,
+	`mediaID` INT AUTO_INCREMENT NOT NULL PRIMARY KEY,
     `Thumbnail` VARCHAR(255) NOT NULL,
 	`Cover` VARCHAR(255) NOT NULL,
     `Trailer` VARCHAR (255) NOT NULL,
@@ -37,7 +37,7 @@ CREATE TABLE `media` (
 
 CREATE VIEW `games` AS
 SELECT * FROM product
-JOIN media ON product.Title = media.mediaID;
+JOIN media ON product.id = media.mediaID;
 
 
 INSERT INTO product 
@@ -55,14 +55,14 @@ VALUES
 INSERT INTO media
     (mediaID, Thumbnail, Cover, Trailer, Screenshots) 
 VALUES 
-    ('Ghost Of Tsushima', 'https://upload.wikimedia.org/wikipedia/en/b/b6/Ghost_of_Tsushima.jpg', 'https://gameranx.com/wp-content/uploads/2020/07/ghost-ost-featured.jpg', 'https://www.youtube.com/embed/b_iU_gnn28U', 'https://thecenturionreport.com/wp-content/uploads/2021/08/find-all-the-hot-springs.jpeg, https://robinsgames.com/wp-content/uploads/2020/11/Ghost-of-Tsushima-Review-Summary-of-the-Ghost-of-Tsushima-game-plot.jpg, https://i.guim.co.uk/img/media/c39bf8486b167ff4d297f4db15efe4e18078df98/683_269_2713_1628/master/2713.jpg?width=1200&quality=85&auto=format&fit=max&s=1134351c5ddce61338e3b3fb673166a6'),
-    ('Bloodborne', 'https://i1.sndcdn.com/artworks-000117752385-zhasx1-t500x500.jpg', 'https://image.api.playstation.com/vulcan/img/rnd/202010/2614/O2Z66UWrZH8zcejxopwWxhGu.png', 'https://www.youtube.com/embed/G203e1HhixY', 'https://i0.wp.com/gamerfocus.co/wp-content/uploads/2015/09/Bloodborne-The-Old-Hunters.jpg?ssl=1, https://media.wired.com/photos/5955c1dc5992c54331ac192f/master/pass/bloodborne_the_old_hunters_V2.jpg'),
-    ('Outer Wilds', 'https://i1.sndcdn.com/artworks-000655287109-o7nxm0-t500x500.jpg', 'https://i.ytimg.com/vi/Sm7UlgK5HOw/maxresdefault.jpg','https://www.youtube.com/embed/KYlpUxFbgTM',  'https://www.pcinvasion.com/wp-content/uploads/2019/05/outer-wilds-1-1200x675.jpg, https://cdn.pastemagazine.com/www/articles/2019/05/31/outer%20wilds%20feature%20m%20ain.jpg, https://sm.ign.com/ign_nordic/news/o/outer-wild/outer-wilds-is-coming-to-switch_yhkx.jpg'),
-    ('Bioshock', 'https://www.mobygames.com/images/covers/l/662249-bioshock-remastered-nintendo-switch-front-cover.jpg', 'https://cdn02.nintendo-europe.com/media/images/10_share_images/games_15/nintendo_switch_4/H2x1_NSwitch_BioshockRemastered.jpg', 'https://www.youtube.com/embed/_KVfPMSK8hA', 'https://cdn.vox-cdn.com/thumbor/88lmW_GOa15KgdwJzKoHKVXmGRE=/0x0:1280x720/1200x800/filters:focal(538x258:742x462)/cdn.vox-cdn.com/uploads/chorus_image/image/66917458/bioshock_the_collection_switch_screenshot02.0.jpg, https://cdn.mos.cms.futurecdn.net/d4132487bf648572736e71934de13be7.jpg'),
-    ('Far Cry 6', 'https://upload.wikimedia.org/wikipedia/en/3/35/Far_cry_6_cover.jpg', 'https://images.eurogamer.net/2021/articles/2021-10-07-14-29/far_cry_6_lead.jpg', 'https://www.youtube.com/embed/-IJuKT1mHO8', 'https://gmedia.playstation.com/is/image/SIEPDC/far-cry-6-comeback-shredder-screen-01-ps4-ps5-en-30jun21?$native$, https://assets2.rockpapershotgun.com/far-cry-6-crossbow-and-crocs.jpg/BROK/resize/1920x1920%3E/format/jpg/quality/80/far-cry-6-crossbow-and-crocs.jpg'),
-    ('Horizon Zero Dawn', 'https://s2.gaming-cdn.com/images/products/6202/orig/spil-steam-horizon-zero-dawn-complete-edition-cover.jpg', 'https://image.api.playstation.com/vulcan/ap/rnd/202010/0221/1jE1dG7sSfbJnhoRfAeVc2rs.png?w=1024', 'https://www.youtube.com/embed/u4-FCsiF5x4', 'https://cdn.vox-cdn.com/thumbor/Qxdbz7ojsJMqKYcL8SLS9T8oXTk=/0x0:1920x1080/1200x800/filters:focal(807x387:1113x693)/cdn.vox-cdn.com/uploads/chorus_image/image/68982682/Aiming_at_Thunderjaw.0.0.png, https://variety.com/wp-content/uploads/2019/03/hzdaloy.jpeg, https://images0.persgroep.net/rcs/GvJrsEQ6TjdoOZ67v9K6cVpiM7k/diocontent/128897753/_focus/0.29/0.63/_fill/1200/630/?appId=21791a8992982cd8da851550a453bd7f&quality=0.7'),
-    ('Risk of Rain 2', 'https://cdn2.steamgriddb.com/file/sgdb-cdn/grid/f8dc3073b73dfb018693b7a1dbfcef43.png', 'https://www.destructoid.com/wp-content/uploads/2020/12/599553-header.jpg', 'https://www.youtube.com/embed/pJ-aR--gScM', 'https://gamingbolt.com/wp-content/uploads/2020/08/risk-of-rain-2-image-4.jpg, https://image.jeuxvideo.com/medias-md/159828/1598279048-1030-capture-d-ecran.png'),
-    ('The Last Of Us 2', 'https://direct.rhapsody.com/imageserver/images/alb.482944940/500x500.jpg', 'https://cdn.mos.cms.futurecdn.net/CEajpQcrXWZQHMMDqoF3zF.jpeg', 'https://www.youtube.com/embed/vhII1qlcZ4E', 'https://sm.ign.com/ign_nordic/news/t/the-last-o/the-last-of-us-part-2-is-getting-a-ps5-exclusive-performance_s43z.jpg, https://media.npr.org/assets/img/2021/02/25/2510225ed61038a780b9.08969556-tloupii_preview_screenshot_04_wide-933bf2d68d635cd07832685ab3b2ed887e1d249e.jpg, https://media.wired.com/photos/5edfe6ec39276c283696879a/master/pass/culture_tlou2_1.jpg');
+    (1, 'https://upload.wikimedia.org/wikipedia/en/b/b6/Ghost_of_Tsushima.jpg', 'https://gameranx.com/wp-content/uploads/2020/07/ghost-ost-featured.jpg', 'https://www.youtube.com/embed/b_iU_gnn28U', 'https://thecenturionreport.com/wp-content/uploads/2021/08/find-all-the-hot-springs.jpeg, https://robinsgames.com/wp-content/uploads/2020/11/Ghost-of-Tsushima-Review-Summary-of-the-Ghost-of-Tsushima-game-plot.jpg, https://i.guim.co.uk/img/media/c39bf8486b167ff4d297f4db15efe4e18078df98/683_269_2713_1628/master/2713.jpg?width=1200&quality=85&auto=format&fit=max&s=1134351c5ddce61338e3b3fb673166a6'),
+    (2, 'https://i1.sndcdn.com/artworks-000117752385-zhasx1-t500x500.jpg', 'https://image.api.playstation.com/vulcan/img/rnd/202010/2614/O2Z66UWrZH8zcejxopwWxhGu.png', 'https://www.youtube.com/embed/G203e1HhixY', 'https://i0.wp.com/gamerfocus.co/wp-content/uploads/2015/09/Bloodborne-The-Old-Hunters.jpg?ssl=1, https://media.wired.com/photos/5955c1dc5992c54331ac192f/master/pass/bloodborne_the_old_hunters_V2.jpg'),
+    (3, 'https://i1.sndcdn.com/artworks-000655287109-o7nxm0-t500x500.jpg', 'https://i.ytimg.com/vi/Sm7UlgK5HOw/maxresdefault.jpg','https://www.youtube.com/embed/KYlpUxFbgTM',  'https://www.pcinvasion.com/wp-content/uploads/2019/05/outer-wilds-1-1200x675.jpg, https://cdn.pastemagazine.com/www/articles/2019/05/31/outer%20wilds%20feature%20m%20ain.jpg, https://sm.ign.com/ign_nordic/news/o/outer-wild/outer-wilds-is-coming-to-switch_yhkx.jpg'),
+    (4, 'https://www.mobygames.com/images/covers/l/662249-bioshock-remastered-nintendo-switch-front-cover.jpg', 'https://cdn02.nintendo-europe.com/media/images/10_share_images/games_15/nintendo_switch_4/H2x1_NSwitch_BioshockRemastered.jpg', 'https://www.youtube.com/embed/_KVfPMSK8hA', 'https://cdn.vox-cdn.com/thumbor/88lmW_GOa15KgdwJzKoHKVXmGRE=/0x0:1280x720/1200x800/filters:focal(538x258:742x462)/cdn.vox-cdn.com/uploads/chorus_image/image/66917458/bioshock_the_collection_switch_screenshot02.0.jpg, https://cdn.mos.cms.futurecdn.net/d4132487bf648572736e71934de13be7.jpg'),
+    (5, 'https://upload.wikimedia.org/wikipedia/en/3/35/Far_cry_6_cover.jpg', 'https://images.eurogamer.net/2021/articles/2021-10-07-14-29/far_cry_6_lead.jpg', 'https://www.youtube.com/embed/-IJuKT1mHO8', 'https://gmedia.playstation.com/is/image/SIEPDC/far-cry-6-comeback-shredder-screen-01-ps4-ps5-en-30jun21?$native$, https://assets2.rockpapershotgun.com/far-cry-6-crossbow-and-crocs.jpg/BROK/resize/1920x1920%3E/format/jpg/quality/80/far-cry-6-crossbow-and-crocs.jpg'),
+    (6, 'https://s2.gaming-cdn.com/images/products/6202/orig/spil-steam-horizon-zero-dawn-complete-edition-cover.jpg', 'https://image.api.playstation.com/vulcan/ap/rnd/202010/0221/1jE1dG7sSfbJnhoRfAeVc2rs.png?w=1024', 'https://www.youtube.com/embed/u4-FCsiF5x4', 'https://cdn.vox-cdn.com/thumbor/Qxdbz7ojsJMqKYcL8SLS9T8oXTk=/0x0:1920x1080/1200x800/filters:focal(807x387:1113x693)/cdn.vox-cdn.com/uploads/chorus_image/image/68982682/Aiming_at_Thunderjaw.0.0.png, https://variety.com/wp-content/uploads/2019/03/hzdaloy.jpeg, https://images0.persgroep.net/rcs/GvJrsEQ6TjdoOZ67v9K6cVpiM7k/diocontent/128897753/_focus/0.29/0.63/_fill/1200/630/?appId=21791a8992982cd8da851550a453bd7f&quality=0.7'),
+    (7, 'https://cdn2.steamgriddb.com/file/sgdb-cdn/grid/f8dc3073b73dfb018693b7a1dbfcef43.png', 'https://www.destructoid.com/wp-content/uploads/2020/12/599553-header.jpg', 'https://www.youtube.com/embed/pJ-aR--gScM', 'https://gamingbolt.com/wp-content/uploads/2020/08/risk-of-rain-2-image-4.jpg, https://image.jeuxvideo.com/medias-md/159828/1598279048-1030-capture-d-ecran.png'),
+    (8, 'https://direct.rhapsody.com/imageserver/images/alb.482944940/500x500.jpg', 'https://cdn.mos.cms.futurecdn.net/CEajpQcrXWZQHMMDqoF3zF.jpeg', 'https://www.youtube.com/embed/vhII1qlcZ4E', 'https://sm.ign.com/ign_nordic/news/t/the-last-o/the-last-of-us-part-2-is-getting-a-ps5-exclusive-performance_s43z.jpg, https://media.npr.org/assets/img/2021/02/25/2510225ed61038a780b9.08969556-tloupii_preview_screenshot_04_wide-933bf2d68d635cd07832685ab3b2ed887e1d249e.jpg, https://media.wired.com/photos/5edfe6ec39276c283696879a/master/pass/culture_tlou2_1.jpg');
 
 
 
