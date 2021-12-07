@@ -4,9 +4,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" href="styles/style.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <!--     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js">
- -->
-    <!-- <script src="../main.js"></script> -->
+    <script src="https://www.google.com/recaptcha/api.js?render=6Lc1cYUdAAAAAFOScH5Oj_sy3Acu6SQkdCN5Wf-r"></script>
+    <script>
+      function onClick(e) {
+        e.preventDefault();
+        grecaptcha.ready(function() {
+          grecaptcha.execute('6Lc1cYUdAAAAAFOScH5Oj_sy3Acu6SQkdCN5Wf-r', {action: 'submit'}).then(function(token) {
+              // Add your logic to submit to your backend server here.
+          });
+        });
+      }
+  </script>
 </head>
 
 <body>
