@@ -4,14 +4,20 @@ CREATE DATABASE gamewebshop;
 
 USE gamewebshop;
 
+CREATE TABLE `news` (
+    `id` INT AUTO_INCREMENT NOT NULL PRIMARY KEY,
+    `sale` INT(3) NOT NULL,
+    `date` INT(1) NOT NULL,
+    `rate` INT(1) NOT NULL
+);
 
 CREATE TABLE `accounts` ( 
     `ID` INT AUTO_INCREMENT NOT NULL PRIMARY KEY, 
-    `username` VARCHAR(80) NOT NULL, 
+    `username` VARCHAR(80) NOT NULL UNIQUE, 
     `pass` VARCHAR(80) NOT NULL, 
     `Fname` VARCHAR(80) NULL, 
     `Lname` VARCHAR(80) NULL, 
-    `email` VARCHAR(80) NOT NULL,  
+    `email` VARCHAR(80) NOT NULL UNIQUE,  
     `description` TEXT NULL,
     `usertype` VARCHAR(50) DEFAULT 'user'
 );

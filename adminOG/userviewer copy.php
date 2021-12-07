@@ -1,12 +1,4 @@
 <?php
-require("../includes/connection.php");
-require("../includes/session.php");
-
-$query = "SELECT * FROM `accounts`";
-$result = mysqli_query($connection, $query) or die("nada joy!");
-$users = mysqli_fetch_array($result);
-
-$username = $_POST['username'];
 
 class User {
     public $username;

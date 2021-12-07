@@ -61,7 +61,7 @@
                     <?php }
                 } else { ?>
                     <div class="dropdown">
-                        <li class="desktop_link"><a href="#">User</a></li>
+                        <li class="desktop_link material-icons icon"><a href="#">account_circle</a></li>
                         <div class="dropdown-content">
                             <li><a href="newuser.php">Create New User</a></li>
                             <li><a href="login.php">Login</a></li>

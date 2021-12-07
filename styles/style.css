@@ -825,7 +825,7 @@ footer .policy .policies p {
 }
 
 .adminContent .newsContainer form fieldset {
-  padding: 0 60px;
+  padding: 10px 60px;
   border-radius: 8px;
 }
 
@@ -894,6 +894,48 @@ footer .policy .policies p {
   left: 50%;
   -webkit-transform: translate(-50%);
           transform: translate(-50%);
+}
+
+.adminContent .addProductContainer .tickBoxContainer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+}
+
+.adminContent .addProductContainer .tickBoxContainer .platformCont,
+.adminContent .addProductContainer .tickBoxContainer .genreCont {
+  width: 50%;
+}
+
+.adminContent .addProductContainer .tickBoxContainer .platform,
+.adminContent .addProductContainer .tickBoxContainer .genre {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  margin: 1ch;
+  height: 200px;
+}
+
+@media (max-width: 900px) {
+  .adminContent .addProductContainer .tickBoxContainer .platform,
+  .adminContent .addProductContainer .tickBoxContainer .genre {
+    -ms-flex-wrap: nowrap;
+        flex-wrap: nowrap;
+    height: unset;
+  }
+}
+
+.adminContent .addProductContainer .tickBoxContainer .inputCont {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
 }
 
 .adminContent .currentProductsContainer {
@@ -1000,29 +1042,27 @@ footer .policy .policies p {
   background-color: transparent;
 }
 
-.adminContent .currentRegisteredUsers {
-  width: clamp(300px, 100%, 1200px);
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+.adminContent .userList {
+  width: clamp(300px, 80%, 1200px);
   margin: 0 auto;
 }
 
-.adminContent .currentRegisteredUsers .user {
+.adminContent .userList .currentRegisteredUsers {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (minmax(15rem, 1fr))[auto-fill];
+      grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr));
+  grid-auto-rows: 1fr;
+}
+
+.adminContent .userList .currentRegisteredUsers .user {
   border: solid 1px white;
   border-radius: 8px;
   padding: 1ch;
   margin: 1ch;
 }
 
-.adminContent .currentRegisteredUsers .user button {
+.adminContent .userList .currentRegisteredUsers .user button {
   padding: 10px;
   border: 1px solid rebeccapurple;
   text-decoration: none;

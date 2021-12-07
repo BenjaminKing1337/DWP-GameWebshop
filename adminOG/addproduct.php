@@ -12,7 +12,7 @@ $errors = array('Title' => '', 'Price' => '', 'ReleaseDate' => '', 'Description'
 $numerror = 0;
 
 if (isset($_POST['submit'])) {
-    $Title = mysqli_real_escape_string($connection, trim(htmlspecialchars($_POST['Title'])));
+    $Title = $_POST['Title'];
     $Thumbnail = $_POST['Thumbnail'];
     $Cover = $_POST['Cover'];
     $Price = $_POST['Price'];
