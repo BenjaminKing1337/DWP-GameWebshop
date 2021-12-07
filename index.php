@@ -1,25 +1,28 @@
 <?php
+spl_autoload_register(function ($class){
+    include"classes/".$class.".php";
+});
 require('includes/connection.php');
 require('includes/session.php');
+$db = new DbCon();
 
-// $news = "SELECT * FROM `new`";
-// $newsResult = mysqli_query($connection, $news);
-// $new = mysqli_fetch_all($newsResult, MYSQLI_ASSOC);
+$news = "SELECT * FROM `news`";
+$newsResult = mysqli_query($connection, $news);
+$new = mysqli_fetch_all($newsResult);
+// var_dump($new);
 
-// // Gets current date
-// $today = date('Y-m-d');
-// // Gets current date minus 3 months
-// $olddate = date('Y-m-d', strtotime('-' . $new['date'[0]]  . 'months', strtotime($today)));
-// // Determines when a product:
-// // is on sale.
-// $sale = $new['sale'[0]];
-// // is a new release.
-// $date = $olddate;
-// // is highly rated.
-// $rate = $new['rate'[0]];
-$sale = 200;
-$date = date('Y-m-d');
-$rate = 8;
+// Gets current date
+$today = date('Y-m-d');
+// Determines when a product:
+// is on sale.
+$sale = $new[0][1];
+// is a new release.
+$date = $today;
+// is highly rated.
+$rate = $new[0][3];
+// $sale = 200;
+// $date = date('Y-m-d');
+// $rate = 8;
 
 // Displays the four best sales by ordering prices low to high
 $price = "SELECT id, Thumbnail, Price FROM games ORDER BY Price ASC LIMIT 4";

@@ -32,7 +32,9 @@ include("navigation/header.php");
 ?>
 <div class="CreateNewUser">
 <h2>Create New User</h2>
-
+<div>  <?php if(isset($message)){
+	echo $message;
+} ?></div>
 <form action="" method="post">
 	Username:<br><input type="text" name="username"> <br><br>
 	Password:<br><input type="text" name="pass"> <br><br>

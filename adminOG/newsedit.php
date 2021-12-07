@@ -51,12 +51,12 @@ include("../navigation/adminNav.php");
     <div class="newsContainer">
     <form method="post" action="newsedit.php">
         <fieldset>
-            <legend><h2>Here you can adjust the frontpage</h2></legend>
-            Sale Limit <br>(Everything below this number is displayed as on sale; input 2 to 3 digits):<br><input type="text" name="sale" value="<?php echo $sale ?>">
+            <legend>Here you can adjust the frontpage</legend>
+            Sale Limit (Everything below this number is displayed as on sale):<br><input type="text" name="sale" value="<?php echo $sale ?>">
             <div style="color:red;"><?php echo $errors['sale']; ?></div> <br>
-            New Releases Interval <br>(This number determines how many months back from today's date this section displays; input 1 to 2 digits):<br><input type="text" name="date" value="<?php echo $date ?>">
+            New Releases Interval (From today's date and how far back in months):<br><input type="text" name="date" value="<?php echo $date ?>">
             <div style="color:red;"><?php echo $errors['date']; ?></div> <br>
-            Rating <br>(Everything above this number is displayed in highly rated; input 1 digit):<br><input type="text" name="rate" value="<?php echo $rate ?>">
+            Rating (Everything above this number is displayed in highly rated):<br><input type="text" name="rate" value="<?php echo $rate ?>">
             <div style="color:red;"><?php echo $errors['rate']; ?></div> <br>
             <input class="subButton" type="submit" name="submit" value="SUBMIT"> <br>
 

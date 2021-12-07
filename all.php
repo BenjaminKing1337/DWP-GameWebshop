@@ -2,13 +2,19 @@
 require("includes/connection.php");
 require("includes/session.php");
 
-$sql = "SELECT id, Thumbnail, Title, Price, Platform, Genre FROM games ";
+$news = "SELECT * FROM `news`";
+$newsResult = mysqli_query($connection, $news);
+$new = mysqli_fetch_all($newsResult, MYSQLI_ASSOC);
 
 // Gets current date
 $today = date('Y-m-d');
 // Gets current date minus 3 months
-$olddate = date('Y-m-d', strtotime('-3 months', strtotime($today)));
+$olddate = date('Y-m-d', strtotime('-' . $new[0]['date'] . ' months', strtotime($today)));
 
+
+
+
+$sql = "SELECT id, Thumbnail, Title, Price, Platform, Genre FROM games ";
 // if the GET isn't empty, load one of the following options depending on where user navigated from.
 if (isset($_GET['d'])) {
     $sql .= "WHERE ReleaseDate BETWEEN '$olddate' AND '$_GET[d]' ";

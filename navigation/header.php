@@ -54,7 +54,7 @@
             <?php if (isset($_SESSION['usertype'])) {
                 if ($_SESSION['usertype'] == "user" || $_SESSION['usertype'] == "admin") { ?>
                     <div class="dropdown">
-                        <li class="desktop_link material-icons icon">account_circle</li>
+                        <li class="desktop_link material-icons icon"><a href="#">account_circle</a></li>
                         <div class="dropdown-content">
                             <?php if (admin()) { ?>
                                 <li><a href="admin/addproduct.php">Admin</a></li>
