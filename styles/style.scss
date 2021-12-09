@@ -946,6 +946,7 @@ footer {
     margin: 0 auto;
     width: clamp(100px, 80%, 1000px);
     fieldset {
+        padding: 0 5ch;
         background-color: map-get($cs, dropdownbg);
         color: map-get($cs, mainaccent);
         border: 1px solid map-get($cs, mainaccent);
