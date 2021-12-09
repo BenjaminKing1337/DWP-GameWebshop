@@ -55,7 +55,7 @@ include("navigation/header.php");
 ?>
 <div class="allContent">
     <br><br><br>
-    <div align="center" style="font-size: 50px;">All Products Page</div>
+    <!-- <div align="center" style="font-size: 50px;">All Products Page</div> -->
     <div class="filter">
         <form method="POST" action="all.php">
             Search: <input type="search" name="search_box" placeholder="Search for a game" value="">

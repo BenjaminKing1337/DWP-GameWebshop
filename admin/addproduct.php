@@ -1,10 +1,12 @@
 <?php
-
+spl_autoload_register(function ($class) {
+    include "../classes/" . $class . ".php";
+});
 require('../includes/connection.php');
 require('../includes/session.php');
 
 if (!admin()) {
-    redirect_to("../index.php");
+    $redirect = New Redirector("../index.php");
 }
 
 $query_select = "SELECT * FROM `games`";
@@ -134,11 +136,11 @@ include("../navigation/adminNav.php");
                 <div style="color:red;"><?php echo $errors['media']; ?></div> <br>
                 Price:<br><input type="text" name="Price" value="<?php echo $Price ?>">
                 <div style="color:red;"><?php echo $errors['Price']; ?></div> <br>
-                (YYYY-MM-DD) <br> Release Date:<br><input type="text" name="ReleaseDate" value="<?php echo $ReleaseDate ?>">
+                Release Date:<br><input placeholder="YYYY-MM-DD" type="text" name="ReleaseDate" value="<?php echo $ReleaseDate ?>">
                 <div style="color:red;"><?php echo $errors['ReleaseDate']; ?></div> <br>
                 Description:<br><textarea class="description" type="text" name="Description"><?php echo $Description ?></textarea>
                 <div style="color:red;"><?php echo $errors['Description']; ?></div> <br>
-                Rating:<br><input type="text" name="Rating" value="<?php echo $Rating ?>">
+                Rating:<br><input placeholder="from 1 to 10" type="text" name="Rating" value="<?php echo $Rating ?>">
                 <div style="color:red;"><?php echo $errors['Rating']; ?></div> <br>
                 <div class="tickBoxContainer">
                     <div class="platformCont">
@@ -202,33 +204,6 @@ include("../navigation/adminNav.php");
             </fieldset>
         </form>
     </div>
-
-    <h2 align="center">Current Registered Products</h2><br><br>
-    <?php
-    
-    foreach ($product as $row) { ?>
-        <div class="currentProductsContainer">
-            <div class="productNo"> <?php echo "No.: " . $row["id"] ?> </div>
-            <div class="productSubContainer">
-                <div class="productInfoContainer">
-                    <div class="productImg"><img src="<?php echo $row["Thumbnail"] ?>" alt="thumbnail" style="width:100%;"> </div>
-                </div>
-                <div>
-                    <div class="productTitle"> <?php echo "Title: " . "<b>" . $row["Title"] . "</b><br>" ?> </div>
-                    <div class="productPrice"> <?php echo "Price: " . "<b>" . $row["Price"] . " DKK" . "</b><br>" ?> </div>
-                    <div class="productReleaseDate"> <?php echo "Release Date: " . "<b>" . $row["ReleaseDate"] . "</b><br>" ?> </div>
-                    <div class="productRating"> <?php echo "Rating: " . "<b>" . $row["Rating"] . "</b><br>" ?> </div>
-                    <div class="productPlatform"> <?php echo "Platform: " . "<b>" . $row["Platform"] . "</b><br>" ?> </div>
-
-                </div>
-                <div class="productBtnContainer"> <?php echo "<a style='text-decoration: none;' href='delproduct.php?id=" . $row['id'] . "'" ?>
-                    onclick="return confirm('Are you sure you want to annihilate?');"
-                    <?php echo "> <button>Delete</button></a>" ?><?php echo "<a style='text-decoration: none;' href='editproduct.php?id=" . $row['id'] . "'" ?>
-                    onclick="return confirm('Are you sure you want to influence changes?');"
-                    <?php echo ">  <button>Edit</button></a><br>"; ?> </div>
-            </div>
-        </div>
-    <?php } ?>
 </div>
 <?php
 include("../navigation/footer.php");

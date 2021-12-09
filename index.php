@@ -8,36 +8,38 @@ $db = new DbCon();
 
 $news = "SELECT * FROM `news`";
 $newsResult = mysqli_query($connection, $news);
-$new = mysqli_fetch_all($newsResult);
-// var_dump($new);
-
+$new = mysqli_fetch_all($newsResult, MYSQLI_ASSOC);
+ //var_dump($new);
+$hero1 = $new[0]['hero1'];
+$hero2 = $new[0]['hero2'];
+$hero3 = $new[0]['hero3'];
 // Gets current date
 $today = date('Y-m-d');
 // Determines when a product:
 // is on sale.
-$sale = $new[0][1];
+$sale = $new[0]['sale'];
 // is a new release.
 $date = $today;
 // is highly rated.
-$rate = $new[0][3];
+$rate = $new[0]['rate'];
 // $sale = 200;
 // $date = date('Y-m-d');
 // $rate = 8;
 
 // Displays the four best sales by ordering prices low to high
-$price = "SELECT id, Thumbnail, Price FROM games ORDER BY Price ASC LIMIT 4";
+$price = "SELECT id, Thumbnail, Price FROM games ORDER BY Price ASC LIMIT 6";
 $res_price = mysqli_query($connection, $price);
 $products_price = mysqli_fetch_all($res_price, MYSQLI_ASSOC);
 mysqli_free_result($res_price);
 
 // Displays the four newest releases by ordering release date high to low
-$new = "SELECT id, Thumbnail, ReleaseDate FROM games ORDER BY ReleaseDate DESC LIMIT 4";
+$new = "SELECT id, Thumbnail, ReleaseDate FROM games ORDER BY ReleaseDate DESC LIMIT 6";
 $res_new = mysqli_query($connection, $new);
 $products_new = mysqli_fetch_all($res_new, MYSQLI_ASSOC);
 mysqli_free_result($res_new);
 
 // Displays the four highest rated items by ordering rating high to low
-$popular = "SELECT id, Thumbnail, Rating FROM games ORDER BY Rating DESC LIMIT 4";
+$popular = "SELECT id, Thumbnail, Rating FROM games ORDER BY Rating DESC LIMIT 6";
 $res_popular = mysqli_query($connection, $popular);
 $products_popular = mysqli_fetch_all($res_popular, MYSQLI_ASSOC);
 mysqli_free_result($res_popular);
@@ -55,9 +57,9 @@ include("navigation/header.php");
 
 <div class="content">
     <div class="hero">
-        <h1>Digital codes.</h1>
-        <h1>Instant delivery.</h1>
-        <h1>Best price on the market</h1>
+        <h1><?= $hero1 ?></h1>
+        <h1><?= $hero2 ?></h1>
+        <h1><?= $hero3 ?></h1>
     </div>
 
     <div>

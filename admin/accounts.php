@@ -7,7 +7,7 @@ require('../includes/session.php');
 $db = new DbCon();
 
 if (!admin()) {
-    redirect_to("../index.php");
+    $redirect = New Redirector("../index.php");
 }
 
 $query = "SELECT * FROM `accounts`";

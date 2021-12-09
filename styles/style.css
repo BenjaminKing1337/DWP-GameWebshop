@@ -12,7 +12,26 @@ body {
   margin: 100px 0 0 0;
 }
 
-header {
+.header .admin .logo {
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+}
+
+.header .admin .userMenu {
+  max-width: 250px;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+}
+
+@media (max-width: 1100px) {
+  .header .admin .userMenu {
+    max-width: unset;
+  }
+}
+
+.header header {
   height: 65px;
   width: calc(100% - 30px);
   padding: 0 15px;
@@ -33,15 +52,15 @@ header {
           justify-content: center;
 }
 
-header .userMenu {
+.header header .userMenu {
   padding: 0;
 }
 
-header .addlayer {
+.header header .addlayer {
   display: block;
 }
 
-header .logo {
+.header header .logo {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -57,17 +76,17 @@ header .logo {
           flex-grow: 0.8;
 }
 
-header .menu {
+.header header .menu {
   float: right;
   display: none;
 }
 
-header #check,
-header #check2 {
+.header header #check,
+.header header #check2 {
   display: none;
 }
 
-header ul {
+.header header ul {
   list-style: none;
   -webkit-box-flex: 4;
       -ms-flex-positive: 4;
@@ -75,16 +94,16 @@ header ul {
   text-align: center;
 }
 
-header ul .mobile_link {
+.header header ul .mobile_link {
   display: none;
 }
 
-header ul .dropdown {
+.header header ul .dropdown {
   position: relative;
   display: inline-block;
 }
 
-header ul .dropdown-content {
+.header header ul .dropdown-content {
   display: none;
   position: absolute;
   min-width: 160px;
@@ -93,33 +112,33 @@ header ul .dropdown-content {
   border-radius: 8px;
 }
 
-header ul .dropdown-content a {
+.header header ul .dropdown-content a {
   color: white;
   padding: 12px 16px;
   text-decoration: none;
   display: block;
 }
 
-header ul .dropdown:hover .dropdown-content {
+.header header ul .dropdown:hover .dropdown-content {
   display: block;
 }
 
-header ul li {
+.header header ul li {
   display: inline-block;
   margin: 0 20px;
   font-size: 24px;
 }
 
-header ul li a {
+.header header ul li a {
   text-decoration: none;
   color: white;
 }
 
-header ul li a:hover {
+.header header ul li a:hover {
   color: yellow;
 }
 
-header .userMenu {
+.header header .userMenu {
   -webkit-box-flex: 1;
       -ms-flex-positive: 1;
           flex-grow: 1;
@@ -127,7 +146,7 @@ header .userMenu {
 }
 
 @media (max-width: 1100px) {
-  header {
+  .header header {
     -webkit-box-pack: justify;
         -ms-flex-pack: justify;
             justify-content: space-between;
@@ -135,15 +154,15 @@ header .userMenu {
         -ms-flex-positive: 0;
             flex-grow: 0;
   }
-  header .logo {
+  .header header .logo {
     -webkit-box-pack: start;
         -ms-flex-pack: start;
             justify-content: start;
   }
-  header .menu {
+  .header header .menu {
     display: block;
   }
-  header ul {
+  .header header ul {
     position: fixed;
     width: 100%;
     height: 100vh;
@@ -156,14 +175,14 @@ header .userMenu {
     -webkit-transition: all 0.5s;
     transition: all 0.5s;
   }
-  header ul .desktop_link,
-  header ul .dropdown {
+  .header header ul .desktop_link,
+  .header header ul .dropdown {
     display: none;
   }
-  header ul .mobile_link {
+  .header header ul .mobile_link {
     display: block;
   }
-  header ul li {
+  .header header ul li {
     display: block;
     line-height: 100px;
     position: relative;
@@ -172,30 +191,30 @@ header .userMenu {
     -webkit-transform: translate(0, -50%);
             transform: translate(0, -50%);
   }
-  header .userMenu {
+  .header header .userMenu {
     -webkit-box-flex: 0;
         -ms-flex-positive: 0;
             flex-grow: 0;
     text-align: center;
   }
-  header #check:checked ~ .platformMenu {
+  .header header #check:checked ~ .platformMenu {
     position: absolute;
     left: 0;
   }
-  header #check2:checked ~ .userMenu {
+  .header header #check2:checked ~ .userMenu {
     position: absolute;
     left: 0;
   }
 }
 
-header .icon {
+.header header .icon {
   font-size: 2.5em;
   height: 40px;
   width: 40px;
   cursor: pointer;
 }
 
-header .icons {
+.header header .icons {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -205,7 +224,7 @@ header .icons {
   padding: 14px;
 }
 
-header #basket {
+.header header #basket {
   width: clamp(300px, 80%, 600px);
   border-radius: 8px;
   background-color: burlywood;
@@ -232,26 +251,26 @@ header #basket {
 }
 
 @media (max-width: 1100px) {
-  header #basket {
+  .header header #basket {
     left: 50%;
     -webkit-transform: translate(-50%, 50%);
             transform: translate(-50%, 50%);
   }
 }
 
-header #basket .userinfo {
+.header header #basket .userinfo {
   text-align: center;
 }
 
-header #basket .userinfo .username {
+.header header #basket .userinfo .username {
   margin: 1ch;
 }
 
-header #basket .userinfo .message {
+.header header #basket .userinfo .message {
   margin: 1ch;
 }
 
-header #basket .item {
+.header header #basket .item {
   width: 50%;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -265,7 +284,7 @@ header #basket .item {
   border-bottom: 1px solid white;
 }
 
-header #basket .item .quantity {
+.header header #basket .item .quantity {
   width: 20%;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -275,8 +294,8 @@ header #basket .item .quantity {
           justify-content: space-evenly;
 }
 
-header #basket .item .quantity .incrementer,
-header #basket .item .quantity .decrementer {
+.header header #basket .item .quantity .incrementer,
+.header header #basket .item .quantity .decrementer {
   text-align: center;
   width: 100%;
   height: 100%;
@@ -286,11 +305,11 @@ header #basket .item .quantity .decrementer {
   color: white;
 }
 
-header #basket .checkout {
+.header header #basket .checkout {
   margin: 1ch;
 }
 
-header #basket .checkout .checkoutBtn {
+.header header #basket .checkout .checkoutBtn {
   padding: 1ch 3ch;
   font-size: 26px;
   border-radius: 8px;
@@ -854,11 +873,19 @@ footer .policy .policies p {
   margin-bottom: 80px;
 }
 
+.adminContent .newsContainer .news1, .adminContent .newsContainer .news2 {
+  padding: 2ch;
+  padding-bottom: 5ch;
+}
+
 .adminContent .newsContainer form {
   width: clamp(250px, 80%, 1000px);
 }
 
 .adminContent .newsContainer form fieldset {
+  background-color: #2b2525;
+  color: white;
+  border: solid 1px white;
   padding: 10px 60px;
   border-radius: 8px;
 }
@@ -900,6 +927,9 @@ footer .policy .policies p {
 }
 
 .adminContent .addProductContainer form fieldset {
+  background-color: #2b2525;
+  color: white;
+  border: solid 1px white;
   padding: 0 60px;
   border-radius: 8px;
 }
@@ -972,7 +1002,7 @@ footer .policy .policies p {
   display: flex;
 }
 
-.adminContent .currentProductsContainer {
+.adminContent .editProduct {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -983,13 +1013,87 @@ footer .policy .policies p {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  border: 1px solid white;
-  margin: 0 auto 6ch auto;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-bottom: 80px;
+}
+
+.adminContent .editProduct form {
+  width: clamp(250px, 80%, 1000px);
+}
+
+.adminContent .editProduct form fieldset {
+  background-color: #2b2525;
+  color: white;
+  border: solid 1px white;
+  width: 80%;
+  margin: 0 auto;
+  padding: 5ch;
   border-radius: 8px;
+}
+
+.adminContent .editProduct form input {
+  width: 100%;
+  height: 30px;
+}
+
+.adminContent .editProduct form textarea {
+  height: 120px;
+  width: 100%;
+  resize: vertical;
+}
+
+.adminContent .editProduct form .subButton {
+  width: 250px;
+  height: 60px;
+  font-size: 20px;
+  position: absolute;
+  left: 50%;
+  -webkit-transform: translate(-50%, 0%);
+          transform: translate(-50%, 0%);
+}
+
+.adminContent .productList {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (minmax(40rem, 1fr))[auto-fill];
+      grid-template-columns: repeat(auto-fill, minmax(40rem, 1fr));
+  grid-auto-rows: 1fr;
+}
+
+@media (max-width: 700px) {
+  .adminContent .productList {
+    -ms-grid-columns: (minmax(30rem, 1fr))[auto-fill];
+        grid-template-columns: repeat(auto-fill, minmax(30rem, 1fr));
+  }
+}
+
+.adminContent .productList .currentProductContainer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  background-color: #2b2525;
+  border: 1px solid white;
+  border-radius: 8px;
+  margin: 0 auto 6ch auto;
   width: clamp(200px, 80%, 600px);
 }
 
-.adminContent .currentProductsContainer .productNo {
+@media (max-width: 700px) {
+  .adminContent .productList .currentProductContainer {
+    width: clamp(100px, 80%, 300px);
+  }
+}
+
+.adminContent .productList .currentProductContainer .productNo {
   -ms-flex-item-align: start;
       align-self: flex-start;
   border-radius: 8px;
@@ -997,7 +1101,7 @@ footer .policy .policies p {
   padding: 0 2ch;
 }
 
-.adminContent .currentProductsContainer .productSubContainer {
+.adminContent .productList .currentProductContainer .productSubContainer {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1007,7 +1111,7 @@ footer .policy .policies p {
 }
 
 @media (max-width: 700px) {
-  .adminContent .currentProductsContainer .productSubContainer {
+  .adminContent .productList .currentProductContainer .productSubContainer {
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
         -ms-flex-direction: column;
@@ -1018,30 +1122,30 @@ footer .policy .policies p {
   }
 }
 
-.adminContent .currentProductsContainer .productSubContainer .productTitle,
-.adminContent .currentProductsContainer .productSubContainer .productPrice,
-.adminContent .currentProductsContainer .productSubContainer .productReleaseDate,
-.adminContent .currentProductsContainer .productSubContainer .productRating,
-.adminContent .currentProductsContainer .productSubContainer .productPlatform {
+.adminContent .productList .currentProductContainer .productSubContainer .productTitle,
+.adminContent .productList .currentProductContainer .productSubContainer .productPrice,
+.adminContent .productList .currentProductContainer .productSubContainer .productReleaseDate,
+.adminContent .productList .currentProductContainer .productSubContainer .productRating,
+.adminContent .productList .currentProductContainer .productSubContainer .productPlatform {
   padding: 1ch;
   overflow-wrap: break-word;
   min-width: 90%;
 }
 
-.adminContent .currentProductsContainer .productSubContainer .productInfoContainer .productImg {
+.adminContent .productList .currentProductContainer .productSubContainer .productInfoContainer .productImg {
   border-radius: 8px;
   border: 1px solid white;
   margin: 1ch;
 }
 
-.adminContent .currentProductsContainer .productSubContainer .productInfoContainer .productImg img {
+.adminContent .productList .currentProductContainer .productSubContainer .productInfoContainer .productImg img {
   border-radius: 8px;
   aspect-ratio: 4/3;
   min-width: 250px;
   max-width: 250px;
 }
 
-.adminContent .currentProductsContainer .productSubContainer .productBtnContainer {
+.adminContent .productList .currentProductContainer .productSubContainer .productBtnContainer {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1054,7 +1158,7 @@ footer .policy .policies p {
 }
 
 @media (max-width: 700px) {
-  .adminContent .currentProductsContainer .productSubContainer .productBtnContainer {
+  .adminContent .productList .currentProductContainer .productSubContainer .productBtnContainer {
     -webkit-box-orient: horizontal;
     -webkit-box-direction: reverse;
         -ms-flex-direction: row-reverse;
@@ -1065,7 +1169,7 @@ footer .policy .policies p {
   }
 }
 
-.adminContent .currentProductsContainer .productSubContainer .productBtnContainer button {
+.adminContent .productList .currentProductContainer .productSubContainer .productBtnContainer button {
   width: 70px;
   padding: 10px;
   border: 1px solid white;
@@ -1090,6 +1194,8 @@ footer .policy .policies p {
 }
 
 .adminContent .userList .currentRegisteredUsers .user {
+  background-color: #2b2525;
+  color: white;
   border: solid 1px white;
   border-radius: 8px;
   padding: 1ch;
@@ -1105,7 +1211,7 @@ footer .policy .policies p {
   background-color: transparent;
 }
 
-.editDiv {
+.adminContent .editUser {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1119,39 +1225,92 @@ footer .policy .policies p {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  margin-bottom: 80px;
+  margin-bottom: 180px;
 }
 
-.editDiv form {
+.adminContent .editUser form {
   width: clamp(250px, 80%, 1000px);
 }
 
-.editDiv form fieldset {
-  width: 80%;
-  margin: 0 auto;
-  padding: 5ch;
+.adminContent .editUser form fieldset {
+  padding: 0 60px;
+  padding-bottom: 20px;
   border-radius: 8px;
 }
 
-.editDiv form input {
+.adminContent .editUser form fieldset input {
   width: 100%;
   height: 30px;
 }
 
-.editDiv form textarea {
+.adminContent .editUser form fieldset textarea {
   height: 120px;
   width: 100%;
   resize: vertical;
 }
 
-.editDiv form .subButton {
+.adminContent .editUser form fieldset .updateBtn {
   width: 250px;
   height: 60px;
   font-size: 20px;
   position: absolute;
   left: 50%;
-  -webkit-transform: translate(-50%, 0%);
-          transform: translate(-50%, 0%);
+  -webkit-transform: translate(-50%);
+          transform: translate(-50%);
+}
+
+.adminContent .editUser .tickBoxContainer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+}
+
+.adminContent .editUser .tickBoxContainer .platformCont,
+.adminContent .editUser .tickBoxContainer .genreCont {
+  width: 50%;
+}
+
+.adminContent .editUser .tickBoxContainer .platform,
+.adminContent .editUser .tickBoxContainer .genre {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  margin: 1ch;
+  height: 200px;
+}
+
+@media (max-width: 900px) {
+  .adminContent .editUser .tickBoxContainer .platform,
+  .adminContent .editUser .tickBoxContainer .genre {
+    -ms-flex-wrap: nowrap;
+        flex-wrap: nowrap;
+    height: unset;
+  }
+}
+
+.adminContent .editUser .tickBoxContainer .inputCont {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.about {
+  margin: 0 auto;
+  width: clamp(100px, 80%, 1000px);
+}
+
+.about fieldset {
+  background-color: #2b2525;
+  color: white;
+  border: 1px solid white;
+  border-radius: 8px;
 }
 
 .contactFormContainer {
@@ -1171,6 +1330,10 @@ footer .policy .policies p {
 }
 
 .contactFormContainer fieldset {
+  background-color: #2b2525;
+  color: white;
+  border: 1px solid white;
+  border-radius: 8px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1187,8 +1350,11 @@ footer .policy .policies p {
 }
 
 .contactFormContainer .submitBtn {
+  width: 200px;
+  height: 50px;
+  font-size: 20px;
   margin: 0 auto;
-  margin-bottom: -1ch;
+  margin-bottom: -4ch;
   width: 60%;
 }
 
@@ -1238,5 +1404,93 @@ footer .policy .policies p {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+}
+
+.CreateNewUser form {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  margin: 0 auto 100px auto;
+}
+
+.CreateNewUser form fieldset {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  background-color: #2b2525;
+  color: white;
+  border: 1px solid white;
+  border-radius: 8px;
+}
+
+.CreateNewUser form fieldset .button {
+  width: 150px;
+  height: 50px;
+  margin-bottom: -40px;
+  font-size: 20px;
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+}
+
+.login {
+  width: clamp(100px, 80%, 300px);
+  margin: 0 auto;
+}
+
+.login form {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  text-align: center;
+  margin: 10ch auto;
+}
+
+.login form fieldset {
+  background-color: #2b2525;
+  color: white;
+  border: 1px solid white;
+  border-radius: 8px;
+}
+
+.login form fieldset .button {
+  width: 200px;
+  height: 50px;
+  font-size: 20px;
+  position: absolute;
+  left: 50%;
+  -webkit-transform: translate(-50%);
+          transform: translate(-50%);
+}
+
+.login .createNew {
+  background-color: #2b2525;
+  border: 1px solid white;
+  border-radius: 8px;
+  text-align: center;
+  margin-bottom: 10ch;
+}
+
+.login .createNew a button {
+  margin-top: -1ch;
+  width: 200px;
+  height: 50px;
+  font-size: 20px;
+  position: absolute;
+  left: 50%;
+  -webkit-transform: translate(-50%);
+          transform: translate(-50%);
 }
 /*# sourceMappingURL=style.css.map */

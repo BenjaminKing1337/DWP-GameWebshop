@@ -2,14 +2,7 @@
 
 class Userviewer
 {
-    public $username;
-    public $Fname;
-    public $Lname;
-    private $email;
-    public $description;
-    public $usertype;
-
-    public function displayUser()
+   public function displayUser()
     {
         $db = new DbCon();
         $query = $db->dbCon->prepare("SELECT * FROM accounts");

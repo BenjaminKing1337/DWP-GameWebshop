@@ -6,6 +6,9 @@ USE gamewebshop;
 
 CREATE TABLE `news` (
     `id` INT AUTO_INCREMENT NOT NULL PRIMARY KEY,
+    `hero1` VARCHAR(100) NOT NULL,
+    `hero2` VARCHAR(100) NOT NULL,
+    `hero3` VARCHAR(100) NOT NULL,
     `sale` INT(3) NOT NULL,
     `date` INT(1) NOT NULL,
     `rate` INT(1) NOT NULL
@@ -45,6 +48,15 @@ CREATE VIEW `games` AS
 SELECT * FROM product
 JOIN media ON product.id = media.mediaID;
 
+INSERT INTO accounts 
+    (id, username, pass, Fname, Lname, email, description, usertype) 
+ VALUES -- Password = 123456
+    (1, 'Solanum', '$2y$15$2a0at2IhmJ9wyyply93qauT7yP/.JgxzWohC.YhdYc9266YaP8VyS', 'Solanum', 'Nomai', 'Echoes@Eye.com', 'Last surviving nomai seeking the eye of the universe.', 'admin');
+
+INSERT INTO news 
+    (id, hero1, hero2, hero3, sale, date, rate) 
+VALUES
+    (1, 'Digital codes.', 'Instant delivery.', 'Best price on the market.', 200, 3, 8);
 
 INSERT INTO product 
     (id, Title, Price, ReleaseDate, Description, Rating, Platform, Genre) 

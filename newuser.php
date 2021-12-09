@@ -1,7 +1,10 @@
-<?php 
-	require("includes/connection.php"); 
-	// require("includes/session.php"); 
-	
+<?php
+spl_autoload_register(function ($class) {
+	include "../classes/" . $class . ".php";
+});
+require("includes/connection.php");
+require("includes/session.php");
+
 
 // START FORM PROCESSING
 if (isset($_POST['submit'])) { // Form has been submitted.
@@ -18,9 +21,16 @@ if (isset($_POST['submit'])) { // Form has been submitted.
 
 	$query = "INSERT INTO `accounts` (`username`, `Fname`, `Lname`, `email`, `description`, `pass`) VALUES ('{$username}', '{$fname}', '{$lname}', '{$email}', '{$description}', '{$hashed_password}')";
 	$result = mysqli_query($connection, $query);
+	$query1 = "SELECT id, username, pass, usertype FROM accounts WHERE username = '{$username}' LIMIT 1";
+	$result1 = mysqli_query($connection, $query1);
+	$details = mysqli_fetch_array($result1);
 	if ($result) {
-		
-		header("Location: index.php?uc=1");
+		if ($details["usertype"] == "user" || $details["usertype"] == "") {
+			$_SESSION['user_id'] = $details['id'];
+			$_SESSION['user'] = $details['username'];
+			$_SESSION['usertype'] = $details['usertype'];
+			$redirect = new Redirector("index.php?uc=1");
+		}
 	} else {
 		$message = "User could not be created.";
 		$message .= "<br />" . mysqli_error($connection);
@@ -31,19 +41,24 @@ include("navigation/header.php");
 
 ?>
 <div class="CreateNewUser">
-<h2>Create New User</h2>
-<div>  <?php if(isset($message)){
-	echo $message;
-} ?></div>
-<form action="" method="post">
-	Username:<br><input type="text" name="username"> <br><br>
-	Password:<br><input type="text" name="pass"> <br><br>
-	First Name:<br><input type="text" name="Fname"> <br><br>
-	Last Name:<br><input type="text" name="Lname"> <br><br>
-	Email:<br><input type="text" name="email"> <br><br>
-	Description:<br><textarea cols="21" rows="10" type="text" name="description"></textarea> <br><br>
-	<input type="submit" name="submit" value="Create" />
-</form>
+	<div> <?php if (isset($message)) {
+				echo $message;
+			} ?>
+	</div>
+	<form action="" method="post">
+		<fieldset>
+			<legend>
+				<h2>Create New User</h2>
+			</legend>
+			Username:<br><input type="text" name="username"> <br><br>
+			Password:<br><input type="text" name="pass"> <br><br>
+			First Name:<br><input type="text" name="Fname"> <br><br>
+			Last Name:<br><input type="text" name="Lname"> <br><br>
+			Email:<br><input type="text" name="email"> <br><br>
+			Description:<br><textarea cols="21" rows="6" type="text" name="description"></textarea> <br><br>
+			<input class="button" type="submit" name="submit" value="Create" />
+		</fieldset>
+	</form>
 </div>
 </div>
 <?php include("navigation/footer.php"); ?>

@@ -1,34 +1,43 @@
-<?php require("includes/connection.php"); ?>
-<?php require("includes/session.php"); ?>
-
-<html>
-<?php 
-	include("navigation/header.php");
-?>
-	<?php
-		if (logged_in()) {
-			redirect_to("index.php");
-		}
- 	?>
-
-	<div id="Login"><h2>Please login</h2>
-	<form action="" method="post">
-	Username:
-	<input type="text" name="user" maxlength="30" value="" /> <br><br>
-	Password:
-	<input type="password" name="pass" maxlength="30" value="" /> <br><br>
-	<input type="submit" name="submit_login" value="Login" />
-	</form>
-
-	<br><br>
-
-	<h2>Is it someone new?</h2>
-	<a style='text-decoration: none;' href='newuser.php' >Create user...</a>
-
-	</div>
-	<?php include("navigation/footer.php"); ?>
-
-</html>
 <?php
-if (isset($connection)){mysqli_close($connection);}
+spl_autoload_register(function ($class) {
+	include "classes/" . $class . ".php";
+});
+require("includes/connection.php");
+require("includes/session.php");
+if (logged_in()) {
+	$redirect = new Redirector("index.php");
+}
+if (isset($_POST['submit_login'])) { // Form has been submitted.
+	$login = new Loginuser($_POST['user'], $_POST['pass']);
+}
+include("navigation/header.php");
+?>
+
+<div id="Login" class="login">
+	<form action="" method="post">
+		<fieldset>
+			<legend>
+				<h2>Please login</h2>
+			</legend>
+			Username:
+			<input type="text" name="user" maxlength="30" value="" /> <br><br>
+			Password:
+			<input type="password" name="pass" maxlength="30" value="" /> <br><br>
+			<input class="button" type="submit" name="submit_login" value="Login" />
+		</fieldset>
+	</form>
+	<br><br>
+	<div class="createNew">
+		<h2>Is it someone new?</h2>
+		<a style='text-decoration: none;' href='newuser.php'>
+			<button>Create User</button></a>
+	</div>
+</div>
+
+<?php
+include("navigation/footer.php");
+
+if (isset($connection)) {
+	mysqli_close($connection);
+}
 ?>
