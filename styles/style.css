@@ -472,6 +472,7 @@ footer .policy .policies p {
       -ms-flex-align: center;
           align-items: center;
   overflow: hidden;
+  cursor: pointer;
 }
 
 .content .platform .pc {

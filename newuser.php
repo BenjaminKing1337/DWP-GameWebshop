@@ -29,7 +29,7 @@ if (isset($_POST['submit'])) { // Form has been submitted.
 			$redirect = new Redirector("index.php?uc=1");
 		}
 	} else {
-		$message = "User could not be created.";
+		$message = "User could not be created. This user already exists.";
 		$message .= "<br />" . mysqli_error($connection);
 	}
 }

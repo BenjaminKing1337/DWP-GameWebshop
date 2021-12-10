@@ -4,7 +4,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" href="styles/style.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <script src="https://www.google.com/recaptcha/api.js?render=6Lc1cYUdAAAAAFOScH5Oj_sy3Acu6SQkdCN5Wf-r"></script>
+    <!-- <script src="https://www.google.com/recaptcha/api.js?render=6Lc1cYUdAAAAAFOScH5Oj_sy3Acu6SQkdCN5Wf-r"></script>
     <script>
       function onClick(e) {
         e.preventDefault();
@@ -14,9 +14,13 @@
           });
         });
       }
-  </script>
+  </script> -->
 </head>
+<?php 
+$quantity = 0;
 
+
+?>
 <body>
     <div class="header">
         <header>
@@ -49,6 +53,13 @@
             <div class="icons">
                 <label for="check" id="addlayer1" class="material-icons menu" style="font-size: 3em; cursor: pointer;">menu</label>
                 <label class="material-icons icon cart" id="cart">shopping_cart</label>
+                <?php if(isset($_SESSION['cart'])){
+                    $count = count($_SESSION['cart']);
+                    echo "<span>$count</span>";
+                    } else{
+                        echo "<span>0</span>";
+                    }
+                ?>
                 <label for="check2" id="addlayer2" class="material-icons icon menu">account_circle</label>
             </div>
 
@@ -91,6 +102,7 @@
                     <h5 class="productName">Game</h5>
                     <div class="quantity">
                         <button class="incrementer">+</button>
+                        <?php echo $quantity ?>
                         <button class="decrementer">-</button>
                     </div>
 

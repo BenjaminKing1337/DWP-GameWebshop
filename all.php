@@ -46,6 +46,34 @@ if (isset($_POST['filter_submit'])) {
 $result = mysqli_query($connection, $sql);
 $products = mysqli_fetch_all($result, MYSQLI_ASSOC);
 
+if(isset($_POST['add'])){
+    //print_r($_POST['product_id']);
+    if(isset($_SESSION['cart'])){
+        $product_array_id = array_column($_SESSION['cart'], "product_id");
+
+        if(in_array($_POST['product_id'], $product_array_id)){
+            echo"Product is already in your cart";
+        }
+        else{
+            $count = count($_SESSION['cart']);
+            $product_array = array(
+                'product_id'=>$_POST['product_id']
+            );
+
+            $_SESSION['cart'][$count] = $product_array;
+        }
+    }
+    else{
+        $product_array = array(
+            'product_id'=>$_POST['product_id']
+        );
+
+        // new session variable
+        $_SESSION['cart'][0] = $product_array;
+        print_r($_SESSION['cart']);
+    }
+}
+
 mysqli_free_result($result);
 mysqli_close($connection);
 
@@ -81,22 +109,25 @@ include("navigation/header.php");
     <div class="allProductsContainer">
         <?php foreach ($products as $product) { ?>
             <div class="productContainer">
-                <div onclick="window.location='single.php?id=<?php echo $product['id'] ?>'" class="product">
-                    <div class="platformTag">
-                        <img width="25px" height="25px" src="https://i.kym-cdn.com/entries/icons/original/000/012/368/playstation-wallpaper-46825-48282-hd-wallpapers.jpg" alt="">
+                <form action="all.php" method="post">
+                    <div onclick="window.location='single.php?id=<?php echo $product['id'] ?>'" class="product">
+                        <div class="platformTag">
+                            <img width="25px" height="25px" src="https://i.kym-cdn.com/entries/icons/original/000/012/368/playstation-wallpaper-46825-48282-hd-wallpapers.jpg" alt="">
+                        </div>
+                        <img width="190px" height="180px" src="<?php echo htmlspecialchars($product['Thumbnail']) ?>" alt="">
                     </div>
-                    <img width="190px" height="180px" src="<?php echo htmlspecialchars($product['Thumbnail']) ?>" alt="">
-                </div>
-                <div class="title">
-                    <h3><?php echo htmlspecialchars(strlen($product['Title']) > 16 ? substr($product['Title'], 0, 16) . "..." : $product['Title']); ?></h3>
-                </div>
-                <div class="price">
-                    <h3><?php echo htmlspecialchars($product['Price']); ?> DKK</h3> <br>
-                    <h4>Old Price</h4>
-                    <button>Add <br>
-                        to <br>
-                        Cart</button>
-                </div>
+                    <div class="title">
+                        <h3><?php echo htmlspecialchars(strlen($product['Title']) > 16 ? substr($product['Title'], 0, 16) . "..." : $product['Title']); ?></h3>
+                    </div>
+                    <div class="price">
+                        <h3><?php echo htmlspecialchars($product['Price']); ?> DKK</h3> <br>
+                        <h4>Old Price</h4>
+                        <button type="submit" name="add">Add <br>
+                            to <br>
+                            Cart</button>
+                        <input type="hidden" name="product_id" value="<?php echo $product['id'] ?>">
+                    </div>
+                </form>
             </div>
         <?php } ?>
     </div>

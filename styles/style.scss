@@ -355,6 +355,7 @@ footer {
             justify-content: center;
             align-items: center;
             overflow: hidden;
+            cursor: pointer;
         }
         .pc {
             background-color: map-get($cs, pc);
