@@ -77,6 +77,9 @@ $quantity = 0;
                         </div>
                         <?php if (admin()) { ?>
                             <li class="mobile_link"><a href="admin/addproduct.php">Admin</a></li>
+                        <?php }
+                        if (logged_in()) { ?>
+                            <!-- <li class="mobile_link"><a href="changepass.php">Change Password</a></li> -->
                         <?php } ?>
                         <li class="mobile_link"><a href="logout.php">Logout</a></li>
                     <?php }
@@ -84,11 +87,15 @@ $quantity = 0;
                     <div class="dropdown">
                         <li class="desktop_link material-icons icon"><a href="#">account_circle</a></li>
                         <div class="dropdown-content">
-                            <li><a href="newuser.php">Create New User</a></li>
+                            <?php if (!logged_in()) { ?>
+                                <li><a href="newuser.php">Create New User</a></li>
+                            <?php } ?>
                             <li><a href="login.php">Login</a></li>
                         </div>
                     </div>
-                    <li class="mobile_link"><a href="newuser.php">Create New User</a></li>
+                    <?php if (!logged_in()) { ?>
+                        <li class="mobile_link"><a href="newuser.php">Create New User</a></li>
+                    <?php } ?>
                     <li class="mobile_link"><a href="login.php">Login</a></li>
                 <?php } ?>
             </ul>
@@ -124,15 +131,14 @@ $quantity = 0;
                 if (bskt.style.visibility !== "hidden") {
                     bskt.style.visibility = "hidden";
                     bskt.style.opacity = "0";
-                } 
-                else {
+                } else {
                     bskt.style.visibility = "visible";
                     bskt.style.opacity = "1";
                 }
-                if (document.getElementById("check").checked = true){
+                if (document.getElementById("check").checked = true) {
                     document.getElementById("check").checked = false;
                 }
-                if (document.getElementById("check2").checked = true){
+                if (document.getElementById("check2").checked = true) {
                     document.getElementById("check2").checked = false;
                 }
             }

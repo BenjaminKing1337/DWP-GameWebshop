@@ -9,6 +9,8 @@ CREATE TABLE `news` (
     `hero1` VARCHAR(100) NOT NULL,
     `hero2` VARCHAR(100) NOT NULL,
     `hero3` VARCHAR(100) NOT NULL,
+    `wHead` VARCHAR(100) NOT NULL,
+    `wMsg` VARCHAR(255) NOT NULL,
     `sale` INT(3) NOT NULL,
     `date` INT(1) NOT NULL,
     `rate` INT(1) NOT NULL
@@ -54,9 +56,9 @@ INSERT INTO accounts
     (1, 'Solanum', '$2y$15$2a0at2IhmJ9wyyply93qauT7yP/.JgxzWohC.YhdYc9266YaP8VyS', 'Solanum', 'Nomai', 'Echoes@Eye.com', 'Last surviving nomai seeking the eye of the universe.', 'admin');
 
 INSERT INTO news 
-    (id, hero1, hero2, hero3, sale, date, rate) 
+    (id, hero1, hero2, hero3, wHead, wMsg, sale, date, rate) 
 VALUES
-    (1, 'Digital codes.', 'Instant delivery.', 'Best price on the market.', 200, 3, 8);
+    (1, 'Digital codes.', 'Instant delivery.', 'Best price on the market.', 'Weekly Headline', 'Weekly Message', 200, 3, 8);
 
 INSERT INTO product 
     (id, Title, Price, ReleaseDate, Description, Rating, Platform, Genre) 
