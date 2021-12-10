@@ -371,6 +371,18 @@ footer .policy .policies p {
   margin: 0 auto;
 }
 
+.content fieldset {
+  background-color: #2b2525;
+  color: white;
+  border: solid 2px white;
+  border-radius: 8px;
+}
+
+.content .weeklyMsgCont {
+  width: clamp(100px, 80%, 500px);
+  margin: 0 auto;
+}
+
 @media (min-width: 1100px) {
   .content {
     width: 80%;
@@ -396,15 +408,21 @@ footer .policy .policies p {
   font-weight: 700;
 }
 
-.content .best-sales {
+.content .best-sales,
+.content .new-releases,
+.content .best-rate {
   margin-top: 60px;
 }
 
-.content .best-sales h2 {
+.content .best-sales h2,
+.content .new-releases h2,
+.content .best-rate h2 {
   font-weight: 500;
 }
 
-.content .best-sales .cards {
+.content .best-sales .cards,
+.content .new-releases .cards,
+.content .best-rate .cards {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -415,7 +433,9 @@ footer .policy .policies p {
       flex-wrap: wrap;
 }
 
-.content .best-sales .cards .card {
+.content .best-sales .cards .card,
+.content .new-releases .cards .card,
+.content .best-rate .cards .card {
   width: 190px;
   height: 180px;
   border: 1px solid white;
@@ -424,11 +444,15 @@ footer .policy .policies p {
   cursor: pointer;
 }
 
-.content .best-sales .cards .card img {
+.content .best-sales .cards .card img,
+.content .new-releases .cards .card img,
+.content .best-rate .cards .card img {
   border-radius: 8px;
 }
 
-.content .best-sales .button {
+.content .best-sales .button,
+.content .new-releases .button,
+.content .best-rate .button {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -440,11 +464,15 @@ footer .policy .policies p {
           justify-content: flex-end;
 }
 
-.content .best-sales .button h2 {
+.content .best-sales .button h2,
+.content .new-releases .button h2,
+.content .best-rate .button h2 {
   margin-right: 10px;
 }
 
-.content .best-sales .button span {
+.content .best-sales .button span,
+.content .new-releases .button span,
+.content .best-rate .button span {
   border: 1px solid white;
   border-radius: 100%;
 }
@@ -873,7 +901,9 @@ footer .policy .policies p {
   margin-bottom: 80px;
 }
 
-.adminContent .newsContainer .news1, .adminContent .newsContainer .news2 {
+.adminContent .newsContainer .news1,
+.adminContent .newsContainer .weekly,
+.adminContent .newsContainer .news2 {
   padding: 2ch;
   padding-bottom: 5ch;
 }
@@ -1203,12 +1233,73 @@ footer .policy .policies p {
 }
 
 .adminContent .userList .currentRegisteredUsers .user button {
+  cursor: pointer;
   padding: 10px;
-  border: 1px solid rebeccapurple;
+  border: 1px solid white;
   text-decoration: none;
   margin: 10px;
-  color: rebeccapurple;
+  color: white;
   background-color: transparent;
+}
+
+.adminContent .userList .currentRegisteredUsers .user .username {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.adminContent .userList .currentRegisteredUsers .user .username .name {
+  padding: 0;
+  font-size: 20px;
+}
+
+.adminContent .userList .currentRegisteredUsers .user .Fname {
+  margin: -1ch 0;
+}
+
+.adminContent .userList .currentRegisteredUsers .user .email {
+  margin: -2ch 0;
+}
+
+.adminContent .userList .currentRegisteredUsers .user .descrip .tion {
+  font-style: italic;
+}
+
+.adminContent .userList .currentRegisteredUsers .user .btns {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.adminContent .changePass {
+  width: clamp(100px, 80%, 300px);
+  margin: 0 auto;
+  text-align: center;
+}
+
+.adminContent .changePass fieldset {
+  background-color: #2b2525;
+  color: white;
+  border: 1px solid white;
+  border-radius: 8px;
+}
+
+.adminContent .changePass fieldset .changePassBtn {
+  width: 200px;
+  height: 50px;
+  font-size: 20px;
+  position: absolute;
+  left: 50%;
+  -webkit-transform: translate(-50%);
+          transform: translate(-50%);
 }
 
 .adminContent .editUser {

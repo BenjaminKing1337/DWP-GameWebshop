@@ -4,7 +4,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" href="styles/style.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <script src="https://www.google.com/recaptcha/api.js?render=6Lc1cYUdAAAAAFOScH5Oj_sy3Acu6SQkdCN5Wf-r"></script>
+    <!-- <script src="https://www.google.com/recaptcha/api.js?render=6Lc1cYUdAAAAAFOScH5Oj_sy3Acu6SQkdCN5Wf-r"></script>
     <script>
       function onClick(e) {
         e.preventDefault();
@@ -14,7 +14,7 @@
           });
         });
       }
-  </script>
+  </script> -->
 </head>
 
 <body>
@@ -66,6 +66,9 @@
                         </div>
                         <?php if (admin()) { ?>
                             <li class="mobile_link"><a href="admin/addproduct.php">Admin</a></li>
+                        <?php }
+                        if (logged_in()) { ?>
+                            <!-- <li class="mobile_link"><a href="changepass.php">Change Password</a></li> -->
                         <?php } ?>
                         <li class="mobile_link"><a href="logout.php">Logout</a></li>
                     <?php }
@@ -73,11 +76,15 @@
                     <div class="dropdown">
                         <li class="desktop_link material-icons icon"><a href="#">account_circle</a></li>
                         <div class="dropdown-content">
-                            <li><a href="newuser.php">Create New User</a></li>
+                            <?php if (!logged_in()) { ?>
+                                <li><a href="newuser.php">Create New User</a></li>
+                            <?php } ?>
                             <li><a href="login.php">Login</a></li>
                         </div>
                     </div>
-                    <li class="mobile_link"><a href="newuser.php">Create New User</a></li>
+                    <?php if (!logged_in()) { ?>
+                        <li class="mobile_link"><a href="newuser.php">Create New User</a></li>
+                    <?php } ?>
                     <li class="mobile_link"><a href="login.php">Login</a></li>
                 <?php } ?>
             </ul>
@@ -112,15 +119,14 @@
                 if (bskt.style.visibility !== "hidden") {
                     bskt.style.visibility = "hidden";
                     bskt.style.opacity = "0";
-                } 
-                else {
+                } else {
                     bskt.style.visibility = "visible";
                     bskt.style.opacity = "1";
                 }
-                if (document.getElementById("check").checked = true){
+                if (document.getElementById("check").checked = true) {
                     document.getElementById("check").checked = false;
                 }
-                if (document.getElementById("check2").checked = true){
+                if (document.getElementById("check2").checked = true) {
                     document.getElementById("check2").checked = false;
                 }
             }

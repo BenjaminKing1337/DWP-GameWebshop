@@ -5,10 +5,12 @@ $db = new DbCon();
 $news = "SELECT * FROM `news`";
 $newsResult = mysqli_query($connection, $news);
 $new = mysqli_fetch_all($newsResult, MYSQLI_ASSOC);
- //var_dump($new);
+//var_dump($new);
 $hero1 = $new[0]['hero1'];
 $hero2 = $new[0]['hero2'];
 $hero3 = $new[0]['hero3'];
+$wHead = $new[0]['wHead'];
+$wMsg = $new[0]['wMsg'];
 // Gets current date
 $today = date('Y-m-d');
 // Determines when a product:
@@ -53,6 +55,13 @@ include("navigation/header.php");
         <h1><?= $hero3 ?></h1>
     </div>
 
+    <div class="weeklyMsgCont">
+        <fieldset>
+            <legend><h2><?= $wHead ?></h2></legend>
+            <p><?= $wMsg ?></p>
+        </fieldset>
+    </div>
+
     <div>
         <?php
         if (isset($_GET['uc']) && $_GET['uc'] == 1) {
@@ -62,53 +71,65 @@ include("navigation/header.php");
     </div>
 
     <div class="best-sales">
-        <h2>Best sales ATM</h2>
-        <div class="cards">
-            <?php foreach ($products_price as $product) { ?>
-                <div class="card" onclick="window.location='single.php?id=<?php echo $product['id'] ?>'">
-                    <img width="190px" height="180px" src="<?php echo htmlspecialchars($product['Thumbnail']) ?>" alt="">
-                </div>
-            <?php } ?>
-        </div>
+        <fieldset>
+            <legend>
+                <h2>Best sales ATM</h2>
+            </legend>
+            <div class="cards">
+                <?php foreach ($products_price as $product) { ?>
+                    <div class="card" onclick="window.location='single.php?id=<?php echo $product['id'] ?>'">
+                        <img width="190px" height="180px" src="<?php echo htmlspecialchars($product['Thumbnail']) ?>" alt="">
+                    </div>
+                <?php } ?>
+            </div>
+        </fieldset>
         <div class="button">
             <a href="all.php?s=<?= $sale ?>">
-            <h2>See all</h2>
-            <span class="material-icons">keyboard_arrow_right</span>
+                <h2>See all</h2>
+                <span class="material-icons">keyboard_arrow_right</span>
             </a>
         </div>
     </div>
 
-    <div class="best-sales">
-        <h2>New releases</h2>
-        <div class="cards">
-            <?php foreach ($products_new as $product) { ?>
-                <div class="card" onclick="window.location='single.php?id=<?php echo $product['id'] ?>'">
-                    <img width="190px" height="180px" src="<?php echo htmlspecialchars($product['Thumbnail']) ?>" alt="">
-                </div>
-            <?php } ?>
-        </div>
+    <div class="new-releases">
+        <fieldset>
+            <legend>
+                <h2>New releases</h2>
+            </legend>
+            <div class="cards">
+                <?php foreach ($products_new as $product) { ?>
+                    <div class="card" onclick="window.location='single.php?id=<?php echo $product['id'] ?>'">
+                        <img width="190px" height="180px" src="<?php echo htmlspecialchars($product['Thumbnail']) ?>" alt="">
+                    </div>
+                <?php } ?>
+            </div>
+        </fieldset>
         <div class="button">
-        <a href="all.php?d=<?= $date ?>">
-            <h2>See all</h2>
-            <span class="material-icons">keyboard_arrow_right</span>
-        </a>
+            <a href="all.php?d=<?= $date ?>">
+                <h2>See all</h2>
+                <span class="material-icons">keyboard_arrow_right</span>
+            </a>
         </div>
     </div>
 
-    <div class="best-sales">
-        <h2>Best rated games</h2>
-        <div class="cards">
-            <?php foreach ($products_popular as $product) { ?>
-                <div class="card" onclick="window.location='single.php?id=<?php echo $product['id'] ?>'">
-                    <img width="190px" height="180px" src="<?php echo htmlspecialchars($product['Thumbnail']) ?>" alt="">
-                </div>
-            <?php } ?>
-        </div>
+    <div class="best-rate">
+        <fieldset>
+            <legend>
+                <h2>Best rated games</h2>
+            </legend>
+            <div class="cards">
+                <?php foreach ($products_popular as $product) { ?>
+                    <div class="card" onclick="window.location='single.php?id=<?php echo $product['id'] ?>'">
+                        <img width="190px" height="180px" src="<?php echo htmlspecialchars($product['Thumbnail']) ?>" alt="">
+                    </div>
+                <?php } ?>
+            </div>
+        </fieldset>
         <div class="button">
-        <a href="all.php?r=<?= $rate ?>">
-            <h2>See all</h2>
-            <span class="material-icons">keyboard_arrow_right</span>
-        </a>
+            <a href="all.php?r=<?= $rate ?>">
+                <h2>See all</h2>
+                <span class="material-icons">keyboard_arrow_right</span>
+            </a>
         </div>
     </div>
 

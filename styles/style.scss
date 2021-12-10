@@ -292,6 +292,16 @@ footer {
     padding: 0 15px;
     max-width: 1522px;
     margin: 0 auto;
+    fieldset {
+        background-color: map-get($cs, dropdownbg);
+        color: map-get($cs, mainaccent);
+        border: solid 2px map-get($cs, mainaccent);
+        border-radius: 8px;
+    }
+    .weeklyMsgCont {
+        width: clamp(100px, 80%, 500px);
+        margin: 0 auto;
+    }
     @media (min-width: 1100px) {
         width: 80%;
     }
@@ -307,7 +317,9 @@ footer {
             font-weight: 700;
         }
     }
-    .best-sales {
+    .best-sales,
+    .new-releases,
+    .best-rate {
         margin-top: 60px;
         h2 {
             font-weight: 500;
@@ -648,10 +660,11 @@ footer {
         justify-content: center;
         align-items: center;
         margin-bottom: 80px;
-        .news1, .news2{
-           padding: 2ch;
-           padding-bottom: 5ch;
-
+        .news1,
+        .weekly,
+        .news2 {
+            padding: 2ch;
+            padding-bottom: 5ch;
         }
         form {
             width: clamp(250px, 80%, 1000px);
@@ -874,13 +887,62 @@ footer {
                 padding: 1ch;
                 margin: 1ch;
                 button {
+                    cursor: pointer;
                     padding: 10px;
-                    border: 1px solid rebeccapurple;
+                    border: 1px solid map-get($cs, mainaccent);
                     text-decoration: none;
                     margin: 10px;
-                    color: rebeccapurple;
+                    color: map-get($cs, mainaccent);
                     background-color: transparent;
                 }
+                .no {
+                }
+                .username {
+                    display: flex;
+                    align-items: center;
+                    .name {
+                        padding: 0;
+                        font-size: 20px;
+                    }
+                }
+                .Fname {
+                    margin: -1ch 0;
+                }
+                .email {
+                    margin: -2ch 0;
+                }
+                .descrip {
+                    .tion {
+                        font-style: italic;
+                    }
+                }
+                .usertype {
+                }
+                .btns {
+                    //    text-align: center;
+                    display: flex;
+                    flex-wrap: wrap;
+                    justify-content: center;
+                }
+            }
+        }
+    }
+    .changePass {
+        width: clamp(100px, 80%, 300px);
+        margin: 0 auto;
+        text-align: center;
+        fieldset {
+            background-color: map-get($cs, dropdownbg);
+            color: map-get($cs, mainaccent);
+            border: 1px solid map-get($cs, mainaccent);
+            border-radius: 8px;
+            .changePassBtn {
+                width: 200px;
+                height: 50px;
+                font-size: 20px;
+                position: absolute;
+                left: 50%;
+                transform: translate(-50%);
             }
         }
     }
