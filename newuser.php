@@ -1,9 +1,6 @@
 <?php
-spl_autoload_register(function ($class) {
-	include "../classes/" . $class . ".php";
-});
-require("includes/connection.php");
-require("includes/session.php");
+require("includes/head.php");
+
 
 
 // START FORM PROCESSING

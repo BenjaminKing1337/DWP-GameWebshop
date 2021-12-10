@@ -1,6 +1,6 @@
 <?php
-require("includes/connection.php");
-require("includes/session.php");
+require("includes/head.php");
+
 
 //check id parameter
 if (isset($_GET['id'])) {

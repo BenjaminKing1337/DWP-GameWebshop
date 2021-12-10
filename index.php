@@ -1,9 +1,5 @@
 <?php
-spl_autoload_register(function ($class){
-    include"classes/".$class.".php";
-});
-require('includes/connection.php');
-require('includes/session.php');
+require('includes/head.php');
 $db = new DbCon();
 
 $news = "SELECT * FROM `news`";
@@ -47,11 +43,6 @@ mysqli_free_result($res_popular);
 
 mysqli_close($connection);
 
-?>
-
-<!DOCTYPE html>
-<html>
-<?php
 include("navigation/header.php");
 ?>
 

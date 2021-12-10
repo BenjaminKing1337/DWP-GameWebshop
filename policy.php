@@ -1,4 +1,7 @@
-<?php include("navigation/header.php"); ?>
+<?php
+require("includes/head.php");
+
+include("navigation/header.php"); ?>
 
 <div class="privacyPolicy">
     

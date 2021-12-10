@@ -1,8 +1,6 @@
 <?php 
-spl_autoload_register(function ($class){
-    include"classes/".$class.".php";
-});
-require("includes/session.php");
+require("includes/head.php");
+
 
 // Four steps to closing a session
 // (i.e. logging out)

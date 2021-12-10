@@ -1,8 +1,5 @@
 <?php
-spl_autoload_register(function ($class) {
-    include "../classes/" . $class . ".php";
-});
-require("../includes/connection.php");
+require("../includes/adminhead.php");
 $id = $_GET['id'];
 if (isset($id)) {
     $query = "DELETE FROM `product` WHERE id='$id';

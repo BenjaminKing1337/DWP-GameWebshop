@@ -1,6 +1,6 @@
 <?php
 
-class Userviewer
+class userViewer
 {
    public function displayUser()
     {

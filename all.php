@@ -1,6 +1,5 @@
 <?php
-require("includes/connection.php");
-require("includes/session.php");
+require("includes/head.php");
 
 $news = "SELECT * FROM `news`";
 $newsResult = mysqli_query($connection, $news);

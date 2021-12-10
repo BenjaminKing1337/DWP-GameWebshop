@@ -1,8 +1,8 @@
 <?php
-spl_autoload_register(function ($class) {
-    include "../classes/" . $class . ".php";
-});
-class Loginuser
+// spl_autoload_register(function ($class) {
+//     include "./classes/" . $class . ".php";
+// });
+class loginUser
 {
     public $message;
     // START FORM PROCESSING

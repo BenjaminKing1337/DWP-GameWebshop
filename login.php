@@ -1,14 +1,11 @@
 <?php
-spl_autoload_register(function ($class) {
-	include "classes/" . $class . ".php";
-});
-require("includes/connection.php");
-require("includes/session.php");
+require("includes/head.php");
+
 if (logged_in()) {
 	$redirect = new Redirector("index.php");
 }
 if (isset($_POST['submit_login'])) { // Form has been submitted.
-	$login = new Loginuser($_POST['user'], $_POST['pass']);
+	$login = new loginUser($_POST['user'], $_POST['pass']);
 }
 include("navigation/header.php");
 ?>

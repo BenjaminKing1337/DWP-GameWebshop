@@ -1,9 +1,5 @@
 <?php
-spl_autoload_register(function ($class) {
-    include "../classes/" . $class . ".php";
-});
-require('../includes/connection.php');
-require('../includes/session.php');
+require("../includes/adminhead.php");
 if (!admin()) {
     $redirect = new Redirector("../index.php");
 }

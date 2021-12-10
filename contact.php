@@ -1,6 +1,6 @@
 <?php
-require("includes/connection.php");
-require("includes/session.php");
+require("includes/head.php");
+
 
 
 $errors = array('firstname' => '', 'lastname' => '', 'email' => '', 'subject' => '', 'message' => '');
@@ -16,7 +16,8 @@ if (isset($_POST['submit'])) {
 
 
 
-    $mymail = "emil96k0@easv365.dk";
+    // $mymail = "emil96k0@easv365.dk";
+    $mymail = "test123@finklesnout.design";
 
     $regexp1 = "/^[A-z0-9_-]+([.][A-z0-9_]+)*[@][A-z0-9_]+([.][A-z0-9_-]+)*[.][A-z]{2,4}$/";
     $regexp2 = "/^[A-z ]{2,600}$/";

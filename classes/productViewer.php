@@ -1,6 +1,6 @@
 <?php
 
-class Productviewer
+class productViewer
 {
     public function displayProduct()
     {

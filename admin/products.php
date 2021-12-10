@@ -1,9 +1,5 @@
 <?php
-spl_autoload_register(function ($class) {
-    include "../classes/" . $class . ".php";
-});
-require('../includes/connection.php');
-require('../includes/session.php');
+require("../includes/adminhead.php");
 if (!admin()) {
     $redirect = new Redirector("../index.php");
 }
@@ -14,7 +10,7 @@ include("../navigation/adminNav.php");
     <h2 align="center">Current Registered Products</h2>
     <div class="productList">
         <?php
-        $products = new Productviewer();
+        $products = new productViewer();
         $products->displayProduct();
         ?>
     </div>
