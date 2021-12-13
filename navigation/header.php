@@ -52,7 +52,7 @@ $quantity = 0;
 
             <div class="icons">
                 <label for="check" id="addlayer1" class="material-icons menu" style="font-size: 3em; cursor: pointer;">menu</label>
-                <label class="material-icons icon cart" id="cart">shopping_cart</label>
+                <label class="material-icons icon cart" id="cart" onclick="window.location='cart.php'">shopping_cart</label>
                 <?php if(isset($_SESSION['cart'])){
                     $count = count($_SESSION['cart']);
                     echo "<span>$count</span>";
@@ -125,7 +125,7 @@ $quantity = 0;
 
 
         <script>
-            const bskt = document.getElementById("basket")
+            /* const bskt = document.getElementById("basket")
             const btn = document.getElementById("cart")
             btn.onclick = function() {
                 if (bskt.style.visibility !== "hidden") {
@@ -148,7 +148,7 @@ $quantity = 0;
                     bskt.style.visibility = "hidden";
                     bskt.style.opacity = "0";
                 }
-            }
+            } */
 
             document.getElementById("addlayer1").addEventListener("click", function() {
 

@@ -99,7 +99,7 @@ include("navigation/header.php");
             <div class="cards">
                 <?php foreach ($products_new as $product) { ?>
                     <div class="card" onclick="window.location='single.php?id=<?php echo $product['id'] ?>'">
-                        <img width="190px" height="180px" src="<?php echo htmlspecialchars($product['Thumbnail']) ?>" alt="">
+                        <img src="<?php echo htmlspecialchars($product['Thumbnail']) ?>" alt="">
                     </div>
                 <?php } ?>
             </div>
@@ -120,7 +120,7 @@ include("navigation/header.php");
             <div class="cards">
                 <?php foreach ($products_popular as $product) { ?>
                     <div class="card" onclick="window.location='single.php?id=<?php echo $product['id'] ?>'">
-                        <img width="190px" height="180px" src="<?php echo htmlspecialchars($product['Thumbnail']) ?>" alt="">
+                        <img src="<?php echo htmlspecialchars($product['Thumbnail']) ?>" alt="">
                     </div>
                 <?php } ?>
             </div>

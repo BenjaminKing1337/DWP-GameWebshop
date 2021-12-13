@@ -328,15 +328,30 @@ footer {
             display: flex;
             justify-content: center;
             flex-wrap: wrap;
+            @media (min-width: 1217px) {
+                height: 200px;
+                overflow: hidden;
+            }
+            
             .card {
                 width: 190px;
                 height: 180px;
                 border: 1px solid map-get($cs, mainaccent);
                 border-radius: 8px;
-                margin: 0 auto 15px;
+                margin: 0 auto 18px;
+                @media (max-width: 530px) {
+                    width: 170px;
+                    height: 160px;
+                }
                 cursor: pointer;
                 img {
+                    width: 190px;
+                    height: 180px;
                     border-radius: 8px;
+                    @media (max-width: 530px) {
+                        width: 170px;
+                        height: 160px;
+                    }
                 }
             }
         }
@@ -464,6 +479,9 @@ footer {
                     text-align: center;
                     font-weight: 900;
                     line-height: 13px;
+                }
+                button:active {
+                    transform: translateY(2px);
                 }
             }
         }
@@ -896,8 +914,6 @@ footer {
                     color: map-get($cs, mainaccent);
                     background-color: transparent;
                 }
-                .no {
-                }
                 .username {
                     display: flex;
                     align-items: center;
@@ -916,8 +932,6 @@ footer {
                     .tion {
                         font-style: italic;
                     }
-                }
-                .usertype {
                 }
                 .btns {
                     //    text-align: center;
@@ -1004,6 +1018,59 @@ footer {
         }
     }
 }
+// Cart
+fieldset{
+    padding: 0 5ch;
+    background-color: map-get($cs, dropdownbg);
+    color: map-get($cs, mainaccent);
+    border: 1px solid map-get($cs, mainaccent);
+    border-radius: 8px;
+    width: clamp(100px, 80%, 1000px);
+    margin: 0 auto;
+
+    .cart_item{
+        display: flex;
+        margin-bottom: 22px;
+        img{
+            border-radius: 8px;
+            height: 120px;
+            min-width: 120px;
+        }
+        
+        .info{
+            display: flex;
+            flex-direction: column;
+            h3,h2{margin: 0 0 10px 30px;}
+            .price{
+                margin-top: auto;
+            }
+            
+        }
+        button{
+            height: 40px;
+            width: 100px;
+            margin: auto 0 auto auto;
+            color: white;
+            background-color: red;
+            border: 0;
+            border-radius: 8px;
+            font-weight: 800;
+            cursor: pointer;
+        }
+        button:active {
+            transform: translateY(2px);
+          }
+        
+    }
+    h1{
+        text-align: center;
+    }
+    h2{
+        text-align: end;
+    }
+}
+
+
 // About page
 .about {
     margin: 0 auto;
