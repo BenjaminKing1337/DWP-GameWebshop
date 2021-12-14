@@ -10,7 +10,9 @@ $today = date('Y-m-d');
 // Gets current date minus 3 months
 $olddate = date('Y-m-d', strtotime('-' . $new[0]['date'] . ' months', strtotime($today)));
 
-
+if(isset($_GET['f'])){
+    $filt = $_GET['f'];
+}
 
 
 $sql = "SELECT id, Thumbnail, Title, Price, Platform, Genre FROM games ";
@@ -70,7 +72,6 @@ if(isset($_POST['add'])){
 
         // new session variable
         $_SESSION['cart'][0] = $product_array;
-        print_r($_SESSION['cart']);
     }
 }
 
@@ -109,7 +110,7 @@ include("navigation/header.php");
     <div class="allProductsContainer">
         <?php foreach ($products as $product) { ?>
             <div class="productContainer">
-                <form action="all.php" method="post">
+                <form <?php if(isset($_GET['f'])){echo "action='all.php?f=$filt'";} else{echo'action="all.php"';} ?> method="post">
                     <div onclick="window.location='single.php?id=<?php echo $product['id'] ?>'" class="product">
                         <div class="platformTag">
                             <img width="25px" height="25px" src="https://i.kym-cdn.com/entries/icons/original/000/012/368/playstation-wallpaper-46825-48282-hd-wallpapers.jpg" alt="">
@@ -121,7 +122,7 @@ include("navigation/header.php");
                     </div>
                     <div class="price">
                         <h3><?php echo htmlspecialchars($product['Price']); ?> DKK</h3> <br>
-                        <h4>Old Price</h4>
+                        <!-- <h4>Old Price</h4> -->
                         <button type="submit" name="add">Add <br>
                             to <br>
                             Cart</button>

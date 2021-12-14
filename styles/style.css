@@ -214,6 +214,10 @@ body {
   cursor: pointer;
 }
 
+.header header .icon:hover {
+  color: yellow;
+}
+
 .header header .icons {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -899,7 +903,7 @@ footer .policy .policies p {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  width: 60%;
+  width: 100%;
 }
 
 .singleProductContainer .addToBasket button {
@@ -917,6 +921,11 @@ footer .policy .policies p {
 .singleProductContainer .addToBasket button p,
 .singleProductContainer .addToBasket button i {
   margin: 0 10px;
+}
+
+.singleProductContainer .addToBasket button:active {
+  -webkit-transform: translateY(2px);
+          transform: translateY(2px);
 }
 
 .adminContent .newsContainer {
@@ -1491,6 +1500,24 @@ fieldset h1 {
 
 fieldset h2 {
   text-align: end;
+}
+
+fieldset .order_button {
+  width: 250px;
+  height: 60px;
+  border-radius: 8px;
+  border: none;
+  font-size: 20px;
+  position: absolute;
+  margin-top: -30px;
+  left: 50%;
+  -webkit-transform: translate(-50%);
+          transform: translate(-50%);
+}
+
+fieldset .order_button:active {
+  -webkit-transform: translate(-50%, 2px);
+          transform: translate(-50%, 2px);
 }
 
 .about {

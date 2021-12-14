@@ -182,7 +182,11 @@ body {
             height: 40px;
             width: 40px;
             cursor: pointer;
+            &:hover {
+                color: map-get($cs, dropdownhover);
+            }
         }
+        
         .icons {
             display: flex;
             align-items: center;
@@ -655,7 +659,7 @@ footer {
     .addToBasket {
         display: flex;
         justify-content: center;
-        width: 60%;
+        width: 100%;
         button {
             display: flex;
             align-items: center;
@@ -666,6 +670,9 @@ footer {
             i {
                 margin: 0 10px;
             }
+        }
+        button:active {
+            transform: translateY(2px);
         }
     }
 }
@@ -1067,6 +1074,20 @@ fieldset{
     }
     h2{
         text-align: end;
+    }
+    .order_button{
+        width: 250px;
+        height: 60px;
+        border-radius: 8px;
+        border: none;
+        font-size: 20px;
+        position: absolute;
+        margin-top: -30px;
+        left: 50%;
+        transform: translate(-50%);
+        &:active{
+            transform: translate(-50%,2px);
+        }
     }
 }
 

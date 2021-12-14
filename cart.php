@@ -53,6 +53,7 @@ include("navigation/header.php");
     <?php 
     if($total > 0){ ?>
         <h2>Total: <?php echo $total ?> DKK</h2>
+        <button class="order_button">Order & Pay</button>
     <?php }
     else{ ?>
         <h1>Cart is empty.</h1>
