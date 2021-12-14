@@ -7,12 +7,12 @@ require("includes/head.php");
 if (isset($_POST['submit'])) { // Form has been submitted.
 
 	// perform validations on the form data
-	$username = trim(mysqli_real_escape_string($connection, $_POST['username']));
-	$password = trim(mysqli_real_escape_string($connection, $_POST['pass']));
-	$fname = trim(mysqli_real_escape_string($connection, $_POST['Fname']));
-	$lname = trim(mysqli_real_escape_string($connection, $_POST['Lname']));
-	$email = trim(mysqli_real_escape_string($connection, $_POST['email']));
-	$description = trim(mysqli_real_escape_string($connection, $_POST['description']));
+	$username = Secure($connection, 'username');
+	$password = Secure($connection, 'pass');
+	$fname = Secure($connection, 'Fname');
+	$lname = Secure($connection, 'Lname');
+	$email = Secure($connection, 'email');
+	$description = Secure($connection, 'description');
 	$iterations = ['cost' => 15];
 	$hashed_password = password_hash($password, PASSWORD_BCRYPT, $iterations);
 

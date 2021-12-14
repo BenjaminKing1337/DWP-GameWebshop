@@ -23,6 +23,7 @@ $rate = $new[0]['rate'];
 // $sale = 200;
 // $date = date('Y-m-d');
 // $rate = 8;
+$hours = $new[0]['hours'];
 
 // Displays the four best sales by ordering prices low to high
 $price = "SELECT id, Thumbnail, Price FROM games ORDER BY Price ASC LIMIT 6";
@@ -132,7 +133,14 @@ include("navigation/header.php");
             </a>
         </div>
     </div>
-
+    <div class="about">
+    <fieldset>
+        <legend>
+            <h1>Opening Hours</h1>
+        </legend>
+        <p> <?= $hours ?> </p>
+    </fieldset>
+    </div>
     <div class="platform">
         <h2>Pick your platform</h2>
         <div class="pbox pc" onclick="window.location='all.php?f=PC'"><img height="60px" src="https://icon-library.com/images/pc-game-icon/pc-game-icon-6.jpg" alt=""></div>

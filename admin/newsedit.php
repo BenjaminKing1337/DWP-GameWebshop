@@ -13,25 +13,32 @@ $wMsg = $data['wMsg'];
 $sale = $data['sale'];
 $date = $data['date'];
 $rate = $data['rate'];
-$errors = array('hero1' => '', 'hero2' => '', 'hero3' => '', 'wHead' => '', 'wMsg' => '', 'sale' => '', 'date' => '', 'rate' => '');
+$hours = $data['hours'];
+$info = $data['info'];
+$errors = array('hero1' => '', 'hero2' => '', 'hero3' => '', 'wHead' => '', 'wMsg' => '', 'sale' => '', 'date' => '', 'rate' => '', 'hours' => '', 'info' => '');
 $numerror = 0;
 
 if (isset($_POST['submit'])) {
-    $hero1 = $_POST['hero1'];
-    $hero2 = $_POST['hero2'];
-    $hero3 = $_POST['hero3'];
-    $hero3 = $_POST['wHead'];
-    $hero3 = $_POST['wMsg'];
-    $sale = $_POST['sale'];
-    $date = $_POST['date'];
-    $rate = $_POST['rate'];
+    $hero1 = Secure($connection,'hero1');
+    $hero2 = Secure($connection,'hero2');
+    $hero3 = Secure($connection,'hero3');
+    $wHead = Secure($connection,'wHead');
+    $wMsg = Secure($connection,'wMsg');
+    $sale = Secure($connection,'sale');
+    $date = Secure($connection,'date');
+    $rate = Secure($connection,'rate');
+    $hours = Secure($connection,'hours');
+    $info = Secure($connection,'info');
+    
+    $sql = "UPDATE `news` SET `hero1`='$hero1', `hero2`='$hero2', `hero3`='$hero3', `wHead`='$wHead', `wMsg`='$wMsg', `sale`='$sale', `date`='$date', `rate`='$rate', `hours`='$hours', `info`='$info'";
 
-    $sql = "UPDATE `news` SET `hero1`='$hero1', `hero2`='$hero2', `hero3`='$hero3', `wHead`='$wHead', `wMsg`='$wMsg', `sale`='$sale', `date`='$date', `rate`='$rate'";
-
-    $regexpHero = "/^[A-z0-9-_ ]{100}$/";
+    $regexpHero = "/^[A-z0-9-_. ]{1,100}$/";
     $regexpSale = "/^[0-9]{2,3}$/";
     $regexpDate = "/^[0-9]{1,2}$/";
     $regexpRate = "/^[0-9]{1}$/";
+    $regexpW = "/^[A-z0-9-_ ]{1,200}$/";
+    // $regexpHours = "/^[A-z0-9-_,.'<>\/!?: ]{1,500}$/";
+    // $regexpInfo = "/^[A-z0-9-_,.'<>\/!?: ]{1,1200}$/";
 
     if (
         !preg_match($regexpHero, $_POST['hero1'])
@@ -81,6 +88,18 @@ if (isset($_POST['submit'])) {
         $errors['rate'] = " Must be a single digit.";
         $numerror++;
     }
+    // if (
+    //     !preg_match($regexpHours, $_POST['hours'])
+    // ) {
+    //     $errors['hours'] = " Must have opening hours.";
+    //     $numerror++;
+    // }
+    // if (
+    //     !preg_match($regexpInfo, $_POST['info'])
+    // ) {
+    //     $errors['info'] = " Must have company info.";
+    //     $numerror++;
+    // }
     if ($numerror == 0) {
         if (!mysqli_query($connection, $sql)) {
             die("DB error: " . mysqli_error($connection));
@@ -102,9 +121,9 @@ include("../navigation/adminNav.php");
                     <h3>Hero</h3><br>
                     Line 1:<br><input type="text" name="hero1" value="<?php echo $hero1 ?>">
                     <div style="color:red;"><?php echo $errors['hero1']; ?></div> <br>
-                    Line 2:<br><input type="text" name="hero1" value="<?php echo $hero2 ?>">
+                    Line 2:<br><input type="text" name="hero2" value="<?php echo $hero2 ?>">
                     <div style="color:red;"><?php echo $errors['hero2']; ?></div> <br>
-                    Line 3:<br><input type="text" name="hero1" value="<?php echo $hero3 ?>">
+                    Line 3:<br><input type="text" name="hero3" value="<?php echo $hero3 ?>">
                     <div style="color:red;"><?php echo $errors['hero3']; ?></div> <br>
                 </div>
 
@@ -124,6 +143,13 @@ include("../navigation/adminNav.php");
                     <div style="color:red;"><?php echo $errors['date']; ?></div> <br>
                     Rating <br>(Everything above this number is displayed in highly rated; input 1 digit):<br><input type="text" name="rate" value="<?php echo $rate ?>">
                     <div style="color:red;"><?php echo $errors['rate']; ?></div> <br>
+                </div>
+                <div class="info">
+                    <h3>Company Info</h3>
+                    Opening Hours:<br><input type="text" name="hours" value="<?= $hours ?>">
+                    <div style="color:red;"><?= $errors['hours']; ?></div> <br>
+                    Company Info:<br><textarea type="text" name="info"><?= $info ?></textarea>
+                    <div style="color:red;"><?= $errors['info']; ?></div> <br>
                 </div>
                 <input class="subButton" type="submit" name="submit" value="SUBMIT"> <br>
             </fieldset>

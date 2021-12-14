@@ -947,7 +947,8 @@ footer .policy .policies p {
 
 .adminContent .newsContainer .news1,
 .adminContent .newsContainer .weekly,
-.adminContent .newsContainer .news2 {
+.adminContent .newsContainer .news2,
+.adminContent .newsContainer .info {
   padding: 2ch;
   padding-bottom: 5ch;
 }
@@ -967,6 +968,12 @@ footer .policy .policies p {
 .adminContent .newsContainer form fieldset input {
   width: 100%;
   height: 30px;
+}
+
+.adminContent .newsContainer form fieldset textarea {
+  height: 200px;
+  width: 100%;
+  resize: vertical;
 }
 
 .adminContent .newsContainer form .subButton {
@@ -1337,13 +1344,11 @@ footer .policy .policies p {
 }
 
 .adminContent .changePass fieldset .changePassBtn {
+  text-align: center;
   width: 200px;
   height: 50px;
+  margin-bottom: -20px;
   font-size: 20px;
-  position: absolute;
-  left: 50%;
-  -webkit-transform: translate(-50%);
-          transform: translate(-50%);
 }
 
 .adminContent .editUser {
@@ -1469,7 +1474,8 @@ fieldset .cart_item .info {
           flex-direction: column;
 }
 
-fieldset .cart_item .info h3, fieldset .cart_item .info h2 {
+fieldset .cart_item .info h3,
+fieldset .cart_item .info h2 {
   margin: 0 0 10px 30px;
 }
 
@@ -1689,10 +1695,8 @@ fieldset .order_button:active {
   width: 200px;
   height: 50px;
   font-size: 20px;
-  position: absolute;
-  left: 50%;
-  -webkit-transform: translate(-50%);
-          transform: translate(-50%);
+  margin-bottom: -20px;
+  text-align: center;
 }
 
 .login .createNew {

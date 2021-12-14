@@ -13,7 +13,9 @@ CREATE TABLE `news` (
     `wMsg` VARCHAR(255) NOT NULL,
     `sale` INT(3) NOT NULL,
     `date` INT(1) NOT NULL,
-    `rate` INT(1) NOT NULL
+    `rate` INT(1) NOT NULL,
+    `hours` VARCHAR(500) NOT NULL,
+    `info` VARCHAR(1200) NOT NULL
 );
 
 CREATE TABLE `accounts` ( 
@@ -56,10 +58,13 @@ INSERT INTO accounts
     (1, 'Solanum', '$2y$15$2a0at2IhmJ9wyyply93qauT7yP/.JgxzWohC.YhdYc9266YaP8VyS', 'Solanum', 'Nomai', 'Echoes@Eye.com', 'Last surviving nomai seeking the eye of the universe.', 'admin');
 
 INSERT INTO news 
-    (id, hero1, hero2, hero3, wHead, wMsg, sale, date, rate) 
+    (id, hero1, hero2, hero3, wHead, wMsg, sale, date, rate, hours, info) 
 VALUES
-    (1, 'Digital codes.', 'Instant delivery.', 'Best price on the market.', 'Weekly Headline', 'Weekly Message', 200, 3, 8);
+    (1, 'Digital codes.', 'Instant delivery.', 'Best price on the market.', 'Weekly Headline', 'Weekly Message', 200, 3, 8, '24/7. <br>
+            As soon as the transaction goes through, the <b>game key</b> will automatically be sent to your mail.
+        ', '');
 
+-- ' We here at DWP games are a collection of video game loving nerds who just want to take a minute of your time to talk about Games. <br> Based in Esbjerg, Denmark, we\'re a small company yet our concerns are big, one of them being how do we get the games to you as fast as possible? <br> That\'s right! <b>Game Keys!</b> <br> That\'s our livelyhood right here, selling these keys for a reasonable price, but the main fruits of our labor is just seeing you, the gamers, fulfilled to your little cores.  So come on down to DWP Games and get ya some real authentic game keys!<br><br> The way it works is easy, there\'s just two steps to the process: <br>- Pick a game. <br>- Complete Transaction. <br><br>Bada boom bada bing, check your email! <br> <br>When you open that mail there\'s your code, all that\'s left to do is redeem it on the account of your choosing.<br><br><br>Sincerely,<br>DWP GAMES '
 INSERT INTO product 
     (id, Title, Price, ReleaseDate, Description, Rating, Platform, Genre) 
 VALUES 
@@ -83,12 +88,6 @@ VALUES
     (6, 'https://s2.gaming-cdn.com/images/products/6202/orig/spil-steam-horizon-zero-dawn-complete-edition-cover.jpg', 'https://image.api.playstation.com/vulcan/ap/rnd/202010/0221/1jE1dG7sSfbJnhoRfAeVc2rs.png?w=1024', 'https://www.youtube.com/embed/u4-FCsiF5x4', 'https://cdn.vox-cdn.com/thumbor/Qxdbz7ojsJMqKYcL8SLS9T8oXTk=/0x0:1920x1080/1200x800/filters:focal(807x387:1113x693)/cdn.vox-cdn.com/uploads/chorus_image/image/68982682/Aiming_at_Thunderjaw.0.0.png, https://variety.com/wp-content/uploads/2019/03/hzdaloy.jpeg, https://images0.persgroep.net/rcs/GvJrsEQ6TjdoOZ67v9K6cVpiM7k/diocontent/128897753/_focus/0.29/0.63/_fill/1200/630/?appId=21791a8992982cd8da851550a453bd7f&quality=0.7'),
     (7, 'https://cdn2.steamgriddb.com/file/sgdb-cdn/grid/f8dc3073b73dfb018693b7a1dbfcef43.png', 'https://www.destructoid.com/wp-content/uploads/2020/12/599553-header.jpg', 'https://www.youtube.com/embed/pJ-aR--gScM', 'https://gamingbolt.com/wp-content/uploads/2020/08/risk-of-rain-2-image-4.jpg, https://image.jeuxvideo.com/medias-md/159828/1598279048-1030-capture-d-ecran.png'),
     (8, 'https://direct.rhapsody.com/imageserver/images/alb.482944940/500x500.jpg', 'https://cdn.mos.cms.futurecdn.net/CEajpQcrXWZQHMMDqoF3zF.jpeg', 'https://www.youtube.com/embed/vhII1qlcZ4E', 'https://sm.ign.com/ign_nordic/news/t/the-last-o/the-last-of-us-part-2-is-getting-a-ps5-exclusive-performance_s43z.jpg, https://media.npr.org/assets/img/2021/02/25/2510225ed61038a780b9.08969556-tloupii_preview_screenshot_04_wide-933bf2d68d635cd07832685ab3b2ed887e1d249e.jpg, https://media.wired.com/photos/5edfe6ec39276c283696879a/master/pass/culture_tlou2_1.jpg');
-
-
-
-
-
-
 
 
 

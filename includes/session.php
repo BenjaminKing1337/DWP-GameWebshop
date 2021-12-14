@@ -19,6 +19,10 @@ function confirm_logged_in()
 		$redirect = New Redirector("login.php");
 	}
 }
+function Secure($conn,$obj){
+    $post = mysqli_real_escape_string($conn, trim(htmlspecialchars($_POST[$obj])));
+    return $post;
+}
 
 
 // // START FORM PROCESSING

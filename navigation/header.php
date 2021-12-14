@@ -1,3 +1,7 @@
+<?php
+$quantity = 0;
+?>
+
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-15" />
     <meta charset="utf-8">
@@ -16,11 +20,7 @@
       }
   </script> -->
 </head>
-<?php 
-$quantity = 0;
 
-
-?>
 <body>
     <div class="header">
         <header>
@@ -53,12 +53,12 @@ $quantity = 0;
             <div class="icons">
                 <label for="check" id="addlayer1" class="material-icons menu" style="font-size: 3em; cursor: pointer;">menu</label>
                 <label class="material-icons icon cart" id="cart" onclick="window.location='cart.php'">shopping_cart</label>
-                <?php if(isset($_SESSION['cart'])){
+                <?php if (isset($_SESSION['cart'])) {
                     $count = count($_SESSION['cart']);
                     echo "<span>$count</span>";
-                    } else{
-                        echo "<span>0</span>";
-                    }
+                } else {
+                    echo "<span>0</span>";
+                }
                 ?>
                 <label for="check2" id="addlayer2" class="material-icons icon menu">account_circle</label>
             </div>
@@ -71,16 +71,21 @@ $quantity = 0;
                             <div class="dropdown-content">
                                 <?php if (admin()) { ?>
                                     <li><a href="admin/addproduct.php">Admin</a></li>
-                                <?php } ?>
+                                <?php }
+                                if (logged_in()) {
+                                    echo
+                                    "<li><a href='admin/changepass.php?id=" . $_SESSION['user_id'] . "'>Change Password</a></li>";
+                                } ?>
                                 <li><a href="logout.php">Logout</a></li>
                             </div>
                         </div>
                         <?php if (admin()) { ?>
                             <li class="mobile_link"><a href="admin/addproduct.php">Admin</a></li>
                         <?php }
-                        if (logged_in()) { ?>
-                            <!-- <li class="mobile_link"><a href="changepass.php">Change Password</a></li> -->
-                        <?php } ?>
+                        if (logged_in()) {
+                            echo
+                            "<li><a class='mobile_link' href='admin/changepass.php?id=" . $_SESSION['user_id'] . "'> Change Password </a></li>";
+                        } ?>
                         <li class="mobile_link"><a href="logout.php">Logout</a></li>
                     <?php }
                 } else { ?>

@@ -1,8 +1,8 @@
 <?php
 require("../includes/adminhead.php");
-if (!admin()) {
-    $redirect = new Redirector("../index.php");
-}
+// if (!admin()) {
+//     $redirect = new Redirector("../index.php");
+// }
 
 $id = $_GET['id'];
 $query = mysqli_query($connection, "SELECT pass FROM `accounts` WHERE ID='$id'");
@@ -14,15 +14,17 @@ if (isset($_POST['update'])) {
     $hashed_password = password_hash($password, PASSWORD_BCRYPT, $iterations);
 
     $sql = "UPDATE `accounts` SET  `pass`='$hashed_password' WHERE ID='$id'";
-    echo $sql;
-    $edit = mysqli_query($connection, $sql);
+    // echo $sql;
 
-    if ($edit) {
+    if ($_POST['pass'] == $_POST['confirm']) {
+        if (!mysqli_query($connection, $sql)) {
+            echo mysqli_error($connection);
+        }
         mysqli_close($connection);
-        $redirect = New Redirector("accounts.php");
-        exit;
+            $redirect = new Redirector("../index.php");
+            exit;
     } else {
-        echo mysqli_error($connection);
+        echo "no match";
     }
 }
 include("../navigation/adminNav.php");
@@ -36,7 +38,7 @@ include("../navigation/adminNav.php");
                     <h3>Change Password</h3>
                 </legend>
                 <br><input type="password" name="pass" value="" placeholder="New Password" Required> <br><br>
-                <br><input type="password" name="pass" value="" placeholder="Confirm New Password" Required> <br><br>
+                <br><input type="password" name="confirm" value="" placeholder="Confirm New Password" Required> <br><br>
                 <br><input class="changePassBtn" type="submit" name="update" value="Update">
             </fieldset>
         </form>
