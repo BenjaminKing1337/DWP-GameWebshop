@@ -16,13 +16,13 @@ $errors = array('Title' => '', 'Price' => '', 'ReleaseDate' => '', 'Description'
 $numerror = 0;
 
 if (isset($_POST['submit'])) {
-    $Title = mysqli_real_escape_string($connection, trim(htmlspecialchars($_POST['Title'])));
-    $Thumbnail = $_POST['Thumbnail'];
-    $Cover = $_POST['Cover'];
-    $Price = $_POST['Price'];
-    $ReleaseDate = $_POST['ReleaseDate'];
-    $Description = $_POST['Description'];
-    $Rating = $_POST['Rating'];
+    $Title = Secure($connection,'Title');
+    $Thumbnail = Secure($connection,'Thumbnail');
+    $Cover = Secure($connection,'Cover');
+    $Price = Secure($connection,'Price');
+    $ReleaseDate = Secure($connection,'ReleaseDate');
+    $Description = Secure($connection,'Description');
+    $Rating = Secure($connection,'Rating');
     $PlatformChck = !empty($_POST['PlatformChck']) ? $_POST['PlatformChck'] : '';
     $Platform = "";
     if(!empty($PlatformChck)){
@@ -37,13 +37,13 @@ if (isset($_POST['submit'])) {
             $Genre .= $Gchk . "/";
         }
     }
-    $Trailer = $_POST['Trailer'];
-    $Screenshots = $_POST['Screenshots'];
+    $Trailer = Secure($connection,'Trailer');
+    $Screenshots = Secure($connection,'Screenshots');
 
     $query = "INSERT INTO `product` (`id`, `Title`, `Price`, `ReleaseDate`, `Description`, `Rating`, `Platform`, `Genre`) VALUES (NULL, '$Title', '$Price', '$ReleaseDate', '$Description', '$Rating', '$Platform', '$Genre'); 
                 INSERT INTO `media` (`mediaID`, `Thumbnail`, `Cover`, `Trailer`, `Screenshots`) VALUES (NULL, '$Thumbnail', '$Cover', '$Trailer', '$Screenshots');";
 
-    $regexp1 = "/^[A-z0-9 ]{2,600}$/";
+    $regexp1 = "/^[A-z0-9' ]{2,600}$/";
     $regexp2 = "/^[+-]?((\d+(\.\d*)?)|(\.\d+))$/";
     $regexp3 = "/^[0-9-]{10}$/";
 

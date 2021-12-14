@@ -16,6 +16,7 @@ include("navigation/header.php");
 ?>
 
 
+
 <fieldset>
     <legend>
         <h1>My cart</h1>

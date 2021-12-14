@@ -1,8 +1,38 @@
-<?php 
+<?php
 require("includes/head.php");
-include("navigation/header.php"); ?>
+
+$news = "SELECT * FROM `news`";
+$newsResult = mysqli_query($connection, $news);
+$new = mysqli_fetch_all($newsResult, MYSQLI_ASSOC);
+//var_dump($new);
+$hours = $new[0]['hours'];
+$info = $new[0]['info'];
+
+
+include("navigation/header.php"); 
+?>
+
+
+
 
 <div class="about">
+    <fieldset>
+        <legend>
+            <h1>Opening Hours</h1>
+        </legend>
+        <p> <?= $hours ?> </p>
+    </fieldset>
+    <fieldset>
+        <legend>
+            <h1>About Us</h1>
+        </legend>
+        <p> <?= $info ?>
+        </p>
+    </fieldset>
+
+</div>
+
+<!-- <div class="about">
     <fieldset>
         <legend>
             <h1>Opening Hours</h1>
@@ -31,7 +61,7 @@ include("navigation/header.php"); ?>
         </p>
     </fieldset>
 
-</div>
+</div> -->
 
 
 <?php include("navigation/footer.php"); ?>

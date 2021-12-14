@@ -8,11 +8,11 @@ $numerror = 0;
 
 if (isset($_POST['submit'])) {
 
-    $firstname = htmlspecialchars($_POST["firstname"]);
-    $lastname = htmlspecialchars($_POST["lastname"]);
-    $email = htmlspecialchars($_POST["email"]);
-    $subject = htmlspecialchars($_POST['subject']);
-    $message = htmlspecialchars($_POST["message"]);
+    $firstname = Secure($connection, "firstname");
+    $lastname = Secure($connection, "lastname");
+    $email = Secure($connection, "email");
+    $subject = Secure($connection, 'subject');
+    $message = Secure($connection, "message");
 
 
 
@@ -20,7 +20,7 @@ if (isset($_POST['submit'])) {
     $mymail = "test123@finklesnout.design";
 
     $regexp1 = "/^[A-z0-9_-]+([.][A-z0-9_]+)*[@][A-z0-9_]+([.][A-z0-9_-]+)*[.][A-z]{2,4}$/";
-    $regexp2 = "/^[A-z ]{2,600}$/";
+    $regexp2 = "/^[A-z0-9,._- ]{2,600}$/";
 
     if (
         !preg_match($regexp1, $_POST['email'])
@@ -95,4 +95,4 @@ include("navigation/header.php");
 </div>
 
 
-<?php  include("navigation/footer.php"); ?>
+<?php include("navigation/footer.php"); ?>
