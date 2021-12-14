@@ -19,16 +19,16 @@ $errors = array('hero1' => '', 'hero2' => '', 'hero3' => '', 'wHead' => '', 'wMs
 $numerror = 0;
 
 if (isset($_POST['submit'])) {
-    $hero1 = $_POST['hero1'];
-    $hero2 = $_POST['hero2'];
-    $hero3 = $_POST['hero3'];
-    $hero3 = $_POST['wHead'];
-    $hero3 = $_POST['wMsg'];
-    $sale = $_POST['sale'];
-    $date = $_POST['date'];
-    $rate = $_POST['rate'];
-    $hours = $_POST['hours'];
-    $info = $_POST['info'];
+    $hero1 = Secure($connection,'hero1');
+    $hero2 = Secure($connection,'hero2');
+    $hero3 = Secure($connection,'hero3');
+    $wHead = Secure($connection,'wHead');
+    $wMsg = Secure($connection,'wMsg');
+    $sale = Secure($connection,'sale');
+    $date = Secure($connection,'date');
+    $rate = Secure($connection,'rate');
+    $hours = Secure($connection,'hours');
+    $info = Secure($connection,'info');
     
     $sql = "UPDATE `news` SET `hero1`='$hero1', `hero2`='$hero2', `hero3`='$hero3', `wHead`='$wHead', `wMsg`='$wMsg', `sale`='$sale', `date`='$date', `rate`='$rate', `hours`='$hours', `info`='$info'";
 
@@ -36,39 +36,40 @@ if (isset($_POST['submit'])) {
     $regexpSale = "/^[0-9]{2,3}$/";
     $regexpDate = "/^[0-9]{1,2}$/";
     $regexpRate = "/^[0-9]{1}$/";
-    // $regexpHours = "/^[A-z0-9-_ ]{1,500}$/";
-    // $regexpInfo = "/^[A-z0-9-_ ]{1,1200}$/";
+    $regexpW = "/^[A-z0-9-_ ]{1,200}$/";
+    // $regexpHours = "/^[A-z0-9-_,.'<>\/!?: ]{1,500}$/";
+    // $regexpInfo = "/^[A-z0-9-_,.'<>\/!?: ]{1,1200}$/";
 
-    // if (
-    //     !preg_match($regexpHero, $_POST['hero1'])
-    // ) {
-    //     $errors['hero1'] = " Must be filled";
-    //     $numerror++;
-    // }
-    // if (
-    //     !preg_match($regexpHero, $_POST['hero2'])
-    // ) {
-    //     $errors['hero2'] = " Must be filled";
-    //     $numerror++;
-    // }
-    // if (
-    //     !preg_match($regexpHero, $_POST['hero3'])
-    // ) {
-    //     $errors['hero3'] = " Must be filled";
-    //     $numerror++;
-    // }
-    // if (
-    //     !preg_match($regexpW, $_POST['wHead'])
-    // ) {
-    //     $errors['wHead'] = " Must be filled";
-    //     $numerror++;
-    // }
-    // if (
-    //     !preg_match($regexpW, $_POST['wMsg'])
-    // ) {
-    //     $errors['wMsg'] = " Must be filled";
-    //     $numerror++;
-    // }
+    if (
+        !preg_match($regexpHero, $_POST['hero1'])
+    ) {
+        $errors['hero1'] = " Must be filled";
+        $numerror++;
+    }
+    if (
+        !preg_match($regexpHero, $_POST['hero2'])
+    ) {
+        $errors['hero2'] = " Must be filled";
+        $numerror++;
+    }
+    if (
+        !preg_match($regexpHero, $_POST['hero3'])
+    ) {
+        $errors['hero3'] = " Must be filled";
+        $numerror++;
+    }
+    if (
+        !preg_match($regexpW, $_POST['wHead'])
+    ) {
+        $errors['wHead'] = " Must be filled";
+        $numerror++;
+    }
+    if (
+        !preg_match($regexpW, $_POST['wMsg'])
+    ) {
+        $errors['wMsg'] = " Must be filled";
+        $numerror++;
+    }
     if (
         !preg_match($regexpSale, $_POST['sale'])
     ) {
