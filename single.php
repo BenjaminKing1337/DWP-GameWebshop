@@ -1,5 +1,6 @@
 <?php
 require("includes/head.php");
+$db = new DbCon();
 
 
 //check id parameter
@@ -13,47 +14,52 @@ if (isset($_GET['id'])) {
     $product = mysqli_fetch_assoc($result);
 
     mysqli_free_result($result);
-    mysqli_close($connection);
+
 
     $rate = $product['Rating'];
     $color = "";
-    if($rate < 4){
+    if ($rate < 4) {
         $color = "red";
-    }
-    elseif($rate < 6){
+    } elseif ($rate < 6) {
         $color = "yellow";
-    }
-    else{
+    } else {
         $color = "lightgreen";
     }
 };
 
-if(isset($_POST['add'])){
+if (isset($_POST['add'])) {
     //print_r($_POST['product_id']);
-    if(isset($_SESSION['cart'])){
+    if (isset($_SESSION['cart'])) {
         $product_array_id = array_column($_SESSION['cart'], "product_id");
 
-        if(in_array($_POST['product_id'], $product_array_id)){
-            echo"Product is already in your cart";
-        }
-        else{
+        if (in_array($_POST['product_id'], $product_array_id)) {
+            echo "Product is already in your cart";
+        } else {
             $count = count($_SESSION['cart']);
             $product_array = array(
-                'product_id'=>$_POST['product_id']
+                'product_id' => $_POST['product_id']
             );
 
             $_SESSION['cart'][$count] = $product_array;
         }
-    }
-    else{
+    } else {
         $product_array = array(
-            'product_id'=>$_POST['product_id']
+            'product_id' => $_POST['product_id']
         );
 
         // new session variable
         $_SESSION['cart'][0] = $product_array;
     }
 }
+
+
+// Displays the four best sales by ordering prices low to high
+$price = "SELECT id, Thumbnail, Price FROM games ORDER BY Price ASC LIMIT 6";
+$res_price = mysqli_query($connection, $price);
+$products_price = mysqli_fetch_all($res_price, MYSQLI_ASSOC);
+mysqli_free_result($res_price);
+
+mysqli_close($connection);
 
 include("navigation/header.php");
 ?>
@@ -67,7 +73,7 @@ include("navigation/header.php");
         </div>
         <div class="titlecard">
             <h2><?php echo htmlspecialchars($product['Title']) ?></h2>
-            <h3><?php echo rtrim( htmlspecialchars($product['Platform']) , "/ ") ?></h3>
+            <h3><?php echo rtrim(htmlspecialchars($product['Platform']), "/ ") ?></h3>
         </div>
         <div class="break"></div>
         <div class="dateNrate">
@@ -131,9 +137,20 @@ include("navigation/header.php");
             </div>
             <input type="hidden" name="product_id" value="<?php echo $product['id'] ?>">
         </form>
-    </div>
-    <div class="related">
-
+        <div class="related">
+            <fieldset>
+                <legend>
+                    <h3>You may also like these items...</h3>
+                </legend>
+                <div class="cards">
+                    <?php foreach ($products_price as $product) { ?>
+                        <div class="card" onclick="window.location='single.php?id=<?php echo $product['id'] ?>'">
+                            <img width="190px" height="180px" src="<?php echo htmlspecialchars($product['Thumbnail']) ?>" alt="">
+                        </div>
+                    <?php } ?>
+                </div>
+            </fieldset>
+        </div>
     </div>
 <?php else : ?>
     <div align="center" style="font-size: 50px;"><?php echo "The product doesn't exist." ?><br>
@@ -145,12 +162,15 @@ include("navigation/header.php");
 <script>
     var slideIndex = 1;
     showSlides(slideIndex);
+
     function plusSlides(n) {
         showSlides(slideIndex += n);
     }
+
     function currentSlide(n) {
         showSlides(slideIndex = n);
     }
+
     function showSlides(n) {
         var i;
         var slides = document.getElementsByClassName("mySlides");
