@@ -12,22 +12,40 @@ if (isset($_POST['remove'])){
     }
 }
 
+$empty_email = 0;
+$valid_email = 0;
+$error = 0;
+
 if(isset($_POST['orderProduct'])){
 
     $userID = $_SESSION['user_id'];
     $Products = $_POST['titles'];
+    $Email = $_POST['email'];
     $Date = date("Y-m-d");
     $Price = $_POST['total'];
 
-    $query = "INSERT INTO `orders` (`orderID`, `userID`, `Products`, `Date`, `Price`) VALUES (NULL, '$userID', '$Products', '$Date', '$Price');";
+    $query = "INSERT INTO `orders` (`orderID`, `userID`, `Products`, `Email`, `Date`, `Price`) VALUES (NULL, '$userID', '$Products', '$Email', '$Date', '$Price');";
 
-    if (!mysqli_multi_query($connection, $query)) {
-        die("DB error: " . mysqli_error($connection));
+    if(empty($Email)){
+        $error++;
+        $empty_email++;
     }
-    else{
-        unset($_SESSION['cart']);
-        $redirect = New Redirector("orders.php");
-        exit;
+    if(!empty($Email)){
+        if(!filter_var($Email, FILTER_VALIDATE_EMAIL)) {
+            $error++;
+            $valid_email++;
+        }
+    }
+
+    if($error === 0){
+        if (!mysqli_multi_query($connection, $query)) {
+            die("DB error: " . mysqli_error($connection));
+        }
+        else{
+            unset($_SESSION['cart']);
+            $redirect = New Redirector("orders.php");
+            exit;
+        }
     }
 }
 
@@ -72,7 +90,7 @@ include("navigation/header.php");
             }
             foreach($product_id as $id){
                 if($products['id'] == $id){
-                    $titles .= $products['Title'] . ",";
+                    $titles .= $products['Title'] . ", ";
                 }
             }
         }
@@ -85,7 +103,16 @@ include("navigation/header.php");
             <input type="hidden" name="titles" value="<?php echo $titles ?>">
             <input type="hidden" name="total" value="<?php echo $total ?>">
             <?php if(logged_in()){?>
-                <button type="submit" name="orderProduct" class="order_button">Order & Pay</button>
+                <div class="checkout">
+                    <?php if($empty_email > 0){ ?>
+                        <p style="color:red;">Email must not be empty</p>
+                    <?php } ?>
+                    <?php if($valid_email > 0){ ?>
+                        <p style="color:red;">Email is not valid</p>
+                    <?php } ?>
+                    <input type="email" name="email" placeholder="Email, to which you wish to receive your purchase">
+                    <button type="submit" name="orderProduct" class="order_button">Order & Pay</button>
+                </div>
             <?php } else{?>
                 <button class="order_button">You need to log in to make an order</button>
             <?php } ?>

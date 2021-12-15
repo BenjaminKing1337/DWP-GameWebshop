@@ -1162,20 +1162,39 @@ footer {
     }
     h2 {
         text-align: end;
+        margin-bottom: 50px;
     }
-    .order_button {
-        width: 250px;
-        height: 60px;
-        border-radius: 8px;
-        border: none;
-        font-size: 20px;
-        position: absolute;
-        margin-top: -30px;
-        cursor: pointer;
-        left: 50%;
-        transform: translate(-50%);
-        &:active {
-            transform: translate(-50%, 2px);
+    .checkout{
+        display: flex;
+        flex-direction: column;
+        p{
+            position: absolute;
+            font-size: 14px;
+            left: 50%;
+            margin-top: -20px;
+            transform: translate(-50%);
+        }
+        input{
+            height: 30px;
+            width: 300px;
+            margin: 0 auto 30px auto;
+            border-radius: 8px;
+            border: none;
+        }
+        .order_button {
+            width: 250px;
+            height: 60px;
+            border-radius: 8px;
+            border: none;
+            font-size: 20px;
+            position: absolute;
+            margin-top: 45px;
+            cursor: pointer;
+            left: 50%;
+            transform: translate(-50%);
+            &:active {
+                transform: translate(-50%, 2px);
+            }
         }
     }
 }
@@ -1195,12 +1214,10 @@ footer {
         th,td{
             text-align: start;
             padding: 0 5px;
+            vertical-align: top;
         }
         .headline{
             border-bottom: 1px solid white;
-        }
-        .titles{
-            max-width: 200px;
         }
         tr{
             line-height: 20px;
