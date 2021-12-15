@@ -305,6 +305,12 @@ footer {
     .weeklyMsgCont {
         width: clamp(100px, 80%, 500px);
         margin: 0 auto;
+        img {
+            background-color: map-get($cs, dropdownbg);
+            color: map-get($cs, mainaccent);
+            border: solid 2px map-get($cs, mainaccent);
+            border-radius: 8px;
+        }
     }
     @media (min-width: 1100px) {
         width: 80%;
@@ -701,7 +707,7 @@ footer {
                         height: 200px;
                         overflow: hidden;
                     }
-    
+
                     .card {
                         width: 190px;
                         height: 180px;
@@ -1181,7 +1187,7 @@ footer {
 }
 
 //Orders page
-.orders{
+.orders {
     padding: 0 5ch;
     background-color: map-get($cs, dropdownbg);
     color: map-get($cs, mainaccent);
@@ -1189,20 +1195,21 @@ footer {
     border-radius: 8px;
     width: clamp(100px, 80%, 1000px);
     margin: 0 auto;
-    table{
+    table {
         width: 100%;
         border-collapse: collapse;
-        th,td{
+        th,
+        td {
             text-align: start;
             padding: 0 5px;
         }
-        .headline{
+        .headline {
             border-bottom: 1px solid white;
         }
-        .titles{
+        .titles {
             max-width: 200px;
         }
-        tr{
+        tr {
             line-height: 20px;
         }
     }

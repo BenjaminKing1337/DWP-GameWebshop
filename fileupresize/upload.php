@@ -45,8 +45,9 @@ if(isset($_POST['Submit']))
             array_push($upmsg, "Unknown filetype!");
         }
     $resOBJ ->save($newName);
-    $mysqli = new mysqli("localhost", "admin", "123456", "gamewebshop");
-    $mysqli->query ("INSERT INTO img (filename) VALUES ('".$iName."')");
+    $db = New DbCon;
+    // $mysqli = new mysqli("localhost", "admin", "123456", "gamewebshop");
+    $db->dbCon->query ("INSERT INTO news (filename) VALUES ('".$iName."')");
     array_push($upmsg, "Image successfully uploaded!");
     }else{
         array_push($upmsg, "ERROR: You need to select an image!");
