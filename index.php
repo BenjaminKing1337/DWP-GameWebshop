@@ -43,7 +43,10 @@ $res_popular = mysqli_query($connection, $popular);
 $products_popular = mysqli_fetch_all($res_popular, MYSQLI_ASSOC);
 mysqli_free_result($res_popular);
 
-
+$img = "SELECT id, img FROM news";
+$img1 = mysqli_query($connection, $img);
+$anotherdamnname = mysqli_fetch_all($img1);
+// var_dump($anotherdamnname);
 mysqli_close($connection);
 
 include("navigation/header.php");
@@ -59,6 +62,7 @@ include("navigation/header.php");
     <div class="weeklyMsgCont">
         <fieldset>
             <legend><h2><?= $wHead ?></h2></legend>
+            <img src="assets/<?php echo $anotherdamnname[0][1]; ?>" alt="">
             <p><?= $wMsg ?></p>
         </fieldset>
     </div>

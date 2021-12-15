@@ -19,18 +19,17 @@ $errors = array('hero1' => '', 'hero2' => '', 'hero3' => '', 'wHead' => '', 'wMs
 $numerror = 0;
 
 if (isset($_POST['submit'])) {
-    $hero1 = Secure($connection,'hero1');
-    $hero2 = Secure($connection,'hero2');
-    $hero3 = Secure($connection,'hero3');
-    $wHead = Secure($connection,'wHead');
-    $wMsg = Secure($connection,'wMsg');
-    $sale = Secure($connection,'sale');
-    $date = Secure($connection,'date');
-    $rate = Secure($connection,'rate');
-    $hours = Secure($connection,'hours');
-    $info = Secure($connection,'info');
-    
-    $sql = "UPDATE `news` SET `hero1`='$hero1', `hero2`='$hero2', `hero3`='$hero3', `wHead`='$wHead', `wMsg`='$wMsg', `sale`='$sale', `date`='$date', `rate`='$rate', `hours`='$hours', `info`='$info'";
+    $hero1 = Secure($connection, 'hero1');
+    $hero2 = Secure($connection, 'hero2');
+    $hero3 = Secure($connection, 'hero3');
+    $wHead = Secure($connection, 'wHead');
+    $wMsg = Secure($connection, 'wMsg');
+    $sale = Secure($connection, 'sale');
+    $date = Secure($connection, 'date');
+    $rate = Secure($connection, 'rate');
+    $hours = Secure($connection, 'hours');
+    $info = Secure($connection, 'info');
+
 
     $regexpHero = "/^[A-z0-9-_. ]{1,100}$/";
     $regexpSale = "/^[0-9]{2,3}$/";
@@ -100,19 +99,64 @@ if (isset($_POST['submit'])) {
     //     $errors['info'] = " Must have company info.";
     //     $numerror++;
     // }
-    if ($numerror == 0) {
-        if (!mysqli_query($connection, $sql)) {
-            die("DB error: " . mysqli_error($connection));
+    define("MAX_SIZE", "3000");
+    $upmsg = array();
+    if (isset($_POST['submit'])) {
+        if ($_FILES['image']['name']) {
+            $imageName = $_FILES['image']['name'];
+            $file = $_FILES['image']['tmp_name'];
+            $image_type = getimagesize($file);
+
+            if (($image_type[2] = 2) || ($image_type[2] = 3) || ($image_type[2] = 0)) {
+                $size = filesize($_FILES['image']['tmp_name']);
+
+                if ($size < MAX_SIZE * 1024) {
+                    $prefix = uniqid();
+                    $iName = $prefix . "_" . $imageName;
+                    $newName = "../assets/" . $iName;
+                    $resOBJ = new imageResizer();
+                    $resOBJ->load($file);
+                    $resOBJ->resizeToWidth(200);
+
+                    // if ($_POST['resizetype'] == "width") {
+                    //     $width = $_POST['size'];
+                    //     $resOBJ->resizeToWidth($width);
+                    //     array_push($upmsg, "Image resized to a width of $width px");
+                    // } elseif ($_POST['resizetype'] == "height") {
+                    //     $height = $_POST['size'];
+                    //     $resOBJ->resizeToHeight($height);
+                    //     array_push($upmsg, "Image resized to a height of $height px");
+                    // } elseif ($_POST['resizetype'] == "scale") {
+                    //     $scale = $_POST['size'];
+                    //     $resOBJ->scale($scale);
+                    //     array_push($upmsg, "Image resized to a scale of $scale %");
+                    // }
+                } else {
+                    array_push($upmsg, "Image is to big: Max 3 Mb!");
+                }
+            } else {
+                array_push($upmsg, "Unknown filetype!");
+            }
+            $resOBJ->save($newName);
+            $sql = "UPDATE `news` SET `hero1`='$hero1', `hero2`='$hero2', `hero3`='$hero3', `wHead`='$wHead', `wMsg`='$wMsg', `sale`='$sale', `date`='$date', `rate`='$rate', `hours`='$hours', `img`='$iName'";
+            echo $sql; 
+            if ($numerror == 0) {
+                if (!mysqli_query($connection, $sql)) {
+                    die("DB error: " . mysqli_error($connection));
+                }
+                echo "Homepage news updated" . "<br> at " . date("h:i:sa");
+            }
+            array_push($upmsg, "Image successfully uploaded!");
+        } else {
+            array_push($upmsg, "ERROR: You need to select an image!");
         }
-        echo "Homepage news updated" . "<br> at " . date("h:i:sa");
     }
 }
 include("../navigation/adminNav.php");
 ?>
 <div class="adminContent">
-
     <div class="newsContainer">
-        <form method="post" action="newsedit.php">
+        <form method="post" action="newsedit.php" enctype="multipart/form-data">
             <fieldset>
                 <legend>
                     <h2>Here you can adjust the frontpage</h2>
@@ -150,6 +194,17 @@ include("../navigation/adminNav.php");
                     <div style="color:red;"><?= $errors['hours']; ?></div> <br>
                     Company Info:<br><textarea type="text" name="info"><?= $info ?></textarea>
                     <div style="color:red;"><?= $errors['info']; ?></div> <br>
+                </div>
+                <div class="image">
+                    <h3>upload an image</h3>
+                    <b>Image:</b> <input type="file" name="image" value=""><br />
+                    <!-- <b>Resize to:</b> <select name="resizetype">
+                        <option value="height">Height</option>
+                        <option value="width">Width</option>
+                        <option value="scale">Scale</option>
+                    </select>
+                    <b>Size:</b> <input type="text" name="size"> px or %<br /> -->
+                    <!-- <input name="Submit" type="submit" value="Submit"> -->
                 </div>
                 <input class="subButton" type="submit" name="submit" value="SUBMIT"> <br>
             </fieldset>

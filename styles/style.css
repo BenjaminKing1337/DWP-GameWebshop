@@ -387,6 +387,13 @@ footer .policy .policies p {
   margin: 0 auto;
 }
 
+.content .weeklyMsgCont img {
+  background-color: #2b2525;
+  color: white;
+  border: solid 2px white;
+  border-radius: 8px;
+}
+
 @media (min-width: 1100px) {
   .content {
     width: 80%;
@@ -1688,7 +1695,8 @@ footer .policy .policies p {
   border-collapse: collapse;
 }
 
-.orders table th, .orders table td {
+.orders table th,
+.orders table td {
   text-align: start;
   padding: 0 5px;
   vertical-align: top;
