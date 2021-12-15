@@ -692,6 +692,65 @@ footer .policy .policies p {
   /* The dots/bullets/indicators */
 }
 
+.singleProductContainer .related {
+  width: clamp(200px, 90%, 1000px);
+}
+
+.singleProductContainer .related fieldset {
+  margin-top: 60px;
+}
+
+.singleProductContainer .related fieldset h2 {
+  font-weight: 500;
+}
+
+.singleProductContainer .related fieldset .cards {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+@media (min-width: 1217px) {
+  .singleProductContainer .related fieldset .cards {
+    height: 200px;
+    overflow: hidden;
+  }
+}
+
+.singleProductContainer .related fieldset .cards .card {
+  width: 190px;
+  height: 180px;
+  border: 1px solid white;
+  border-radius: 8px;
+  margin: 0 auto 18px;
+  cursor: pointer;
+}
+
+@media (max-width: 530px) {
+  .singleProductContainer .related fieldset .cards .card {
+    width: 170px;
+    height: 160px;
+  }
+}
+
+.singleProductContainer .related fieldset .cards .card img {
+  width: 190px;
+  height: 180px;
+  border-radius: 8px;
+}
+
+@media (max-width: 530px) {
+  .singleProductContainer .related fieldset .cards .card img {
+    width: 170px;
+    height: 160px;
+  }
+}
+
 .singleProductContainer .thumbnail {
   width: clamp(200px, 80%, 1000px);
 }
@@ -886,6 +945,61 @@ footer .policy .policies p {
   border-radius: 8px 0 0 8px;
 }
 
+.singleProductContainer .secondarySpecs .related fieldset {
+  margin-top: 60px;
+}
+
+.singleProductContainer .secondarySpecs .related fieldset h2 {
+  font-weight: 500;
+}
+
+.singleProductContainer .secondarySpecs .related fieldset .cards {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+@media (min-width: 1217px) {
+  .singleProductContainer .secondarySpecs .related fieldset .cards {
+    height: 200px;
+    overflow: hidden;
+  }
+}
+
+.singleProductContainer .secondarySpecs .related fieldset .cards .card {
+  width: 190px;
+  height: 180px;
+  border: 1px solid white;
+  border-radius: 8px;
+  margin: 0 auto 18px;
+  cursor: pointer;
+}
+
+@media (max-width: 530px) {
+  .singleProductContainer .secondarySpecs .related fieldset .cards .card {
+    width: 170px;
+    height: 160px;
+  }
+}
+
+.singleProductContainer .secondarySpecs .related fieldset .cards .card img {
+  width: 190px;
+  height: 180px;
+  border-radius: 8px;
+}
+
+@media (max-width: 530px) {
+  .singleProductContainer .secondarySpecs .related fieldset .cards .card img {
+    width: 170px;
+    height: 160px;
+  }
+}
+
 .singleProductContainer .productPricing {
   text-align: center;
   margin: 20px;
@@ -1051,6 +1165,10 @@ footer .policy .policies p {
 .adminContent .addProductContainer .tickBoxContainer .platformCont,
 .adminContent .addProductContainer .tickBoxContainer .genreCont {
   width: 50%;
+}
+
+.adminContent .addProductContainer .tickBoxContainer .platform {
+  border-right: 1px solid white;
 }
 
 .adminContent .addProductContainer .tickBoxContainer .platform,

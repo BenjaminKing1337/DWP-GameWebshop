@@ -18,12 +18,12 @@ if (isset($_POST['submit'])) {
 
     // $mymail = "emil96k0@easv365.dk";
     $mymail = "test123@finklesnout.design";
-
+    // $emailinput = $_POST['email'];
     $regexp1 = "/^[A-z0-9_-]+([.][A-z0-9_]+)*[@][A-z0-9_]+([.][A-z0-9_-]+)*[.][A-z]{2,4}$/";
-    $regexp2 = "/^[A-z0-9,._- ]{2,600}$/";
+    $regexp2 = "/^[\.a-zA-Z0-9,!? ]{2,600}$/";
 
     if (
-        !preg_match($regexp1, $_POST['email'])
+        !filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)
     ) {
         $errors['email'] = " Email not valid.";
         $numerror++;

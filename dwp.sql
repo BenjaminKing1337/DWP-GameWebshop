@@ -60,9 +60,9 @@ INSERT INTO accounts
 INSERT INTO news 
     (id, hero1, hero2, hero3, wHead, wMsg, sale, date, rate, hours, info) 
 VALUES
-    (1, 'Digital codes.', 'Instant delivery.', 'Best price on the market.', 'Weekly Headline', 'Weekly Message', 200, 3, 8, '24/7. <br>
-            As soon as the transaction goes through, the <b>game key</b> will automatically be sent to your mail.
-        ', '');
+    (1, 'Digital codes.', 'Instant delivery.', 'Best price on the market.', 'Weekly Headline', 'Weekly Message', 200, 3, 8, '24/7. As soon as the transaction goes through, the game key will automatically be sent to your mail.', '
+    We here at DWP games are a collection of video game loving nerds who just want to take a minute of your time to talk about Games. Based in Esbjerg, Denmark, we\'re a small company yet our concerns are big, one of them being how do we get the games to you as fast as possible? That\'s right! Game Keys! That\'s our livelyhood right here, selling these keys for a reasonable price, but the main fruits of our labor is just seeing you, the gamers, fulfilled to your little cores. So come on down to DWP Games and get ya some real authentic game keys! The way it works is easy, there\'s just two steps to the process: - Pick a game. - Complete Transaction. Bada boom bada bing, check your email! When you open that mail there\'s your code, all that\'s left to do is redeem it on the account of your choosing. Sincerely, DWP GAMES
+    ');
 
 -- ' We here at DWP games are a collection of video game loving nerds who just want to take a minute of your time to talk about Games. <br> Based in Esbjerg, Denmark, we\'re a small company yet our concerns are big, one of them being how do we get the games to you as fast as possible? <br> That\'s right! <b>Game Keys!</b> <br> That\'s our livelyhood right here, selling these keys for a reasonable price, but the main fruits of our labor is just seeing you, the gamers, fulfilled to your little cores.  So come on down to DWP Games and get ya some real authentic game keys!<br><br> The way it works is easy, there\'s just two steps to the process: <br>- Pick a game. <br>- Complete Transaction. <br><br>Bada boom bada bing, check your email! <br> <br>When you open that mail there\'s your code, all that\'s left to do is redeem it on the account of your choosing.<br><br><br>Sincerely,<br>DWP GAMES '
 INSERT INTO product 

@@ -2,7 +2,7 @@
 require("../includes/adminhead.php");
 
 if (!admin()) {
-    $redirect = New Redirector("../index.php");
+    $redirect = new Redirector("../index.php");
 }
 
 $query_select = "SELECT * FROM `games`";
@@ -16,34 +16,34 @@ $errors = array('Title' => '', 'Price' => '', 'ReleaseDate' => '', 'Description'
 $numerror = 0;
 
 if (isset($_POST['submit'])) {
-    $Title = Secure($connection,'Title');
-    $Thumbnail = Secure($connection,'Thumbnail');
-    $Cover = Secure($connection,'Cover');
-    $Price = Secure($connection,'Price');
-    $ReleaseDate = Secure($connection,'ReleaseDate');
-    $Description = Secure($connection,'Description');
-    $Rating = Secure($connection,'Rating');
+    $Title = Secure($connection, 'Title');
+    $Thumbnail = Secure($connection, 'Thumbnail');
+    $Cover = Secure($connection, 'Cover');
+    $Price = Secure($connection, 'Price');
+    $ReleaseDate = Secure($connection, 'ReleaseDate');
+    $Description = Secure($connection, 'Description');
+    $Rating = Secure($connection, 'Rating');
     $PlatformChck = !empty($_POST['PlatformChck']) ? $_POST['PlatformChck'] : '';
     $Platform = "";
-    if(!empty($PlatformChck)){
+    if (!empty($PlatformChck)) {
         foreach ($PlatformChck as $Pchk) {
             $Platform .= $Pchk . "/";
         }
     }
     $GenreChck = !empty($_POST['GenreChck']) ? $_POST['GenreChck'] : '';
     $Genre = '';
-    if(!empty($GenreChck)){
+    if (!empty($GenreChck)) {
         foreach ($GenreChck as $Gchk) {
             $Genre .= $Gchk . "/";
         }
     }
-    $Trailer = Secure($connection,'Trailer');
-    $Screenshots = Secure($connection,'Screenshots');
+    $Trailer = Secure($connection, 'Trailer');
+    $Screenshots = Secure($connection, 'Screenshots');
 
     $query = "INSERT INTO `product` (`id`, `Title`, `Price`, `ReleaseDate`, `Description`, `Rating`, `Platform`, `Genre`) VALUES (NULL, '$Title', '$Price', '$ReleaseDate', '$Description', '$Rating', '$Platform', '$Genre'); 
                 INSERT INTO `media` (`mediaID`, `Thumbnail`, `Cover`, `Trailer`, `Screenshots`) VALUES (NULL, '$Thumbnail', '$Cover', '$Trailer', '$Screenshots');";
 
-    $regexp1 = "/^[A-z0-9' ]{2,600}$/";
+    $regexp1 = "/^[\.a-zA-Z0-9,!? ]{2,600}$/";
     $regexp2 = "/^[+-]?((\d+(\.\d*)?)|(\.\d+))$/";
     $regexp3 = "/^[0-9-]{10}$/";
 
@@ -108,7 +108,7 @@ if (isset($_POST['submit'])) {
         if (!mysqli_multi_query($connection, $query)) {
             die("DB error: " . mysqli_error($connection));
         }
-        header('Location: '.$_SERVER['PHP_SELF']);
+        header('Location: ' . $_SERVER['PHP_SELF']);
         exit;
         echo "Product added" . "<br> at " . date("h:i:sa");
         $Title = $Thumbnail = $Cover = $Price = $ReleaseDate = $Description = $Rating = $GenreChck = $PlatformChck = $Trailer = $Screenshots = '';
@@ -116,8 +116,14 @@ if (isset($_POST['submit'])) {
 };
 
 include("../navigation/adminNav.php");
+include("../fileupresize/upload.php");
 ?>
 <div class="adminContent">
+    <?php
+    foreach ($upmsg as $msg) {
+        echo "<h1>" . $msg . "</h1>";
+    }
+    ?>
     <div class="addProductContainer">
         <form method="post" action="addproduct.php">
             <fieldset>
@@ -126,10 +132,6 @@ include("../navigation/adminNav.php");
                 </legend>
                 Title:<br><input type="text" name="Title" value="<?php echo $Title ?>">
                 <div style="color:red;"><?php echo $errors['Title']; ?></div> <br>
-                Thumbnail:<br><input type="text" name="Thumbnail" value="<?php echo $Thumbnail ?>">
-                <div style="color:red;"><?php echo $errors['media']; ?></div> <br>
-                Cover:<br><input type="text" name="Cover" value="<?php echo $Cover ?>">
-                <div style="color:red;"><?php echo $errors['media']; ?></div> <br>
                 Price:<br><input type="text" name="Price" value="<?php echo $Price ?>">
                 <div style="color:red;"><?php echo $errors['Price']; ?></div> <br>
                 Release Date:<br><input placeholder="YYYY-MM-DD" type="text" name="ReleaseDate" value="<?php echo $ReleaseDate ?>">
@@ -191,7 +193,25 @@ include("../navigation/adminNav.php");
                         </div>
                     </div>
                 </div>
-                <div style="color:red;"><?php echo $errors['Platform']; ?></div> <br>
+                <div class="media">
+                    <form name="imgup" method="post" enctype="multipart/form-data" action="">
+                        <h1>Image upload</h1>
+                        <h2>Here you can upload an image!</h2>
+                        <b>Image:</b> <input type="file" name="image" value=""><br />
+                        <b>Resize to:</b> <select name="resizetype">
+                            <option value="height">Height</option>
+                            <option value="width">Width</option>
+                            <option value="scale">Scale</option>
+                        </select>
+                        <b>Size:</b> <input type="text" name="size"> px or %<br />
+                        <input name="Submit" type="submit" value="Submit">
+                    </form>
+                </div>
+                <h3>Media</h3> <br>
+                Thumbnail:<br><input type="text" name="Thumbnail" value="<?php echo $Thumbnail ?>">
+                <div style="color:red;"><?php echo $errors['media']; ?></div> <br>
+                Cover:<br><input type="text" name="Cover" value="<?php echo $Cover ?>">
+                <div style="color:red;"><?php echo $errors['media']; ?></div> <br>
                 Trailer:<br><input type="text" name="Trailer" value="<?php echo $Trailer ?>">
                 <div style="color:red;"><?php echo $errors['media']; ?></div> <br>
                 Screenshots:<br><textarea type="text" name="Screenshots"><?php echo $Screenshots ?></textarea>
