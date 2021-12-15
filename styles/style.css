@@ -1441,7 +1441,7 @@ footer .policy .policies p {
   display: flex;
 }
 
-fieldset {
+.cartbox {
   padding: 0 5ch;
   background-color: #2b2525;
   color: white;
@@ -1451,20 +1451,20 @@ fieldset {
   margin: 0 auto;
 }
 
-fieldset .cart_item {
+.cartbox .cart_item {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   margin-bottom: 22px;
 }
 
-fieldset .cart_item img {
+.cartbox .cart_item img {
   border-radius: 8px;
   height: 120px;
   min-width: 120px;
 }
 
-fieldset .cart_item .info {
+.cartbox .cart_item .info {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1474,16 +1474,16 @@ fieldset .cart_item .info {
           flex-direction: column;
 }
 
-fieldset .cart_item .info h3,
-fieldset .cart_item .info h2 {
+.cartbox .cart_item .info h3,
+.cartbox .cart_item .info h2 {
   margin: 0 0 10px 30px;
 }
 
-fieldset .cart_item .info .price {
+.cartbox .cart_item .info .price {
   margin-top: auto;
 }
 
-fieldset .cart_item button {
+.cartbox .cart_item button {
   height: 40px;
   width: 100px;
   margin: auto 0 auto auto;
@@ -1495,20 +1495,20 @@ fieldset .cart_item button {
   cursor: pointer;
 }
 
-fieldset .cart_item button:active {
+.cartbox .cart_item button:active {
   -webkit-transform: translateY(2px);
           transform: translateY(2px);
 }
 
-fieldset h1 {
+.cartbox h1 {
   text-align: center;
 }
 
-fieldset h2 {
+.cartbox h2 {
   text-align: end;
 }
 
-fieldset .order_button {
+.cartbox .order_button {
   width: 250px;
   height: 60px;
   border-radius: 8px;
@@ -1516,14 +1516,47 @@ fieldset .order_button {
   font-size: 20px;
   position: absolute;
   margin-top: -30px;
+  cursor: pointer;
   left: 50%;
   -webkit-transform: translate(-50%);
           transform: translate(-50%);
 }
 
-fieldset .order_button:active {
+.cartbox .order_button:active {
   -webkit-transform: translate(-50%, 2px);
           transform: translate(-50%, 2px);
+}
+
+.orders {
+  padding: 0 5ch;
+  background-color: #2b2525;
+  color: white;
+  border: 1px solid white;
+  border-radius: 8px;
+  width: clamp(100px, 80%, 1000px);
+  margin: 0 auto;
+}
+
+.orders table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.orders table th, .orders table td {
+  text-align: start;
+  padding: 0 5px;
+}
+
+.orders table .headline {
+  border-bottom: 1px solid white;
+}
+
+.orders table .titles {
+  max-width: 200px;
+}
+
+.orders table tr {
+  line-height: 20px;
 }
 
 .about {

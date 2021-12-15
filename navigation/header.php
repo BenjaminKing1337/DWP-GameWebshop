@@ -73,8 +73,8 @@ $quantity = 0;
                                     <li><a href="admin/addproduct.php">Admin</a></li>
                                 <?php }
                                 if (logged_in()) {
-                                    echo
-                                    "<li><a href='admin/changepass.php?id=" . $_SESSION['user_id'] . "'>Change Password</a></li>";
+                                    echo "<li><a href='admin/changepass.php?id=" . $_SESSION['user_id'] . "'>Change Password</a></li>";
+                                    echo "<li><a href='orders.php'>Order History</a></li>";
                                 } ?>
                                 <li><a href="logout.php">Logout</a></li>
                             </div>
@@ -83,8 +83,8 @@ $quantity = 0;
                             <li class="mobile_link"><a href="admin/addproduct.php">Admin</a></li>
                         <?php }
                         if (logged_in()) {
-                            echo
-                            "<li><a class='mobile_link' href='admin/changepass.php?id=" . $_SESSION['user_id'] . "'> Change Password </a></li>";
+                            echo "<li><a class='mobile_link' href='admin/changepass.php?id=" . $_SESSION['user_id'] . "'> Change Password </a></li>";
+                            echo "<li><a class='mobile_link' href='orders.php'>Order History</a></li>";
                         } ?>
                         <li class="mobile_link"><a href="logout.php">Logout</a></li>
                     <?php }

@@ -48,6 +48,15 @@ CREATE TABLE `media` (
     `Screenshots` TEXT NOT NULL
 );
 
+CREATE TABLE `orders` (
+	`orderID` INT AUTO_INCREMENT NOT NULL PRIMARY KEY,
+    `userID` INT NOT NULL,
+	`Products` TEXT NOT NULL,
+    `Date` VARCHAR (255) NOT NULL,
+    `Price` DECIMAL(8,1) NOT NULL
+);
+
+
 CREATE VIEW `games` AS
 SELECT * FROM product
 JOIN media ON product.id = media.mediaID;
