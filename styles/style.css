@@ -1706,6 +1706,10 @@ footer .policy .policies p {
   border-bottom: 1px solid white;
 }
 
+.orders table .titles {
+  max-width: 200px;
+}
+
 .orders table tr {
   line-height: 20px;
 }
