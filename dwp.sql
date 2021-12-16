@@ -10,13 +10,14 @@ CREATE TABLE `news` (
     `hero2` VARCHAR(100) NOT NULL,
     `hero3` VARCHAR(100) NOT NULL,
     `wHead` VARCHAR(100) NOT NULL,
-    `wMsg` VARCHAR(255) NOT NULL,
+    `wMsg` VARCHAR(555) NOT NULL,
     `sale` INT(3) NOT NULL,
     `date` INT(1) NOT NULL,
     `rate` INT(1) NOT NULL,
     `hours` VARCHAR(500) NOT NULL,
     `info` VARCHAR(1200) NOT NULL,
-    `img` VARCHAR(255) NULL
+    `img` VARCHAR(255) NULL,
+    `email` VARCHAR(255) NOT NULL
 );
 
 CREATE TABLE `accounts` ( 
@@ -68,11 +69,13 @@ INSERT INTO accounts
     (1, 'Solanum', '$2y$15$2a0at2IhmJ9wyyply93qauT7yP/.JgxzWohC.YhdYc9266YaP8VyS', 'Solanum', 'Nomai', 'Echoes@Eye.com', 'Last surviving nomai seeking the eye of the universe.', 'admin');
 
 INSERT INTO news 
-    (id, hero1, hero2, hero3, wHead, wMsg, sale, date, rate, hours, info) 
+    (id, hero1, hero2, hero3, wHead, wMsg, sale, date, rate, hours, info, img, email) 
 VALUES
-    (1, 'Digital codes.', 'Instant delivery.', 'Best price on the market.', 'Weekly Headline', 'Weekly Message', 200, 3, 8, '24/7. As soon as the transaction goes through, the game key will automatically be sent to your mail.', '
+    (1, 'Digital codes.', 'Instant delivery.', 'Best price on the market.', 'A new challenger enters the Arena...', '
+    Welcome dear customers, we\'re glad to announce ourselves as the new best place to get your gaming needs satisfied. Feel free to browse the amazing products and prizes. Don\'t be afraid to send us a mail under the contact tab in the menu. We\'d love to hear from you. Sincerely, DWP games.
+    ', 200, 3, 8, '24/7. As soon as the transaction goes through, the game key will automatically be sent to your mail.', '
     We here at DWP games are a collection of video game loving nerds who just want to take a minute of your time to talk about Games. Based in Esbjerg, Denmark, we\'re a small company yet our concerns are big, one of them being how do we get the games to you as fast as possible? That\'s right! Game Keys! That\'s our livelyhood right here, selling these keys for a reasonable price, but the main fruits of our labor is just seeing you, the gamers, fulfilled to your little cores. So come on down to DWP Games and get ya some real authentic game keys! The way it works is easy, there\'s just two steps to the process: - Pick a game. - Complete Transaction. Bada boom bada bing, check your email! When you open that mail there\'s your code, all that\'s left to do is redeem it on the account of your choosing. Sincerely, DWP GAMES
-    ');
+    ', 'logo.png', 'test123@finklesnout.design');
 
 -- ' We here at DWP games are a collection of video game loving nerds who just want to take a minute of your time to talk about Games. <br> Based in Esbjerg, Denmark, we\'re a small company yet our concerns are big, one of them being how do we get the games to you as fast as possible? <br> That\'s right! <b>Game Keys!</b> <br> That\'s our livelyhood right here, selling these keys for a reasonable price, but the main fruits of our labor is just seeing you, the gamers, fulfilled to your little cores.  So come on down to DWP Games and get ya some real authentic game keys!<br><br> The way it works is easy, there\'s just two steps to the process: <br>- Pick a game. <br>- Complete Transaction. <br><br>Bada boom bada bing, check your email! <br> <br>When you open that mail there\'s your code, all that\'s left to do is redeem it on the account of your choosing.<br><br><br>Sincerely,<br>DWP GAMES '
 INSERT INTO product 

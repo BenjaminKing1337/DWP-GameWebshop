@@ -121,7 +121,6 @@ include("navigation/header.php");
                 <button class="order_button">You need to log in to make an order</button>
             <?php } ?>
         </form>
-    <?php } ?>
 <?php } else { ?>
     <h1>Cart is empty.</h1>
 <?php } ?>

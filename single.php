@@ -13,6 +13,8 @@ if (isset($_GET['id'])) {
 
     $product = mysqli_fetch_assoc($result);
 
+    $genre = $product['Genre'];
+
     mysqli_free_result($result);
 
 
@@ -54,7 +56,7 @@ if (isset($_POST['add'])) {
 
 
 // Displays the four best sales by ordering prices low to high
-$price = "SELECT id, Thumbnail, Price FROM games ORDER BY Price ASC LIMIT 6";
+$price = "SELECT id, Thumbnail, Price FROM games WHERE Genre LIKE '%$genre%' AND id!='$id'";
 $res_price = mysqli_query($connection, $price);
 $products_price = mysqli_fetch_all($res_price, MYSQLI_ASSOC);
 mysqli_free_result($res_price);
@@ -143,9 +145,9 @@ include("navigation/header.php");
                     <h3>You may also like these items...</h3>
                 </legend>
                 <div class="cards">
-                    <?php foreach ($products_price as $product) { ?>
-                        <div class="card" onclick="window.location='single.php?id=<?php echo $product['id'] ?>'">
-                            <img width="190px" height="180px" src="<?php echo htmlspecialchars($product['Thumbnail']) ?>" alt="">
+                    <?php foreach ($products_price as $related) { ?>
+                        <div class="card" onclick="window.location='single.php?id=<?php echo $related['id'] ?>'">
+                            <img width="190px" height="180px" src="<?php echo htmlspecialchars($related['Thumbnail']) ?>" alt="">
                         </div>
                     <?php } ?>
                 </div>

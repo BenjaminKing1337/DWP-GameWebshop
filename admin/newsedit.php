@@ -16,6 +16,7 @@ $date = $data['date'];
 $rate = $data['rate'];
 $hours = $data['hours'];
 $info = $data['info'];
+$email = $data['email'];
 $errors = array('hero1' => '', 'hero2' => '', 'hero3' => '', 'wHead' => '', 'wMsg' => '', 'sale' => '', 'date' => '', 'rate' => '', 'hours' => '', 'info' => '');
 $numerror = 0;
 
@@ -31,13 +32,14 @@ if (isset($_POST['submit'])) {
     $rate = Secure($connection, 'rate');
     $hours = Secure($connection, 'hours');
     $info = Secure($connection, 'info');
+    $email = Secure($connection, 'email');
 
 
     $regexpHero = "/^[A-z0-9-_. ]{1,100}$/";
     $regexpSale = "/^[0-9]{2,3}$/";
     $regexpDate = "/^[0-9]{1,2}$/";
     $regexpRate = "/^[0-9]{1}$/";
-    $regexpW = "/^[A-z0-9-_ ]{1,200}$/";
+    $regexpW = "/^[\.a-zA-Z0-9,!? ]{1,500}$/";
     // $regexpHours = "/^[A-z0-9-_,.'<>\/!?: ]{1,500}$/";
     // $regexpInfo = "/^[A-z0-9-_,.'<>\/!?: ]{1,1200}$/";
 
@@ -66,7 +68,7 @@ if (isset($_POST['submit'])) {
         $numerror++;
     }
     if (
-        !preg_match($regexpW, $_POST['wMsg'])
+        empty($_POST['wMsg'])
     ) {
         $errors['wMsg'] = " Must be filled";
         $numerror++;
@@ -118,7 +120,7 @@ if (isset($_POST['submit'])) {
                     $newName = "../assets/" . $iName;
                     $resOBJ = new imageResizer();
                     $resOBJ->load($file);
-                    $resOBJ->resizeToWidth(200);
+                    $resOBJ->resizeToWidth(450);
 
                     // if ($_POST['resizetype'] == "width") {
                     //     $width = $_POST['size'];
@@ -142,7 +144,7 @@ if (isset($_POST['submit'])) {
             $resOBJ->save($newName);
 
 
-            $sql = "UPDATE `news` SET `hero1`='$hero1', `hero2`='$hero2', `hero3`='$hero3', `wHead`='$wHead', `wMsg`='$wMsg', `sale`='$sale', `date`='$date', `rate`='$rate', `hours`='$hours', `img`='$iName'";
+            $sql = "UPDATE `news` SET `hero1`='$hero1', `hero2`='$hero2', `hero3`='$hero3', `wHead`='$wHead', `wMsg`='$wMsg', `sale`='$sale', `date`='$date', `rate`='$rate', `hours`='$hours', `info`='$info', `img`='$iName', `email`='$email'";
 
             if ($numerror == 0) {
                 if (!mysqli_query($connection, $sql)) {
@@ -202,6 +204,7 @@ include("../navigation/adminNav.php");
                 </div>
                 <div class="info">
                     <h3>Company Info</h3>
+                    Contact Email:<br><input type="text" name="email" value="<?= $email ?>"> <br>
                     Opening Hours:<br><input type="text" name="hours" value="<?= $hours ?>">
                     <div style="color:red;"><?= $errors['hours']; ?></div> <br>
                     Company Info:<br><textarea type="text" name="info"><?= $info ?></textarea>

@@ -387,7 +387,19 @@ footer .policy .policies p {
   margin: 0 auto;
 }
 
-.content .weeklyMsgCont img {
+.content .weeklyMsgCont fieldset {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.content .weeklyMsgCont fieldset img {
+  -ms-grid-column-align: center;
+      justify-self: center;
   background-color: #2b2525;
   color: white;
   border: solid 2px white;

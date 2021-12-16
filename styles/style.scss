@@ -305,11 +305,16 @@ footer {
     .weeklyMsgCont {
         width: clamp(100px, 80%, 500px);
         margin: 0 auto;
-        img {
-            background-color: map-get($cs, dropdownbg);
-            color: map-get($cs, mainaccent);
-            border: solid 2px map-get($cs, mainaccent);
-            border-radius: 8px;
+        fieldset {
+            display: flex;
+            flex-direction: column;
+            img {
+                justify-self: center;
+                background-color: map-get($cs, dropdownbg);
+                color: map-get($cs, mainaccent);
+                border: solid 2px map-get($cs, mainaccent);
+                border-radius: 8px;
+            }
         }
     }
     @media (min-width: 1100px) {
@@ -1178,17 +1183,17 @@ footer {
         text-align: end;
         margin-bottom: 50px;
     }
-    .checkout{
+    .checkout {
         display: flex;
         flex-direction: column;
-        p{
+        p {
             position: absolute;
             font-size: 14px;
             left: 50%;
             margin-top: -20px;
             transform: translate(-50%);
         }
-        input{
+        input {
             height: 30px;
             width: 300px;
             margin: 0 auto 30px auto;

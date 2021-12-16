@@ -1,7 +1,12 @@
 <?php
 require("includes/head.php");
+$db = new DbCon();
 
-
+$news = "SELECT * FROM `news`";
+$newsResult = mysqli_query($connection, $news);
+$new = mysqli_fetch_all($newsResult, MYSQLI_ASSOC);
+//var_dump($new);
+$contactemail = $new[0]['email'];
 
 $errors = array('firstname' => '', 'lastname' => '', 'email' => '', 'subject' => '', 'message' => '');
 $numerror = 0;
@@ -17,7 +22,7 @@ if (isset($_POST['submit'])) {
 
 
     // $mymail = "emil96k0@easv365.dk";
-    $mymail = "test123@finklesnout.design";
+    $mymail = $contactemail;
     // $emailinput = $_POST['email'];
     $regexp1 = "/^[A-z0-9_-]+([.][A-z0-9_]+)*[@][A-z0-9_]+([.][A-z0-9_-]+)*[.][A-z]{2,4}$/";
     $regexp2 = "/^[\.a-zA-Z0-9,!? ]{2,600}$/";
