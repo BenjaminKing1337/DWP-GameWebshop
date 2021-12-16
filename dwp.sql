@@ -15,7 +15,8 @@ CREATE TABLE `news` (
     `date` INT(1) NOT NULL,
     `rate` INT(1) NOT NULL,
     `hours` VARCHAR(500) NOT NULL,
-    `info` VARCHAR(1200) NOT NULL
+    `info` VARCHAR(1200) NOT NULL,
+    `img` VARCHAR(255) NULL
 );
 
 CREATE TABLE `accounts` ( 
