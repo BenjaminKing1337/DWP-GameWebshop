@@ -32,6 +32,7 @@ body {
     background-color: map-get($cs, mainbg);
     color: map-get($cs, mainaccent);
     margin: 100px 0 0 0;
+    font-family: "Arimo", sans-serif;
 }
 
 //header & navigation
@@ -1212,22 +1213,45 @@ footer {
     color: map-get($cs, mainaccent);
     border: 1px solid map-get($cs, mainaccent);
     border-radius: 8px;
-    width: clamp(100px, 80%, 1000px);
+    width: 1000px;
+    overflow: auto;
+    white-space: nowrap;
     margin: 0 auto;
     table {
         width: 100%;
+        padding: 0 25px;
         border-collapse: collapse;
+        th{
+            line-height: 30px;
+        }
         th,
         td {
             text-align: start;
             padding: 0 5px;
             vertical-align: top;
+            button{
+                border: none;
+                border-radius: 4px;
+                padding: 4px 7px;
+                &:active{
+                    transform: translateY(2px);
+                }
+            }
         }
         .headline {
             border-bottom: 1px solid white;
         }
         .titles {
             max-width: 200px;
+        }
+        .status{
+            text-transform: uppercase;
+        }
+        .status[data-status="Delivered"]{
+            color: lightgreen;
+        }
+        .status[data-status="Pending"]{
+            color: red;
         }
         tr {
             line-height: 20px;

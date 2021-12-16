@@ -24,7 +24,7 @@ if(isset($_POST['orderProduct'])){
     $Date = date("Y-m-d");
     $Price = $_POST['total'];
 
-    $query = "INSERT INTO `orders` (`orderID`, `userID`, `Products`, `Email`, `Date`, `Price`) VALUES (NULL, '$userID', '$Products', '$Email', '$Date', '$Price');";
+    $query = "INSERT INTO `orders` (`orderID`, `userID`, `Products`, `DeliveryEmail`, `Date`, `Price`) VALUES (NULL, '$userID', '$Products', '$Email', '$Date', '$Price');";
 
     if(empty($Email)){
         $error++;

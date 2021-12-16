@@ -24,6 +24,7 @@ include("navigation/header.php");
             <th>Email</th>
             <th>Date</th>
             <th>Price</th>
+            <th>Status</th>
         </tr>
         <?php if($orders){ ?>
             <?php foreach($orders as $order){ ?>
@@ -34,9 +35,10 @@ include("navigation/header.php");
                             echo $product . "<br>"; 
                         }?>
                     </td>
-                    <td><?php echo $order['Email'] ?></td>
+                    <td><?php echo $order['DeliveryEmail'] ?></td>
                     <td class="date"><?php echo $order['Date'] ?></td>
                     <td><?php echo $order['Price'] ?> DKK</td>
+                    <td data-status="<?php echo $order['Status'] ?>" class="status"><?php echo $order['Status'] ?></td>
                 </tr>
             <?php } ?>
         <?php } else{ ?>

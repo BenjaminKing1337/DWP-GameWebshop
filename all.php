@@ -10,24 +10,23 @@ $today = date('Y-m-d');
 // Gets current date minus 3 months
 $olddate = date('Y-m-d', strtotime('-' . $new[0]['date'] . ' months', strtotime($today)));
 
-if(isset($_GET['f'])){
-    $filt = $_GET['f'];
-}
-
-
 $sql = "SELECT id, Thumbnail, Title, Price, Platform, Genre FROM games ";
 // if the GET isn't empty, load one of the following options depending on where user navigated from.
 if (isset($_GET['d'])) {
     $sql .= "WHERE ReleaseDate BETWEEN '$olddate' AND '$_GET[d]' ";
+    $filt = 'd='. $_GET['d'];
 }
 if (isset($_GET['f'])) {
     $sql .= "WHERE Platform LIKE '%$_GET[f]%' ";
+    $filt = 'f='. $_GET['f'];
 }
 if (isset($_GET['s'])) {
     $sql .= "WHERE Price < '$_GET[s]' ";
+    $filt = 's='. $_GET['s'];
 }
 if (isset($_GET['r'])) {
     $sql .= "WHERE Rating > '$_GET[r]' ";
+    $filt = 'r='. $_GET['r'];
 }
 
 
@@ -110,7 +109,7 @@ include("navigation/header.php");
     <div class="allProductsContainer">
         <?php foreach ($products as $product) { ?>
             <div class="productContainer">
-                <form <?php if(isset($_GET['f'])){echo "action='all.php?f=$filt'";} else{echo'action="all.php"';} ?> method="post">
+                <form <?php if(isset($_GET['f']) || isset($_GET['s']) || isset($_GET['d']) || isset($_GET['r'])){echo "action='all.php?$filt'";} else{echo'action="all.php"';} ?> method="post">
                     <div onclick="window.location='single.php?id=<?php echo $product['id'] ?>'" class="product">
                         <div class="platformTag">
                             <img width="25px" height="25px" src="https://i.kym-cdn.com/entries/icons/original/000/012/368/playstation-wallpaper-46825-48282-hd-wallpapers.jpg" alt="">
