@@ -19,8 +19,9 @@ include("navigation/header.php");
     </legend>
     <table>
         <tr class="headline">
-            <th>Order No</th>
+            <th>No.</th>
             <th>Ordered product(s)</th>
+            <th>Email</th>
             <th>Date</th>
             <th>Price</th>
         </tr>
@@ -28,8 +29,13 @@ include("navigation/header.php");
             <?php foreach($orders as $order){ ?>
                 <tr>
                     <td>#<?php echo $order['orderID'] ?></td>
-                    <td class="titles"><?php echo $order['Products'] ?></td>
-                    <td><?php echo $order['Date'] ?></td>
+                    <td>
+                        <?php foreach(explode(',', $order['Products']) as $product){
+                            echo $product . "<br>"; 
+                        }?>
+                    </td>
+                    <td><?php echo $order['Email'] ?></td>
+                    <td class="date"><?php echo $order['Date'] ?></td>
                     <td><?php echo $order['Price'] ?> DKK</td>
                 </tr>
             <?php } ?>
