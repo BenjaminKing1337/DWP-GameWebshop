@@ -10,12 +10,12 @@ CREATE TABLE `news` (
     `hero2` VARCHAR(100) NOT NULL,
     `hero3` VARCHAR(100) NOT NULL,
     `wHead` VARCHAR(100) NOT NULL,
-    `wMsg` VARCHAR(555) NOT NULL,
+    `wMsg` TEXT NOT NULL,
     `sale` INT(3) NOT NULL,
     `date` INT(1) NOT NULL,
     `rate` INT(1) NOT NULL,
-    `hours` VARCHAR(500) NOT NULL,
-    `info` VARCHAR(1200) NOT NULL,
+    `hours` VARCHAR(255) NOT NULL,
+    `info` TEXT NOT NULL,
     `img` VARCHAR(255) NULL,
     `email` VARCHAR(255) NOT NULL
 );
