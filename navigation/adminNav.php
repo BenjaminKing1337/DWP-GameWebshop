@@ -26,6 +26,7 @@
                         <li><a href="products.php">Product List</a></li>
                         <li><a href="newsedit.php">Update News</a></li>
                         <li><a href="accounts.php">User List</a></li>
+                        <li><a href="invoices.php">Invoices</a></li>
                         <li><a href="../logout.php">Logout</a></li>
                     </div>
                 </div>
@@ -34,6 +35,7 @@
                 <li class="mobile_link"><a href="products.php">Product List</a></li>
                 <li class="mobile_link"><a href="newsedit.php">Update News</a></li>
                 <li class="mobile_link"><a href="accounts.php">User List</a></li>
+                <li class="mobile_link"><a href="invoices.php">Invoices</a></li>
                 <li class="mobile_link"><a href="../logout.php">Logout</a></li>
             </ul>
 
