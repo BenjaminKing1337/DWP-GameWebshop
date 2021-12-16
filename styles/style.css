@@ -1067,6 +1067,13 @@ footer .policy .policies p {
   margin-bottom: 80px;
 }
 
+.adminContent .newsContainer .weekly img {
+  background-color: #2b2525;
+  color: white;
+  border: solid 1px white;
+  border-radius: 8px;
+}
+
 .adminContent .newsContainer .news1,
 .adminContent .newsContainer .weekly,
 .adminContent .newsContainer .news2,
@@ -1083,8 +1090,8 @@ footer .policy .policies p {
   background-color: #2b2525;
   color: white;
   border: solid 1px white;
-  padding: 10px 60px;
   border-radius: 8px;
+  padding: 10px 60px;
 }
 
 .adminContent .newsContainer form fieldset input {

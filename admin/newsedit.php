@@ -9,6 +9,7 @@ $hero1 = $data['hero1'];
 $hero2 = $data['hero2'];
 $hero3 = $data['hero3'];
 $wHead = $data['wHead'];
+$image = $data['img'];
 $wMsg = $data['wMsg'];
 $sale = $data['sale'];
 $date = $data['date'];
@@ -17,6 +18,7 @@ $hours = $data['hours'];
 $info = $data['info'];
 $errors = array('hero1' => '', 'hero2' => '', 'hero3' => '', 'wHead' => '', 'wMsg' => '', 'sale' => '', 'date' => '', 'rate' => '', 'hours' => '', 'info' => '');
 $numerror = 0;
+
 
 if (isset($_POST['submit'])) {
     $hero1 = Secure($connection, 'hero1');
@@ -138,8 +140,10 @@ if (isset($_POST['submit'])) {
                 array_push($upmsg, "Unknown filetype!");
             }
             $resOBJ->save($newName);
+
+
             $sql = "UPDATE `news` SET `hero1`='$hero1', `hero2`='$hero2', `hero3`='$hero3', `wHead`='$wHead', `wMsg`='$wMsg', `sale`='$sale', `date`='$date', `rate`='$rate', `hours`='$hours', `img`='$iName'";
-            echo $sql; 
+
             if ($numerror == 0) {
                 if (!mysqli_query($connection, $sql)) {
                     die("DB error: " . mysqli_error($connection));
@@ -152,6 +156,11 @@ if (isset($_POST['submit'])) {
         }
     }
 }
+$img = "SELECT id, img FROM news";
+$img1 = mysqli_query($connection, $img);
+$anotherdamnname = mysqli_fetch_all($img1);
+
+
 include("../navigation/adminNav.php");
 ?>
 <div class="adminContent">
@@ -175,6 +184,9 @@ include("../navigation/adminNav.php");
                     <h3>Weekly News</h3>
                     Headline:<br><input type="text" name="wHead" value="<?php echo $wHead ?>">
                     <div style="color:red;"><?php echo $errors['wHead']; ?></div> <br>
+                    Upload Image:</b><input type="file" name="image" value=""><br>
+                    <img src="../assets/<?php echo $anotherdamnname[0][1]; ?>" alt=""> <br>
+                    Current Image:<?php echo " " . $image ?><br> <br>
                     Message:<br><input type="text" name="wMsg" value="<?php echo $wMsg ?>">
                     <div style="color:red;"><?php echo $errors['wMsg']; ?></div> <br>
                 </div>
@@ -194,17 +206,6 @@ include("../navigation/adminNav.php");
                     <div style="color:red;"><?= $errors['hours']; ?></div> <br>
                     Company Info:<br><textarea type="text" name="info"><?= $info ?></textarea>
                     <div style="color:red;"><?= $errors['info']; ?></div> <br>
-                </div>
-                <div class="image">
-                    <h3>upload an image</h3>
-                    <b>Image:</b> <input type="file" name="image" value=""><br />
-                    <!-- <b>Resize to:</b> <select name="resizetype">
-                        <option value="height">Height</option>
-                        <option value="width">Width</option>
-                        <option value="scale">Scale</option>
-                    </select>
-                    <b>Size:</b> <input type="text" name="size"> px or %<br /> -->
-                    <!-- <input name="Submit" type="submit" value="Submit"> -->
                 </div>
                 <input class="subButton" type="submit" name="submit" value="SUBMIT"> <br>
             </fieldset>

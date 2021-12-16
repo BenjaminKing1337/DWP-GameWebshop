@@ -40,8 +40,14 @@ if (isset($_POST['submit'])) {
     $Trailer = Secure($connection, 'Trailer');
     $Screenshots = Secure($connection, 'Screenshots');
 
-    $query = "INSERT INTO `product` (`id`, `Title`, `Price`, `ReleaseDate`, `Description`, `Rating`, `Platform`, `Genre`) VALUES (NULL, '$Title', '$Price', '$ReleaseDate', '$Description', '$Rating', '$Platform', '$Genre'); 
-                INSERT INTO `media` (`mediaID`, `Thumbnail`, `Cover`, `Trailer`, `Screenshots`) VALUES (NULL, '$Thumbnail', '$Cover', '$Trailer', '$Screenshots');";
+    $query = "INSERT INTO `product` 
+            (`id`, `Title`, `Price`, `ReleaseDate`, `Description`, `Rating`, `Platform`, `Genre`) 
+            VALUES 
+            (NULL, '$Title', '$Price', '$ReleaseDate', '$Description', '$Rating', '$Platform', '$Genre'); 
+                
+                INSERT INTO `media` 
+                (`mediaID`, `Thumbnail`, `Cover`, `Trailer`, `Screenshots`) 
+                VALUES (NULL, '$Thumbnail', '$Cover', '$Trailer', '$Screenshots');";
 
     $regexp1 = "/^[\.a-zA-Z0-9,!? ]{2,600}$/";
     $regexp2 = "/^[+-]?((\d+(\.\d*)?)|(\.\d+))$/";
@@ -116,14 +122,8 @@ if (isset($_POST['submit'])) {
 };
 
 include("../navigation/adminNav.php");
-include("../fileupresize/upload.php");
 ?>
 <div class="adminContent">
-    <?php
-    foreach ($upmsg as $msg) {
-        echo "<h1>" . $msg . "</h1>";
-    }
-    ?>
     <div class="addProductContainer">
         <form method="post" action="addproduct.php">
             <fieldset>
@@ -193,20 +193,7 @@ include("../fileupresize/upload.php");
                         </div>
                     </div>
                 </div>
-                <div class="media">
-                    <form name="imgup" method="post" enctype="multipart/form-data" action="">
-                        <h1>Image upload</h1>
-                        <h2>Here you can upload an image!</h2>
-                        <b>Image:</b> <input type="file" name="image" value=""><br />
-                        <b>Resize to:</b> <select name="resizetype">
-                            <option value="height">Height</option>
-                            <option value="width">Width</option>
-                            <option value="scale">Scale</option>
-                        </select>
-                        <b>Size:</b> <input type="text" name="size"> px or %<br />
-                        <input name="Submit" type="submit" value="Submit">
-                    </form>
-                </div>
+                
                 <h3>Media</h3> <br>
                 Thumbnail:<br><input type="text" name="Thumbnail" value="<?php echo $Thumbnail ?>">
                 <div style="color:red;"><?php echo $errors['media']; ?></div> <br>

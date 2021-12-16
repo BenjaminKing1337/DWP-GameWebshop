@@ -11,7 +11,6 @@ class loginUser
         $db = new DbCon();
         $username = trim($username);
         $password = trim($password);
-        
         $query = $db->dbCon->prepare("SELECT id, username, pass, usertype FROM accounts WHERE username = '{$username}' LIMIT 1");
         if ($query->execute()) {
             $found_user = $query->fetchAll();

@@ -1,12 +1,12 @@
 <?php
 require("includes/head.php");
 
-if (isset($_POST['remove'])){
-    if ($_GET['action'] == 'remove'){
-        foreach ($_SESSION['cart'] as $key => $value){
-            if($value["product_id"] == $_GET['id']){
+if (isset($_POST['remove'])) {
+    if ($_GET['action'] == 'remove') {
+        foreach ($_SESSION['cart'] as $key => $value) {
+            if ($value["product_id"] == $_GET['id']) {
                 unset($_SESSION['cart'][$key]);
-                echo"Product has been removed from cart";
+                echo "Product has been removed from cart";
             }
         }
     }
@@ -49,6 +49,10 @@ if(isset($_POST['orderProduct'])){
     }
 }
 
+if (isset($_POST['login'])) {
+    $redirect = new Redirector("login.php");
+}
+
 include("navigation/header.php");
 ?>
 
@@ -58,17 +62,17 @@ include("navigation/header.php");
     <legend>
         <h1>My cart</h1>
     </legend>
-    <?php 
+    <?php
     $titles = '';
     $total = 0;
-    if(isset($_SESSION['cart'])){
+    if (isset($_SESSION['cart'])) {
         $product_id = array_column($_SESSION['cart'], 'product_id');
         $sql = "SELECT id, Thumbnail, Title, Price FROM games ";
         $result = mysqli_query($connection, $sql);
 
-        while ($products = mysqli_fetch_assoc($result)){
-            foreach($product_id as $id){
-                if($products['id'] == $id){ ?>
+        while ($products = mysqli_fetch_assoc($result)) {
+            foreach ($product_id as $id) {
+                if ($products['id'] == $id) { ?>
                     <form action="cart.php?action=remove&id=<?php echo $products['id'] ?>" method="post">
                         <div class="cart_item">
                             <img src="<?php echo $products['Thumbnail'] ?>" alt="">
@@ -83,10 +87,10 @@ include("navigation/header.php");
                             <button type="submit" name="remove">Remove</button>
                         </div>
                     </form>
-                    <?php 
-                        $total = $total + $products['Price']; 
+                    <?php
+                    $total = $total + $products['Price'];
                     ?>
-                <?php }
+    <?php }
             }
             foreach($product_id as $id){
                 if($products['id'] == $id){
@@ -96,8 +100,8 @@ include("navigation/header.php");
         }
     }
     ?>
-    <?php 
-    if($total > 0){ ?>
+    <?php
+    if ($total > 0) { ?>
         <form action="cart.php" method="post">
             <h2>Total: <?php echo $total ?> DKK</h2>
             <input type="hidden" name="titles" value="<?php echo $titles ?>">
@@ -117,11 +121,11 @@ include("navigation/header.php");
                 <button class="order_button">You need to log in to make an order</button>
             <?php } ?>
         </form>
-    <?php }
-    else{ ?>
-        <h1>Cart is empty.</h1>
     <?php } ?>
-    
-    
-    
+<?php } else { ?>
+    <h1>Cart is empty.</h1>
+<?php } ?>
+
+
+
 </fieldset>
